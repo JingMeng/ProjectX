@@ -1,9 +1,9 @@
-package am.project.x.widgets.display;
+﻿package am.project.x.widgets.display;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import am.project.x.utils.ThemeUtil;

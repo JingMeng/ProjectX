@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2017 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,14 +16,13 @@
 
 package am.widget.scalerecyclerview;
 
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import android.support.v7.widget.PublicRecyclerView;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 
 /**
- * 缩放辅助器
- * Created by Alex on 2017/11/8.
+ * 缂╂斁杈呭姪鍣? * Created by Alex on 2017/11/8.
  */
 class ScaleHelper implements Runnable {
     private final ScaleRecyclerView mView;
@@ -153,3 +152,4 @@ class ScaleHelper implements Runnable {
         }
     }
 }
+

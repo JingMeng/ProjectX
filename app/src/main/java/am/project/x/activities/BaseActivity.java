@@ -1,15 +1,14 @@
-package am.project.x.activities;
+﻿package am.project.x.activities;
 
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.IdRes;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
 /**
- * 基础类
- * Created by Alex on 2016/5/23.
+ * 鍩虹绫? * Created by Alex on 2016/5/23.
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -24,23 +23,22 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * 获取内容布局
+     * 鑾峰彇鍐呭甯冨眬
      *
-     * @return 布局资源ID
+     * @return 甯冨眬璧勬簮ID
      */
     protected abstract int getContentViewLayoutResources();
 
     /**
-     * 初始化
-     */
+     * 鍒濆鍖?     */
     protected abstract void initResource(Bundle savedInstanceState);
 
 
     /**
-     * 设置Toolbar 为ActionBar
+     * 璁剧疆Toolbar 涓篈ctionBar
      *
-     * @param toolbarId Toolbar资源ID
-     * @param showTitle 是否显示标题
+     * @param toolbarId Toolbar璧勬簮ID
+     * @param showTitle 鏄惁鏄剧ず鏍囬
      */
     public void setSupportActionBar(@IdRes int toolbarId, boolean showTitle) {
         Toolbar mToolbar = (Toolbar) findViewById(toolbarId);
@@ -54,16 +52,16 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
-     * 设置Toolbar 为ActionBar
+     * 璁剧疆Toolbar 涓篈ctionBar
      *
-     * @param toolbarId Toolbar资源ID
+     * @param toolbarId Toolbar璧勬簮ID
      */
     public void setSupportActionBar(@IdRes int toolbarId) {
         setSupportActionBar(toolbarId, false);
     }
 
     /**
-     * Toolbar 返回按钮点击
+     * Toolbar 杩斿洖鎸夐挳鐐瑰嚮
      */
     protected void onNavigationClick() {
         onBackPressed();
@@ -77,3 +75,4 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 }
+

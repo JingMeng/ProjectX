@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2015 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,10 +22,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v4.content.LocalBroadcastManager;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,10 +38,9 @@ import android.view.ViewGroup;
 @RequiresApi(11)
 public abstract class AMFragment extends Fragment {
 
-    private LocalBroadcastManager mLocalBroadcastManager;// 应用内部广播
+    private LocalBroadcastManager mLocalBroadcastManager;// 搴旂敤鍐呴儴骞挎挱
     /**
-     * 广播接受器
-     */
+     * 骞挎挱鎺ュ彈鍣?     */
     private BroadcastReceiver mLocalBroadcastReceiver = new BroadcastReceiver() {
 
         @Override
@@ -141,92 +140,85 @@ public abstract class AMFragment extends Fragment {
     }
 
     /**
-     * 获取内容Layout
+     * 鑾峰彇鍐呭Layout
      *
-     * @param inflater           布局容器
-     * @param container          根View
-     * @param savedInstanceState 保存的状态
-     * @return 资源id
+     * @param inflater           甯冨眬瀹瑰櫒
+     * @param container          鏍筕iew
+     * @param savedInstanceState 淇濆瓨鐨勭姸鎬?     * @return 璧勬簮id
      */
     @LayoutRes
     protected abstract int getContentViewLayout(LayoutInflater inflater,
                                                 ViewGroup container, Bundle savedInstanceState);
 
     /**
-     * 初始化Fragment
+     * 鍒濆鍖朏ragment
      *
-     * @param savedInstanceState 保存的实例数据
-     */
+     * @param savedInstanceState 淇濆瓨鐨勫疄渚嬫暟鎹?     */
     protected abstract void initializeFragment(@Nullable Bundle savedInstanceState);
 
     /**
-     * 获取基础Presenter
+     * 鑾峰彇鍩虹Presenter
      *
-     * @return 基础Presenter
+     * @return 鍩虹Presenter
      */
     protected AMPresenter getPresenter() {
         return null;
     }
 
     /**
-     * 判断是否开启应用内广播
-     * 对于Fragment来说其为非必须选项
+     * 鍒ゆ柇鏄惁寮€鍚簲鐢ㄥ唴骞挎挱
+     * 瀵逛簬Fragment鏉ヨ鍏朵负闈炲繀椤婚€夐」
      *
-     * @return 是否开启
-     */
+     * @return 鏄惁寮€鍚?     */
     protected boolean isLocalBroadcastEnable() {
         return false;
     }
 
     /**
-     * 添加本地广播监听意图
+     * 娣诲姞鏈湴骞挎挱鐩戝惉鎰忓浘
      *
-     * @param filter 意图过滤器
-     */
+     * @param filter 鎰忓浘杩囨护鍣?     */
     protected void onAddLocalAction(IntentFilter filter) {
     }
 
     /**
-     * 接收到本地广播
-     *
-     * @param context 发起广播的context
-     * @param intent  发起广播的意图
-     */
+     * 鎺ユ敹鍒版湰鍦板箍鎾?     *
+     * @param context 鍙戣捣骞挎挱鐨刢ontext
+     * @param intent  鍙戣捣骞挎挱鐨勬剰鍥?     */
     protected void onReceiveLocalBroadcast(Context context, Intent intent) {
     }
 
     /**
-     * 已注册本地广播接收器
+     * 宸叉敞鍐屾湰鍦板箍鎾帴鏀跺櫒
      */
     protected void onRegisteredLocalBroadcastReceiver() {
     }
 
     /**
-     * 已取消注册本地广播接收器
+     * 宸插彇娑堟敞鍐屾湰鍦板箍鎾帴鏀跺櫒
      */
     protected void onUnregisteredLocalBroadcastReceiver() {
     }
 
     /**
-     * 判断本地广播接收器是否已取消注册
+     * 鍒ゆ柇鏈湴骞挎挱鎺ユ敹鍣ㄦ槸鍚﹀凡鍙栨秷娉ㄥ唽
      *
-     * @return 是否已取消注册
-     */
+     * @return 鏄惁宸插彇娑堟敞鍐?     */
     public final boolean isLocalBroadcastUnregistered() {
         return mLocalBroadcastManager == null;
     }
 
     /**
-     * 通过ID查找View
+     * 閫氳繃ID鏌ユ壘View
      *
-     * @param id  View 的资源ID
-     * @param <V> View类型
-     * @return 对应资源ID的View
+     * @param id  View 鐨勮祫婧怚D
+     * @param <V> View绫诲瀷
+     * @return 瀵瑰簲璧勬簮ID鐨刅iew
      */
     @SuppressWarnings("unchecked")
     public final <V extends View> V findViewById(int id) {
         if (null == getView()) {
-            // 在错误的时机调用
+            // 鍦ㄩ敊璇殑鏃舵満璋冪敤
             throw new IllegalStateException("Fragment " + this
                     + " has not created its view yet.");
         }
@@ -234,18 +226,16 @@ public abstract class AMFragment extends Fragment {
     }
 
     /**
-     * 发送广播
-     *
-     * @param action 广播动作
+     * 鍙戦€佸箍鎾?     *
+     * @param action 骞挎挱鍔ㄤ綔
      */
     public final void sendLocalBroadcast(String action) {
         sendLocalBroadcast(new Intent(action));
     }
 
     /**
-     * 发送广播
-     *
-     * @param intent 广播意图
+     * 鍙戦€佸箍鎾?     *
+     * @param intent 骞挎挱鎰忓浘
      */
     public final void sendLocalBroadcast(Intent intent) {
         if (isLocalBroadcastUnregistered()) {
@@ -254,3 +244,4 @@ public abstract class AMFragment extends Fragment {
         mLocalBroadcastManager.sendBroadcast(intent);
     }
 }
+

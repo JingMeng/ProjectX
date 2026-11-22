@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2015 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,13 +22,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -42,10 +42,9 @@ public abstract class AMAppCompatActivity extends AppCompatActivity {
 
     private final ArrayList<Dialog> mShowDialogs = new ArrayList<>();
     private ToolbarNavigationOnClickListener mToolbarListener;
-    private LocalBroadcastManager mLocalBroadcastManager;// 应用内部广播
+    private LocalBroadcastManager mLocalBroadcastManager;// 搴旂敤鍐呴儴骞挎挱
     /**
-     * 广播接受器
-     */
+     * 骞挎挱鎺ュ彈鍣?     */
     private BroadcastReceiver mLocalBroadcastReceiver = new BroadcastReceiver() {
 
         @Override
@@ -138,89 +137,80 @@ public abstract class AMAppCompatActivity extends AppCompatActivity {
     }
 
     /**
-     * 获取页面布局
+     * 鑾峰彇椤甸潰甯冨眬
      *
-     * @return 布局ID
+     * @return 甯冨眬ID
      */
     @LayoutRes
     protected abstract int getContentViewLayout();
 
     /**
-     * 初始化Activity
+     * 鍒濆鍖朅ctivity
      *
-     * @param savedInstanceState 保存的实例数据
-     */
+     * @param savedInstanceState 淇濆瓨鐨勫疄渚嬫暟鎹?     */
     protected abstract void initializeActivity(@Nullable Bundle savedInstanceState);
 
     /**
-     * 获取基础Presenter
+     * 鑾峰彇鍩虹Presenter
      *
-     * @return 基础Presenter
+     * @return 鍩虹Presenter
      */
     protected AMPresenter getPresenter() {
         return null;
     }
 
     /**
-     * 获取载入对话框
-     *
-     * @return 载入对话框
-     */
+     * 鑾峰彇杞藉叆瀵硅瘽妗?     *
+     * @return 杞藉叆瀵硅瘽妗?     */
     protected Dialog getLoadingDialog() {
         return null;
     }
 
     /**
-     * 添加本地广播监听意图
+     * 娣诲姞鏈湴骞挎挱鐩戝惉鎰忓浘
      *
-     * @param filter 意图过滤器
-     */
+     * @param filter 鎰忓浘杩囨护鍣?     */
     protected void onAddLocalAction(IntentFilter filter) {
     }
 
     /**
-     * 接收到本地广播
-     *
-     * @param context 发起广播的context
-     * @param intent  发起广播的意图
-     */
+     * 鎺ユ敹鍒版湰鍦板箍鎾?     *
+     * @param context 鍙戣捣骞挎挱鐨刢ontext
+     * @param intent  鍙戣捣骞挎挱鐨勬剰鍥?     */
     protected void onReceiveLocalBroadcast(Context context, Intent intent) {
     }
 
     /**
-     * 已注册本地广播接收器
+     * 宸叉敞鍐屾湰鍦板箍鎾帴鏀跺櫒
      */
     protected void onRegisteredLocalBroadcastReceiver() {
     }
 
     /**
-     * 已取消注册本地广播接收器
+     * 宸插彇娑堟敞鍐屾湰鍦板箍鎾帴鏀跺櫒
      */
     protected void onUnregisteredLocalBroadcastReceiver() {
     }
 
     /**
-     * 判断本地广播接收器是否已取消注册
+     * 鍒ゆ柇鏈湴骞挎挱鎺ユ敹鍣ㄦ槸鍚﹀凡鍙栨秷娉ㄥ唽
      *
-     * @return 是否已取消注册
-     */
+     * @return 鏄惁宸插彇娑堟敞鍐?     */
     public final boolean isLocalBroadcastUnregistered() {
         return mLocalBroadcastManager == null;
     }
 
     /**
-     * 发送本地广播
-     *
-     * @param action 广播动作
+     * 鍙戦€佹湰鍦板箍鎾?     *
+     * @param action 骞挎挱鍔ㄤ綔
      */
     public final void sendLocalBroadcast(String action) {
         sendLocalBroadcast(new Intent(action));
     }
 
     /**
-     * 发送本地广播
-     *
-     * @param intent 广播意图
+     * 鍙戦€佹湰鍦板箍鎾?     *
+     * @param intent 骞挎挱鎰忓浘
      */
     public final void sendLocalBroadcast(Intent intent) {
         if (isLocalBroadcastUnregistered()) {
@@ -230,9 +220,9 @@ public abstract class AMAppCompatActivity extends AppCompatActivity {
     }
 
     /**
-     * 设置 Support Toolbar
+     * 璁剧疆 Support Toolbar
      *
-     * @param toolbarId Toolbar资源ID
+     * @param toolbarId Toolbar璧勬簮ID
      */
     @SuppressWarnings("unused")
     public final void setSupportActionBar(@IdRes int toolbarId) {
@@ -240,10 +230,10 @@ public abstract class AMAppCompatActivity extends AppCompatActivity {
     }
 
     /**
-     * 设置 Support Toolbar
+     * 璁剧疆 Support Toolbar
      *
-     * @param toolbarId Toolbar资源ID
-     * @param showTitle 是否显示标题
+     * @param toolbarId Toolbar璧勬簮ID
+     * @param showTitle 鏄惁鏄剧ず鏍囬
      */
     public final void setSupportActionBar(@IdRes int toolbarId, boolean showTitle) {
         setSupportActionBar((Toolbar) findViewById(toolbarId));
@@ -264,9 +254,9 @@ public abstract class AMAppCompatActivity extends AppCompatActivity {
     }
 
     /**
-     * 设置 Toolbar
+     * 璁剧疆 Toolbar
      *
-     * @param toolbarId Toolbar资源ID
+     * @param toolbarId Toolbar璧勬簮ID
      */
     @RequiresApi(21)
     @SuppressWarnings("unused")
@@ -275,9 +265,9 @@ public abstract class AMAppCompatActivity extends AppCompatActivity {
     }
 
     /**
-     * 设置 Toolbar
+     * 璁剧疆 Toolbar
      *
-     * @param toolbarId Toolbar资源ID
+     * @param toolbarId Toolbar璧勬簮ID
      */
     @RequiresApi(21)
     public final void setActionBar(@IdRes int toolbarId, boolean showTitle) {
@@ -300,7 +290,7 @@ public abstract class AMAppCompatActivity extends AppCompatActivity {
     }
 
     /**
-     * 显示默认载入
+     * 鏄剧ず榛樿杞藉叆
      */
     protected void showLoading() {
         if (mAttachedToWindow) {
@@ -312,7 +302,7 @@ public abstract class AMAppCompatActivity extends AppCompatActivity {
     }
 
     /**
-     * 隐藏默认载入
+     * 闅愯棌榛樿杞藉叆
      */
     protected void dismissLoading() {
         if (mAttachedToWindow) {
@@ -324,17 +314,15 @@ public abstract class AMAppCompatActivity extends AppCompatActivity {
     }
 
     /**
-     * 点击了Toolbar的返回按钮
-     *
-     * @param v 返回按钮
+     * 鐐瑰嚮浜員oolbar鐨勮繑鍥炴寜閽?     *
+     * @param v 杩斿洖鎸夐挳
      */
     protected void onToolbarNavigationClick(View v) {
         onBackPressed();
     }
 
     /**
-     * 显示对话框
-     *
+     * 鏄剧ず瀵硅瘽妗?     *
      * @param dialog Dialog
      */
     protected void showDialog(Dialog dialog) {
@@ -347,8 +335,7 @@ public abstract class AMAppCompatActivity extends AppCompatActivity {
     }
 
     /**
-     * 关闭对话框
-     *
+     * 鍏抽棴瀵硅瘽妗?     *
      * @param dialog Dialog
      */
     protected void dismissDialog(Dialog dialog) {
@@ -379,9 +366,9 @@ public abstract class AMAppCompatActivity extends AppCompatActivity {
     }
 
     /**
-     * 是否附着到窗口层
+     * 鏄惁闄勭潃鍒扮獥鍙ｅ眰
      *
-     * @return 是否
+     * @return 鏄惁
      */
     protected boolean isAttachedToWindow() {
         return mAttachedToWindow;

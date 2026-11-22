@@ -1,12 +1,12 @@
-package am.project.x.utils;
+﻿package am.project.x.utils;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.storage.StorageManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,17 +19,14 @@ import java.util.List;
 import am.project.support.compat.AMStorageManagerCompat;
 
 /**
- * 文件存储工具类
- * Created by Alex on 2016/10/10.
+ * 鏂囦欢瀛樺偍宸ュ叿绫? * Created by Alex on 2016/10/10.
  */
 public class FileUtils {
 
     /**
-     * 通过路径获取文件名
-     *
-     * @param path 路径
-     * @return 文件名
-     */
+     * 閫氳繃璺緞鑾峰彇鏂囦欢鍚?     *
+     * @param path 璺緞
+     * @return 鏂囦欢鍚?     */
     public static String getFileName(String path) {
         if (path == null)
             return null;
@@ -39,10 +36,10 @@ public class FileUtils {
     }
 
     /**
-     * 通过路径获取文件所在文件夹路径
+     * 閫氳繃璺緞鑾峰彇鏂囦欢鎵€鍦ㄦ枃浠跺す璺緞
      *
-     * @param path 路径
-     * @return 文件所在文件夹路径
+     * @param path 璺緞
+     * @return 鏂囦欢鎵€鍦ㄦ枃浠跺す璺緞
      */
     public static String getFileDir(String path) {
         if (path == null)
@@ -53,12 +50,9 @@ public class FileUtils {
     }
 
     /**
-     * 获取路径根目录
-     *
-     * @param manager 存储设备管理器
-     * @param path    路径
-     * @return 根目录
-     */
+     * 鑾峰彇璺緞鏍圭洰褰?     *
+     * @param manager 瀛樺偍璁惧绠＄悊鍣?     * @param path    璺緞
+     * @return 鏍圭洰褰?     */
     public static String getPathStorage(StorageManager manager, String path) {
         if (StringUtils.isNullOrEmpty(path))
             return null;
@@ -78,11 +72,10 @@ public class FileUtils {
     }
 
     /**
-     * 复制文件
+     * 澶嶅埗鏂囦欢
      *
-     * @param source      源文件
-     * @param destination 目标文件
-     * @return 是否成功
+     * @param source      婧愭枃浠?     * @param destination 鐩爣鏂囦欢
+     * @return 鏄惁鎴愬姛
      */
     public static boolean copyFile(File source, File destination) {
         if (source == null || !source.exists() || !source.canRead())
@@ -121,10 +114,9 @@ public class FileUtils {
     }
 
     /**
-     * 删除文件
+     * 鍒犻櫎鏂囦欢
      *
-     * @param source 源文件
-     * @return 是否成功
+     * @param source 婧愭枃浠?     * @return 鏄惁鎴愬姛
      */
     public static boolean deleteFile(File source) {
         if (source == null || !source.exists())
@@ -146,12 +138,12 @@ public class FileUtils {
 
 
     /**
-     * 移动文件并重命名
+     * 绉诲姩鏂囦欢骞堕噸鍛藉悕
      *
-     * @param file 文件
-     * @param dir  目录
-     * @param name 名字
-     * @return 是否成功
+     * @param file 鏂囦欢
+     * @param dir  鐩綍
+     * @param name 鍚嶅瓧
+     * @return 鏄惁鎴愬姛
      */
     public static boolean moveFile(File file, File dir, String name) {
         return !(file == null || !file.exists() || !file.canWrite()) &&
@@ -160,11 +152,9 @@ public class FileUtils {
     }
 
     /**
-     * 重命名文件
-     *
-     * @param file 文件
-     * @param name 文件名
-     * @return 是否成功
+     * 閲嶅懡鍚嶆枃浠?     *
+     * @param file 鏂囦欢
+     * @param name 鏂囦欢鍚?     * @return 鏄惁鎴愬姛
      */
     public static boolean renameFile(File file, String name) {
         if (file == null || !file.exists() || !file.canWrite())
@@ -174,11 +164,10 @@ public class FileUtils {
     }
 
     /**
-     * 存储图片到文件
-     *
-     * @param file 文件
-     * @param crop 裁剪图片
-     * @return 是否成功
+     * 瀛樺偍鍥剧墖鍒版枃浠?     *
+     * @param file 鏂囦欢
+     * @param crop 瑁佸壀鍥剧墖
+     * @return 鏄惁鎴愬姛
      */
     public static boolean saveImage(File file, Bitmap crop) {
         FileOutputStream output;
@@ -198,11 +187,11 @@ public class FileUtils {
     }
 
     /**
-     * 判断是否具备文件权限
+     * 鍒ゆ柇鏄惁鍏峰鏂囦欢鏉冮檺
      *
      * @param context Context
-     * @param paths   路径
-     * @return 是否具备
+     * @param paths   璺緞
+     * @return 鏄惁鍏峰
      */
     public static boolean hasFilePermission(Context context, String... paths) {
         if (Build.VERSION.SDK_INT < 23 || ActivityCompat.checkSelfPermission(context,
@@ -226,3 +215,4 @@ public class FileUtils {
         return true;
     }
 }
+

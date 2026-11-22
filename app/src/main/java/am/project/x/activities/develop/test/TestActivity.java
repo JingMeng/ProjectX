@@ -1,9 +1,9 @@
-package am.project.x.activities.develop.test;
+﻿package am.project.x.activities.develop.test;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import am.project.x.R;
 import am.project.x.widgets.display.DisplayRecyclerView;
@@ -37,3 +37,4 @@ public class TestActivity extends AMAppCompatActivity {
         mVContent.setAdapter(mAdapter);
     }
 }
+

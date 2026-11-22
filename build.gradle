@@ -3,15 +3,13 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:8.2.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
     }
 }
 
@@ -23,10 +21,35 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+    }
+}
+
+def libraryNamespaces = [
+    gradienttabstrip:'am.widget.gradienttabstrip', basetabstrip:'am.widget.basetabstrip',
+    tagtabstrip:'am.widget.tagtabstrip', indicatortabstrip:'am.widget.indicatortabstrip',
+    support:'am.project.support', shapeimageview:'am.widget.shapeimageview',
+    stateframelayout:'am.widget.stateframelayout', wraplayout:'am.widget.wraplayout',
+    replacelayout:'am.widget.replacelayout', drawableratingbar:'am.widget.drawableratingbar',
+    drawable:'am.widget', printer:'am.util.printer', security:'am.util.security',
+    headerfootergridview:'am.widget.headerfootergridview', multiactiontextview:'am.widget.multiactiontextview',
+    selectionview:'am.widget.selectionview', circleprogressbar:'am.widget.circleprogressbar',
+    zxingscanview:'am.widget.zxingscanview', smoothinputlayout:'am.widget.smoothinputlayout',
+    recyclerview:'am.util.recyclerview', cameraview:'am.widget.cameraview', mvp:'am.util.mvp',
+    multifunctionalrecyclerview:'am.widget.multifunctionalrecyclerview', ftpserver:'am.util.ftpserver'
+]
+subprojects { subproject ->
+    subproject.plugins.withId('com.android.library') {
+        if (libraryNamespaces.containsKey(subproject.name)) {
+            subproject.android.namespace = libraryNamespaces[subproject.name]
+        }
     }
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+tasks.withType(JavaCompile).configureEach {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }

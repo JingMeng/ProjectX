@@ -1,9 +1,9 @@
-package am.project.x.activities.drawable.corner;
+﻿package am.project.x.activities.drawable.corner;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.view.Gravity;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -133,3 +133,4 @@ public class CornerActivity extends BaseActivity
         context.startActivity(new Intent(context, CornerActivity.class));
     }
 }
+

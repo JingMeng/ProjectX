@@ -1,13 +1,13 @@
-package am.project.x.activities.welcome;
+﻿package am.project.x.activities.welcome;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import am.project.x.R;
 import am.project.x.activities.main.MainActivity;
 
 /**
- * 欢迎界面
+ * 娆㈣繋鐣岄潰
  */
 public class WelcomeActivity extends AppCompatActivity implements Runnable{
 
@@ -30,3 +30,4 @@ public class WelcomeActivity extends AppCompatActivity implements Runnable{
         finish();
     }
 }
+

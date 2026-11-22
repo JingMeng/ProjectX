@@ -1,4 +1,4 @@
-package am.project.x.activities.other.printer;
+﻿package am.project.x.activities.other.printer;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -11,7 +11,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
@@ -165,7 +165,7 @@ public class PrinterActivity extends BaseActivity implements
         if (bluetoothAdapter.isEnabled()) {
             if (dlgBluetoothOpen != null && dlgBluetoothOpen.isShowing())
                 dlgBluetoothOpen.dismiss();
-            // 载入设备
+            // 杞藉叆璁惧
             showBluetoothTest();
         } else {
             showForceTurnOnBluetoothDialog();
@@ -273,3 +273,4 @@ public class PrinterActivity extends BaseActivity implements
         context.startActivity(new Intent(context, PrinterActivity.class));
     }
 }
+

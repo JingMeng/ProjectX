@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2017 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,13 +20,12 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
 /**
- * 公开部分包内私有的方法及保存状态的线性布局管理器
- * Created by Alex on 2017/11/3.
+ * 鍏紑閮ㄥ垎鍖呭唴绉佹湁鐨勬柟娉曞強淇濆瓨鐘舵€佺殑绾挎€у竷灞€绠＄悊鍣? * Created by Alex on 2017/11/3.
  */
 @SuppressWarnings("all")
 public class PublicLinearLayoutManager extends LinearLayoutManager {
@@ -61,7 +60,7 @@ public class PublicLinearLayoutManager extends LinearLayoutManager {
     }
 
     /**
-     * 获取目标RecyclerView
+     * 鑾峰彇鐩爣RecyclerView
      *
      * @return RecyclerView
      */
@@ -71,19 +70,15 @@ public class PublicLinearLayoutManager extends LinearLayoutManager {
     }
 
     /**
-     * 获取滚动状态
-     *
-     * @return 滚动状态
-     */
+     * 鑾峰彇婊氬姩鐘舵€?     *
+     * @return 婊氬姩鐘舵€?     */
     protected int getScrollState() {
         return mView == null ? RecyclerView.SCROLL_STATE_IDLE : mView.getScrollState();
     }
 
     /**
-     * 设置滚动状态
-     *
-     * @param state 滚动状态
-     */
+     * 璁剧疆婊氬姩鐘舵€?     *
+     * @param state 婊氬姩鐘舵€?     */
     protected void setScrollState(int state) {
         if (mView == null)
             return;
@@ -91,10 +86,8 @@ public class PublicLinearLayoutManager extends LinearLayoutManager {
     }
 
     /**
-     * 拦截分发滚动状态变化
-     *
-     * @param state 状态变化
-     * @return 是否拦截
+     * 鎷︽埅鍒嗗彂婊氬姩鐘舵€佸彉鍖?     *
+     * @param state 鐘舵€佸彉鍖?     * @return 鏄惁鎷︽埅
      */
     protected boolean onInterceptDispatchOnScrollStateChanged(int state) {
         return false;
@@ -111,9 +104,9 @@ public class PublicLinearLayoutManager extends LinearLayoutManager {
     }
 
     /**
-     * 设置尺寸不受限制
+     * 璁剧疆灏哄涓嶅彈闄愬埗
      *
-     * @param unlimited 是否不受限制
+     * @param unlimited 鏄惁涓嶅彈闄愬埗
      */
     public void setSizeUnlimited(boolean unlimited) {
         if (mSizeUnlimited == unlimited)
@@ -130,10 +123,8 @@ public class PublicLinearLayoutManager extends LinearLayoutManager {
     }
 
     /**
-     * 存储状态
-     *
-     * @param bundle 数据包
-     */
+     * 瀛樺偍鐘舵€?     *
+     * @param bundle 鏁版嵁鍖?     */
     protected void onSaveInstanceState(Bundle bundle) {
 
     }
@@ -146,10 +137,8 @@ public class PublicLinearLayoutManager extends LinearLayoutManager {
     }
 
     /**
-     * 恢复状态
-     *
-     * @param bundle 数据包
-     */
+     * 鎭㈠鐘舵€?     *
+     * @param bundle 鏁版嵁鍖?     */
     protected void onRestoreInstanceState(Bundle bundle) {
 
     }
@@ -199,3 +188,4 @@ public class PublicLinearLayoutManager extends LinearLayoutManager {
         }
     }
 }
+

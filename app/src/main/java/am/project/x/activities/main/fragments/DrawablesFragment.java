@@ -1,9 +1,9 @@
-package am.project.x.activities.main.fragments;
+﻿package am.project.x.activities.main.fragments;
 
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +18,7 @@ import am.project.x.activities.drawable.corner.CornerActivity;
 import am.project.x.activities.drawable.text.TextActivity;
 
 /**
- * 图形图像
+ * 鍥惧舰鍥惧儚
  */
 public class DrawablesFragment extends Fragment implements View.OnClickListener {
 
@@ -71,3 +71,4 @@ public class DrawablesFragment extends Fragment implements View.OnClickListener 
         }
     }
 }
+

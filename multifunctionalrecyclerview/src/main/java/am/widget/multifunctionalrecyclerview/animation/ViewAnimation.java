@@ -1,6 +1,6 @@
-package am.widget.multifunctionalrecyclerview.animation;
+﻿package am.widget.multifunctionalrecyclerview.animation;
 
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AnimationUtils;
@@ -8,7 +8,7 @@ import android.view.animation.Interpolator;
 
 
 /**
- * 基础View动画
+ * 鍩虹View鍔ㄧ敾
  * Created by Alex on 2017/11/9.
  */
 @SuppressWarnings("all")

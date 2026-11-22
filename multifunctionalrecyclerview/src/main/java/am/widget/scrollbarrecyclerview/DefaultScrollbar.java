@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2017 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,8 +22,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -35,8 +35,8 @@ import java.lang.annotation.RetentionPolicy;
 import am.widget.multifunctionalrecyclerview.R;
 
 /**
- * 默认的滚动条
- * TODO 图片触摸状态可优化
+ * 榛樿鐨勬粴鍔ㄦ潯
+ * TODO 鍥剧墖瑙︽懜鐘舵€佸彲浼樺寲
  * Created by Alex on 2017/11/1.
  */
 @SuppressWarnings("all")
@@ -155,9 +155,9 @@ public class DefaultScrollbar extends ScrollbarRecyclerView.Scrollbar {
     }
 
     /**
-     * 设置显示方式
+     * 璁剧疆鏄剧ず鏂瑰紡
      *
-     * @param type 显示方式
+     * @param type 鏄剧ず鏂瑰紡
      */
     public void setShowType(@ShowType int type) {
         if (mShowType != type) {
@@ -204,3 +204,4 @@ public class DefaultScrollbar extends ScrollbarRecyclerView.Scrollbar {
         void setPadding(int edge, int start, int end);
     }
 }
+

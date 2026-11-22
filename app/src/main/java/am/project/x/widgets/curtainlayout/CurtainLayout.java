@@ -1,4 +1,4 @@
-package am.project.x.widgets.curtainlayout;
+﻿package am.project.x.widgets.curtainlayout;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.graphics.Rect;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewCompat;
+import androidx.core.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -15,10 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * 窗帘式提拉Layout
+ * 绐楀笜寮忔彁鎷塋ayout
  * 
- * 最后一个Child为窗帘
- * 
+ * 鏈€鍚庝竴涓狢hild涓虹獥甯? * 
  * @author Mofer
  * 
  */
@@ -420,3 +419,4 @@ public class CurtainLayout extends ViewGroup {
 		public void onDrag(float offset);
 	}
 }
+

@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    namespace 'am.project.x'
+    compileSdk 34
     signingConfigs {
         Release {
             keyAlias 'projectx'
@@ -12,8 +13,8 @@ android {
     }
     defaultConfig {
         applicationId "am.project.x"
-        minSdkVersion 15
-        targetSdkVersion 26
+        minSdk 15
+        targetSdk 34
         versionCode 72
         versionName "2.7.1"
     }
@@ -24,6 +25,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             debuggable false
         }
+    
         debug {
             signingConfig signingConfigs.Release
             minifyEnabled false
@@ -69,3 +71,7 @@ dependencies {
     implementation project(':multifunctionalrecyclerview')
     implementation project(':ftpserver')
 }
+
+
+
+

@@ -1,9 +1,9 @@
-package am.project.x.activities.widgets.recyclepager;
+﻿package am.project.x.activities.widgets.recyclepager;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,3 +92,4 @@ public class RecyclePagerActivity extends BaseActivity implements View.OnClickLi
         context.startActivity(new Intent(context, RecyclePagerActivity.class));
     }
 }
+

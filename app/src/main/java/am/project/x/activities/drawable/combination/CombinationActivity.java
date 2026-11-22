@@ -1,9 +1,9 @@
-package am.project.x.activities.drawable.combination;
+﻿package am.project.x.activities.drawable.combination;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -79,3 +79,4 @@ public class CombinationActivity extends BaseActivity implements RadioGroup.OnCh
         context.startActivity(new Intent(context, CombinationActivity.class));
     }
 }
+

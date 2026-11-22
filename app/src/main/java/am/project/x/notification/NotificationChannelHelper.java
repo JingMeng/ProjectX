@@ -1,24 +1,22 @@
-package am.project.x.notification;
+﻿package am.project.x.notification;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 /**
- * 通知频道辅助器
- * Created by Alex on 2017/11/2.
+ * 閫氱煡棰戦亾杈呭姪鍣? * Created by Alex on 2017/11/2.
  */
 
 public class NotificationChannelHelper {
-    private static final String CHANEL_ID_MIN = "am.project.x.notification.CHANEL_MIN";// 不发出提示音，不在状态栏显示图标
-    private static final String CHANEL_ID_LOW = "am.project.x.notification.CHANEL_LOW";// 不发出提示音
-    private static final String CHANEL_ID_DEFAULT = "am.project.x.notification.CHANEL_DEFAULT";// 发出提示音
-    private static final String CHANEL_ID_HIGH = "am.project.x.notification.CHANEL_HIGH";// 发出提示音并弹出
+    private static final String CHANEL_ID_MIN = "am.project.x.notification.CHANEL_MIN";// 涓嶅彂鍑烘彁绀洪煶锛屼笉鍦ㄧ姸鎬佹爮鏄剧ず鍥炬爣
+    private static final String CHANEL_ID_LOW = "am.project.x.notification.CHANEL_LOW";// 涓嶅彂鍑烘彁绀洪煶
+    private static final String CHANEL_ID_DEFAULT = "am.project.x.notification.CHANEL_DEFAULT";// 鍙戝嚭鎻愮ず闊?    private static final String CHANEL_ID_HIGH = "am.project.x.notification.CHANEL_HIGH";// 鍙戝嚭鎻愮ず闊冲苟寮瑰嚭
 
     /**
-     * 更新通知渠道
+     * 鏇存柊閫氱煡娓犻亾
      *
      * @param context Context
      */

@@ -1,4 +1,4 @@
-package am.project.x.activities.widgets.indicatortabstrip;
+﻿package am.project.x.activities.widgets.indicatortabstrip;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import am.util.viewpager.adapter.ViewsPagerAdapter;
 import am.widget.basetabstrip.BaseTabStrip;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -89,3 +89,4 @@ public class IndicatorTabStripActivity extends BaseActivity {
         context.startActivity(new Intent(context, IndicatorTabStripActivity.class));
     }
 }
+

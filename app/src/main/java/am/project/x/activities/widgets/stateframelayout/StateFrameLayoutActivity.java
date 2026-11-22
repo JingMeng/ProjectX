@@ -1,10 +1,10 @@
-package am.project.x.activities.widgets.stateframelayout;
+﻿package am.project.x.activities.widgets.stateframelayout;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.RadioGroup;
@@ -123,3 +123,4 @@ public class StateFrameLayoutActivity extends BaseActivity
         context.startActivity(new Intent(context, StateFrameLayoutActivity.class));
     }
 }
+

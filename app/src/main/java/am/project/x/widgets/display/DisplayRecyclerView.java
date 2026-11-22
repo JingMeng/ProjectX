@@ -1,13 +1,13 @@
-package am.project.x.widgets.display;
+﻿package am.project.x.widgets.display;
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,7 +17,7 @@ import am.widget.multifunctionalrecyclerview.MultifunctionalRecyclerView;
 import am.widget.scalerecyclerview.ScaleRecyclerView;
 
 /**
- * 显示RecyclerView
+ * 鏄剧ずRecyclerView
  * Created by Xiang Zhicheng on 2017/11/3.
  */
 
@@ -177,20 +177,18 @@ public class DisplayRecyclerView extends MultifunctionalRecyclerView implements
     }
 
     /**
-     * 设置监听器
-     *
-     * @param listener 监听器
-     */
+     * 璁剧疆鐩戝惉鍣?     *
+     * @param listener 鐩戝惉鍣?     */
     public void setOnDisplayListener(OnDisplayListener listener) {
         mListener = listener;
     }
 
     /**
-     * 设置显示方式
+     * 璁剧疆鏄剧ず鏂瑰紡
      *
-     * @param orientation 滚动方向
-     * @param paging      是否分页
-     * @param scale       缩放比例
+     * @param orientation 婊氬姩鏂瑰悜
+     * @param paging      鏄惁鍒嗛〉
+     * @param scale       缂╂斁姣斾緥
      */
     public void setDisplaySetting(int orientation, boolean paging, float scale) {
         mLayoutManager.setOrientation(orientation);
@@ -199,46 +197,38 @@ public class DisplayRecyclerView extends MultifunctionalRecyclerView implements
     }
 
     /**
-     * 获取滚动方向
+     * 鑾峰彇婊氬姩鏂瑰悜
      *
-     * @return 滚动方向
+     * @return 婊氬姩鏂瑰悜
      */
     public int getOrientation() {
         return mLayoutManager.getOrientation();
     }
 
     /**
-     * 是否开启分页
-     *
-     * @return 分页
+     * 鏄惁寮€鍚垎椤?     *
+     * @return 鍒嗛〉
      */
     public boolean isPagingEnable() {
         return mLayoutManager.isPagingEnable();
     }
 
     /**
-     * 设置阅读位置
+     * 璁剧疆闃呰浣嶇疆
      *
-     * @param position   第几页
-     * @param offset     页偏移
-     * @param percentage 另一方向百分比
-     */
+     * @param position   绗嚑椤?     * @param offset     椤靛亸绉?     * @param percentage 鍙︿竴鏂瑰悜鐧惧垎姣?     */
     public void setDisplayLocation(int position, int offset, float percentage) {
         mLayoutManager.setDisplayLocation(position, offset, percentage);
     }
 
     /**
-     * 设置阅读位置
+     * 璁剧疆闃呰浣嶇疆
      *
-     * @param position       第几页
-     * @param x              高宽无关的左上角在页面的x坐标
-     * @param y              高宽无关的左上角在页面的y坐标
-     * @param last           是否为最后一个子项
-     * @param maxChildWidth  最大子项宽
-     * @param maxChildHeight 最大子项高
-     * @param width          页面宽
-     * @param height         页面高
-     */
+     * @param position       绗嚑椤?     * @param x              楂樺鏃犲叧鐨勫乏涓婅鍦ㄩ〉闈㈢殑x鍧愭爣
+     * @param y              楂樺鏃犲叧鐨勫乏涓婅鍦ㄩ〉闈㈢殑y鍧愭爣
+     * @param last           鏄惁涓烘渶鍚庝竴涓瓙椤?     * @param maxChildWidth  鏈€澶у瓙椤瑰
+     * @param maxChildHeight 鏈€澶у瓙椤归珮
+     * @param width          椤甸潰瀹?     * @param height         椤甸潰楂?     */
     public void setDisplayLocation(int position, float x, float y, boolean last,
                                    float maxChildWidth, float maxChildHeight,
                                    float width, float height) {
@@ -265,10 +255,8 @@ public class DisplayRecyclerView extends MultifunctionalRecyclerView implements
     }
 
     /**
-     * 内容提供者
-     *
-     * @param <VH> 视图持有者
-     */
+     * 鍐呭鎻愪緵鑰?     *
+     * @param <VH> 瑙嗗浘鎸佹湁鑰?     */
     public static abstract class Adapter<VH extends ViewHolder> extends
             MultifunctionalRecyclerView.Adapter<VH> {
 
@@ -310,11 +298,11 @@ public class DisplayRecyclerView extends MultifunctionalRecyclerView implements
     }
 
     /**
-     * 视图持有者
-     */
+     * 瑙嗗浘鎸佹湁鑰?     */
     public static class ViewHolder extends MultifunctionalRecyclerView.ViewHolder {
         public ViewHolder(View itemView) {
             super(itemView);
         }
     }
 }
+

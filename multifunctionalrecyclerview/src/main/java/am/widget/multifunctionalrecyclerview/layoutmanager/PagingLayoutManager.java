@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2017 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,14 +18,14 @@ package am.widget.multifunctionalrecyclerview.layoutmanager;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 
 /**
- * 分页LayoutManager
+ * 鍒嗛〉LayoutManager
  * Created by Alex on 2017/11/6.
  */
 @SuppressWarnings("all")
@@ -124,9 +124,9 @@ public class PagingLayoutManager extends BothDirectionsScrollLayoutManager {
     }
 
     /**
-     * 页模式下页分割点
+     * 椤垫ā寮忎笅椤靛垎鍓茬偣
      *
-     * @return 分割点 0~1
+     * @return 鍒嗗壊鐐?0~1
      */
     public float getPagingSplitPoint() {
         return mPagingSplitPoint;
@@ -157,8 +157,7 @@ public class PagingLayoutManager extends BothDirectionsScrollLayoutManager {
             if (mPagingEnable) {
                 adjustPaging(false);
             } else {
-                // TODO 将View移动到关闭前的位置
-            }
+                // TODO 灏哣iew绉诲姩鍒板叧闂墠鐨勪綅缃?            }
         }
     }
 
@@ -198,22 +197,22 @@ public class PagingLayoutManager extends BothDirectionsScrollLayoutManager {
             final int childStart = getDecoratedLeft(child) - params.leftMargin;
             final int childEnd = getDecoratedRight(child) + params.rightMargin;
             if (childEnd < contentStart || childStart > contentEnd) {
-                // 显示区域以外
+                // 鏄剧ず鍖哄煙浠ュ
                 continue;
             }
             if (childEnd == contentEnd) {
-                // 触底，无需移动
+                // 瑙﹀簳锛屾棤闇€绉诲姩
                 return false;
             }
             if (childStart == contentStart) {
-                // 触顶，无需移动
+                // 瑙﹂《锛屾棤闇€绉诲姩
                 return false;
             }
             if (childStart <= contentStart && childEnd >= contentEnd) {
-                // 占满显示区域
+                // 鍗犳弧鏄剧ず鍖哄煙
                 return false;
             }
-            // 计算跳转位置
+            // 璁＄畻璺宠浆浣嶇疆
             if (childStart <= splitPoint && childEnd >= splitPoint) {
                 target = child;
                 targetStart = childStart;
@@ -272,22 +271,22 @@ public class PagingLayoutManager extends BothDirectionsScrollLayoutManager {
             final int childStart = getDecoratedTop(child) - params.topMargin;
             final int childEnd = getDecoratedBottom(child) + params.bottomMargin;
             if (childEnd < contentStart || childStart > contentEnd) {
-                // 显示区域以外
+                // 鏄剧ず鍖哄煙浠ュ
                 continue;
             }
             if (childEnd == contentEnd) {
-                // 触底，无需移动
+                // 瑙﹀簳锛屾棤闇€绉诲姩
                 return false;
             }
             if (childStart == contentStart) {
-                // 触顶，无需移动
+                // 瑙﹂《锛屾棤闇€绉诲姩
                 return false;
             }
             if (childStart <= contentStart && childEnd >= contentEnd) {
-                // 占满显示区域
+                // 鍗犳弧鏄剧ず鍖哄煙
                 return false;
             }
-            // 计算跳转位置
+            // 璁＄畻璺宠浆浣嶇疆
             if (childStart <= splitPoint && childEnd >= splitPoint) {
                 target = child;
                 targetStart = childStart;
@@ -340,7 +339,7 @@ public class PagingLayoutManager extends BothDirectionsScrollLayoutManager {
             if (getOrientation() == HORIZONTAL) {
                 if ((mChildBound.left < x && mChildBound.right > x)
                         || mChildBound.left == x || mChildBound.right == y) {
-                    // 点在View内部
+                    // 鐐瑰湪View鍐呴儴
                     return child;
                 } else if (mChildBound.left > x) {
                     final float dis = mChildBound.left - x;
@@ -358,7 +357,7 @@ public class PagingLayoutManager extends BothDirectionsScrollLayoutManager {
             } else {
                 if ((mChildBound.top < y && mChildBound.bottom > y)
                         || mChildBound.top == y || mChildBound.bottom == y) {
-                    // 点在View内部
+                    // 鐐瑰湪View鍐呴儴
                     return child;
                 } else if (mChildBound.top > y) {
                     final float dis = mChildBound.top - y;
@@ -408,21 +407,21 @@ public class PagingLayoutManager extends BothDirectionsScrollLayoutManager {
             final int childEnd = mChildBound.right;
             final int childSize = mChildBound.width();
             if (velocityX > 0) {
-                // 向右
+                // 鍚戝彸
                 if (childSize >= contentSize && childEnd > contentEnd) {
-                    // 页内飞行
+                    // 椤靛唴椋炶
                     maxX = childEnd - contentEnd;
                 } else {
-                    // 跨页飞行
+                    // 璺ㄩ〉椋炶
                     maxX = childEnd - contentStart;
                 }
             } else if (velocityX < 0) {
-                // 向左
+                // 鍚戝乏
                 if (childSize > contentSize && childStart < contentStart) {
-                    // 页内飞行
+                    // 椤靛唴椋炶
                     minX = -(contentStart - childStart);
                 } else {
-                    // 跨页飞行
+                    // 璺ㄩ〉椋炶
                     minX = -(contentEnd - childStart);
                 }
             }
@@ -436,21 +435,21 @@ public class PagingLayoutManager extends BothDirectionsScrollLayoutManager {
             final int childEnd = mChildBound.bottom;
             final int childSize = mChildBound.height();
             if (velocityY > 0) {
-                // 向下
+                // 鍚戜笅
                 if (childSize >= contentSize && childEnd > contentEnd) {
-                    // 页内飞行
+                    // 椤靛唴椋炶
                     maxY = childEnd - contentEnd;
                 } else {
-                    // 跨页飞行
+                    // 璺ㄩ〉椋炶
                     maxY = childEnd - contentStart;
                 }
             } else if (velocityY < 0) {
-                // 向上
+                // 鍚戜笂
                 if (childSize > contentSize && childStart < contentStart) {
-                    // 页内飞行
+                    // 椤靛唴椋炶
                     minY = -(contentStart - childStart);
                 } else {
-                    // 跨页飞行
+                    // 璺ㄩ〉椋炶
                     minY = -(contentEnd - childStart);
                 }
             }
@@ -510,3 +509,4 @@ public class PagingLayoutManager extends BothDirectionsScrollLayoutManager {
         }
     }
 }
+

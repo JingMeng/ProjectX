@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2015 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,8 +17,8 @@
 package am.util.viewpager.adapter;
 
 import android.content.res.Configuration;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.view.ConfigurationHelper;
 import android.view.View;
 import android.view.ViewGroup;
@@ -133,3 +133,4 @@ public class ViewsPagerAdapter extends PagerAdapter {
         }
     }
 }
+

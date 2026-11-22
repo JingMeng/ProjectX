@@ -1,8 +1,8 @@
-package am.project.x.activities.drawable.line;
+﻿package am.project.x.activities.drawable.line;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.RadioGroup;
@@ -112,3 +112,4 @@ public class LineActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         context.startActivity(new Intent(context, LineActivity.class));
     }
 }
+

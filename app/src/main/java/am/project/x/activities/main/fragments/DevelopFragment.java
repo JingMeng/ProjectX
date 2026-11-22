@@ -1,8 +1,8 @@
-package am.project.x.activities.main.fragments;
+﻿package am.project.x.activities.main.fragments;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +12,7 @@ import am.project.x.activities.develop.test.TestActivity;
 import am.project.x.activities.develop.supergridview.SuperGridViewActivity;
 
 /**
- * 开发中
+ * 寮€鍙戜腑
  */
 public class DevelopFragment extends Fragment implements View.OnClickListener{
 
@@ -45,3 +45,4 @@ public class DevelopFragment extends Fragment implements View.OnClickListener{
         }
     }
 }
+

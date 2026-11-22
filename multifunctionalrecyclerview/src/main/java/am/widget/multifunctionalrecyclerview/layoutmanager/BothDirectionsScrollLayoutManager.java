@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2017 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,13 +18,12 @@ package am.widget.multifunctionalrecyclerview.layoutmanager;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 
 /**
- * 双向滚动布局管理器
- * Created by Alex on 2017/11/3.
+ * 鍙屽悜婊氬姩甯冨眬绠＄悊鍣? * Created by Alex on 2017/11/3.
  */
 @SuppressWarnings("all")
 public class BothDirectionsScrollLayoutManager extends CenterLinearLayoutManager {
@@ -118,10 +117,8 @@ public class BothDirectionsScrollLayoutManager extends CenterLinearLayoutManager
     }
 
     /**
-     * 计算另一方向上的默认滚动偏移百分比
-     *
-     * @return 默认滚动偏移百分比
-     */
+     * 璁＄畻鍙︿竴鏂瑰悜涓婄殑榛樿婊氬姩鍋忕Щ鐧惧垎姣?     *
+     * @return 榛樿婊氬姩鍋忕Щ鐧惧垎姣?     */
     protected float getDefaultScrollOffsetPercentage() {
         if (isLayoutInCenter())
             return 0.5f;
@@ -176,9 +173,9 @@ public class BothDirectionsScrollLayoutManager extends CenterLinearLayoutManager
     }
 
     /**
-     * 计算另一方向上的滚动偏移
+     * 璁＄畻鍙︿竴鏂瑰悜涓婄殑婊氬姩鍋忕Щ
      *
-     * @return 滚动偏移
+     * @return 婊氬姩鍋忕Щ
      */
     public int computeAnotherDirectionScrollOffset() {
         return mOffset;
@@ -402,3 +399,4 @@ public class BothDirectionsScrollLayoutManager extends CenterLinearLayoutManager
         mBottomDecorationMaxWidthOfChildMaxHeight = bottom;
     }
 }
+

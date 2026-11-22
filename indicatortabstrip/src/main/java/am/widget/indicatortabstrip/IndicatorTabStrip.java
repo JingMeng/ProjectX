@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2015 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,12 +27,12 @@ import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.ColorInt;
+import androidx.annotation.ColorInt;
 import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewPager;
+import androidx.annotation.DrawableRes;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.ViewCompat;
+import androidx.viewpager.widget.ViewPager;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 
@@ -40,53 +40,46 @@ import am.widget.basetabstrip.BaseTabStrip;
 
 
 /**
- * 游标TabStrip，Item不建议超过5个
- *
+ * 娓告爣TabStrip锛孖tem涓嶅缓璁秴杩?涓? *
  * @author Alex
  */
 @ViewPager.DecorView
 public class IndicatorTabStrip extends BaseTabStrip {
 
-    public static final int INDICATOR_WIDTH_MODE_SET = 0;// 按照设置宽度计算
-    public static final int INDICATOR_WIDTH_MODE_TAB = 1;// 按照子项宽度计算
-    public static final int INDICATOR_WIDTH_BY_DRAWABLE = -1;// 按照图片宽度计算
-    public static final int INDICATOR_HEIGHT_BY_DRAWABLE = -1;// 按照图片高度计算
-    public static final int TAG_MIN_SIZE_MODE_HAS_TEXT = 0;// 当图片最小宽高更小时，按图片计算
-    public static final int TAG_MIN_SIZE_MODE_ALWAYS = 1;// 按照设置的最小宽高
-    private static final int[] ATTRS = new int[]{android.R.attr.textSize,
+    public static final int INDICATOR_WIDTH_MODE_SET = 0;// 鎸夌収璁剧疆瀹藉害璁＄畻
+    public static final int INDICATOR_WIDTH_MODE_TAB = 1;// 鎸夌収瀛愰」瀹藉害璁＄畻
+    public static final int INDICATOR_WIDTH_BY_DRAWABLE = -1;// 鎸夌収鍥剧墖瀹藉害璁＄畻
+    public static final int INDICATOR_HEIGHT_BY_DRAWABLE = -1;// 鎸夌収鍥剧墖楂樺害璁＄畻
+    public static final int TAG_MIN_SIZE_MODE_HAS_TEXT = 0;// 褰撳浘鐗囨渶灏忓楂樻洿灏忔椂锛屾寜鍥剧墖璁＄畻
+    public static final int TAG_MIN_SIZE_MODE_ALWAYS = 1;// 鎸夌収璁剧疆鐨勬渶灏忓楂?    private static final int[] ATTRS = new int[]{android.R.attr.textSize,
             android.R.attr.textColor, android.R.attr.divider};
-    private static final int DEFAULT_TEXT_SIZE = 14;// 默认字体大小dp
-    private static final int DEFAULT_TEXT_COLOR = 0xff000000;// 默认字体颜色
-    private static final int DEFAULT_ITEM_WIDTH = 64;// 最小子项宽度dp
-    private static final int DEFAULT_ITEM_HEIGHT = 32;// 最小子项高度dp
-    private static final int DEFAULT_TAG_TEXT_SIZE = 11;// 默认Tag字体大小dp
-    private static final int DEFAULT_TAG_TEXT_COLOR = 0xffffffff;// 默认Tag文字颜色
-    private static final int DEFAULT_TAG_MIN_SIZE = 15;// 默认Tag最小大小dp
-    private final TextPaint mTextPaint;// 文字画笔
-    private float mTextSize;// 文字大小
-    private float mTextDesc;// 文字偏移
-    private ColorStateList mTextColor;// 文字颜色
-    private float mTextScale;// 选中文字缩放
-    private ColorStateList mGradient;// 渐变子项背景
-    private Drawable mDivider;// 底部Divider
-    private Drawable mIndicator;// 游标
-    private int mIndicatorWidthMode;// 游标宽度计算模式
-    private int mIndicatorPadding;// 游标两端Padding（仅“按照子项宽度计算”模式下有效）
-    private int mIndicatorWidth;// 游标高度
-    private int mIndicatorHeight;// 游标高度
-    private Drawable mInterval;// 子项间隔
-    private int mMinItemWidth;// 最小子项宽度
-    private int mMinItemHeight;// 最小子项高度
-    private ItemTabAdapter mAdapter;// Tag
-    private float mTagTextSize;// Tag文字大小
-    private float mTagTextDesc;// Tag文字偏移
-    private int mTagTextColor;// Tag文字颜色
-    private Drawable mTagBackground;// Tag文字背景
-    private int mTagMinSizeMode;// Tag文字大小模式
-    private int mTagMinWidth;// Tag文字最小宽度
-    private int mTagMinHeight;// Tag文字最小高度
-    private TagLocation mTagLocation;// Tag布局
-    private Rect mTextMeasureBounds = new Rect();// 文字测量
+    private static final int DEFAULT_TEXT_SIZE = 14;// 榛樿瀛椾綋澶у皬dp
+    private static final int DEFAULT_TEXT_COLOR = 0xff000000;// 榛樿瀛椾綋棰滆壊
+    private static final int DEFAULT_ITEM_WIDTH = 64;// 鏈€灏忓瓙椤瑰搴p
+    private static final int DEFAULT_ITEM_HEIGHT = 32;// 鏈€灏忓瓙椤归珮搴p
+    private static final int DEFAULT_TAG_TEXT_SIZE = 11;// 榛樿Tag瀛椾綋澶у皬dp
+    private static final int DEFAULT_TAG_TEXT_COLOR = 0xffffffff;// 榛樿Tag鏂囧瓧棰滆壊
+    private static final int DEFAULT_TAG_MIN_SIZE = 15;// 榛樿Tag鏈€灏忓ぇ灏廳p
+    private final TextPaint mTextPaint;// 鏂囧瓧鐢荤瑪
+    private float mTextSize;// 鏂囧瓧澶у皬
+    private float mTextDesc;// 鏂囧瓧鍋忕Щ
+    private ColorStateList mTextColor;// 鏂囧瓧棰滆壊
+    private float mTextScale;// 閫変腑鏂囧瓧缂╂斁
+    private ColorStateList mGradient;// 娓愬彉瀛愰」鑳屾櫙
+    private Drawable mDivider;// 搴曢儴Divider
+    private Drawable mIndicator;// 娓告爣
+    private int mIndicatorWidthMode;// 娓告爣瀹藉害璁＄畻妯″紡
+    private int mIndicatorPadding;// 娓告爣涓ょPadding锛堜粎鈥滄寜鐓у瓙椤瑰搴﹁绠椻€濇ā寮忎笅鏈夋晥锛?    private int mIndicatorWidth;// 娓告爣楂樺害
+    private int mIndicatorHeight;// 娓告爣楂樺害
+    private Drawable mInterval;// 瀛愰」闂撮殧
+    private int mMinItemWidth;// 鏈€灏忓瓙椤瑰搴?    private int mMinItemHeight;// 鏈€灏忓瓙椤归珮搴?    private ItemTabAdapter mAdapter;// Tag
+    private float mTagTextSize;// Tag鏂囧瓧澶у皬
+    private float mTagTextDesc;// Tag鏂囧瓧鍋忕Щ
+    private int mTagTextColor;// Tag鏂囧瓧棰滆壊
+    private Drawable mTagBackground;// Tag鏂囧瓧鑳屾櫙
+    private int mTagMinSizeMode;// Tag鏂囧瓧澶у皬妯″紡
+    private int mTagMinWidth;// Tag鏂囧瓧鏈€灏忓搴?    private int mTagMinHeight;// Tag鏂囧瓧鏈€灏忛珮搴?    private TagLocation mTagLocation;// Tag甯冨眬
+    private Rect mTextMeasureBounds = new Rect();// 鏂囧瓧娴嬮噺
     private int mCurrentPager = 0;
     private int mNextPager = 0;
     private float mOffset = 1;
@@ -305,18 +298,18 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取间隔宽度
+     * 鑾峰彇闂撮殧瀹藉害
      *
-     * @return 间隔宽度
+     * @return 闂撮殧瀹藉害
      */
     protected int getIntervalWidth() {
         return mInterval == null ? 0 : mInterval.getIntrinsicWidth();
     }
 
     /**
-     * 获取子项宽度
+     * 鑾峰彇瀛愰」瀹藉害
      *
-     * @return 子项宽度
+     * @return 瀛愰」瀹藉害
      */
     protected float getItemWidth() {
         float width = getWidth() - ViewCompat.getPaddingStart(this) - ViewCompat.getPaddingEnd(this)
@@ -325,18 +318,16 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取子项宽度（非精确）
-     *
-     * @return 子项宽度（非精确）
-     */
+     * 鑾峰彇瀛愰」瀹藉害锛堥潪绮剧‘锛?     *
+     * @return 瀛愰」瀹藉害锛堥潪绮剧‘锛?     */
     protected int getDrawItemWidth() {
         return Math.round(getItemWidth());
     }
 
     /**
-     * 获取最后一个子项宽度（非精确）
+     * 鑾峰彇鏈€鍚庝竴涓瓙椤瑰搴︼紙闈炵簿纭級
      *
-     * @return 最后一个子项宽度（非精确）
+     * @return 鏈€鍚庝竴涓瓙椤瑰搴︼紙闈炵簿纭級
      */
     protected int getLastItemWidth() {
         return getWidth() - ViewCompat.getPaddingStart(this) - ViewCompat.getPaddingEnd(this)
@@ -345,18 +336,18 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Divider高度
+     * 鑾峰彇Divider楂樺害
      *
-     * @return Divider高度
+     * @return Divider楂樺害
      */
     protected int getDividerHeight() {
         return mDivider == null ? 0 : mDivider.getIntrinsicHeight();
     }
 
     /**
-     * 获取子项高度
+     * 鑾峰彇瀛愰」楂樺害
      *
-     * @return 子项高度
+     * @return 瀛愰」楂樺害
      */
     protected int getItemHeight() {
         return getHeight() - getDividerHeight() - getPaddingTop() - getPaddingBottom();
@@ -443,9 +434,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 绘制Divider
+     * 缁樺埗Divider
      *
-     * @param canvas 画布
+     * @param canvas 鐢诲竷
      */
     protected void drawDivider(Canvas canvas) {
         if (mDivider == null || mDivider.getIntrinsicHeight() <= 0)
@@ -463,9 +454,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 绘制子项
+     * 缁樺埗瀛愰」
      *
-     * @param canvas 画布
+     * @param canvas 鐢诲竷
      */
     protected void drawItem(Canvas canvas) {
         final int itemWidth = getDrawItemWidth();
@@ -480,13 +471,11 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 绘制背景
+     * 缁樺埗鑳屾櫙
      *
-     * @param canvas     画布
-     * @param position   子项坐标
-     * @param itemWidth  子项宽
-     * @param itemHeight 子项高
-     */
+     * @param canvas     鐢诲竷
+     * @param position   瀛愰」鍧愭爣
+     * @param itemWidth  瀛愰」瀹?     * @param itemHeight 瀛愰」楂?     */
     protected void drawItemBackground(Canvas canvas, int position, int itemWidth, int itemHeight) {
         if (!hasItemBackgrounds())
             return;
@@ -507,13 +496,11 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 绘制渐变
+     * 缁樺埗娓愬彉
      *
-     * @param canvas     画布
-     * @param position   子项坐标
-     * @param itemWidth  子项宽
-     * @param itemHeight 子项高
-     */
+     * @param canvas     鐢诲竷
+     * @param position   瀛愰」鍧愭爣
+     * @param itemWidth  瀛愰」瀹?     * @param itemHeight 瀛愰」楂?     */
     protected void drawItemGradient(Canvas canvas, int position, int itemWidth, int itemHeight) {
         if (mGradient == null || !mGradient.isStateful())
             return;
@@ -537,13 +524,11 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 绘制间隔
+     * 缁樺埗闂撮殧
      *
-     * @param canvas     画布
-     * @param position   子项坐标
-     * @param itemWidth  子项宽
-     * @param itemHeight 子项高
-     */
+     * @param canvas     鐢诲竷
+     * @param position   瀛愰」鍧愭爣
+     * @param itemWidth  瀛愰」瀹?     * @param itemHeight 瀛愰」楂?     */
     protected void drawInterval(Canvas canvas, int position, int itemWidth, int itemHeight) {
         if (mInterval == null || mInterval.getIntrinsicWidth() <= 0
                 || position == getItemCount() - 1)
@@ -560,13 +545,11 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 绘制文字
+     * 缁樺埗鏂囧瓧
      *
-     * @param canvas     画布
-     * @param position   子项坐标
-     * @param itemWidth  子项宽
-     * @param itemHeight 子项高
-     */
+     * @param canvas     鐢诲竷
+     * @param position   瀛愰」鍧愭爣
+     * @param itemWidth  瀛愰」瀹?     * @param itemHeight 瀛愰」楂?     */
     protected void drawText(Canvas canvas, int position, int itemWidth, int itemHeight) {
         if (getItemText(position) == null)
             return;
@@ -608,13 +591,11 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 绘制Tag
+     * 缁樺埗Tag
      *
-     * @param canvas     画布
-     * @param position   子项坐标
-     * @param itemWidth  子项宽
-     * @param itemHeight 子项高
-     */
+     * @param canvas     鐢诲竷
+     * @param position   瀛愰」鍧愭爣
+     * @param itemWidth  瀛愰」瀹?     * @param itemHeight 瀛愰」楂?     */
     @SuppressWarnings("unused")
     protected void drawTag(Canvas canvas, int position, int itemWidth, int itemHeight) {
         if (mAdapter == null || !mAdapter.isTagEnable(position))
@@ -674,9 +655,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 绘制游标
+     * 缁樺埗娓告爣
      *
-     * @param canvas 画布
+     * @param canvas 鐢诲竷
      */
     protected void drawIndicator(Canvas canvas) {
         if (mIndicator == null)
@@ -701,9 +682,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取文字大小
+     * 鑾峰彇鏂囧瓧澶у皬
      *
-     * @return 文字大小
+     * @return 鏂囧瓧澶у皬
      */
     @SuppressWarnings("unused")
     public float getTextSize() {
@@ -711,9 +692,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置文字大小
+     * 璁剧疆鏂囧瓧澶у皬
      *
-     * @param size 文字大小
+     * @param size 鏂囧瓧澶у皬
      */
     public void setTextSize(float size) {
         if (mTextSize != size) {
@@ -724,9 +705,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取文字颜色
+     * 鑾峰彇鏂囧瓧棰滆壊
      *
-     * @return 文字颜色
+     * @return 鏂囧瓧棰滆壊
      */
     @SuppressWarnings("unused")
     public ColorStateList getTextColor() {
@@ -734,18 +715,18 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置文字颜色
+     * 璁剧疆鏂囧瓧棰滆壊
      *
-     * @param color 文字颜色
+     * @param color 鏂囧瓧棰滆壊
      */
     public void setTextColor(@ColorInt int color) {
         setTextColor(ColorStateList.valueOf(color));
     }
 
     /**
-     * 设置文字颜色
+     * 璁剧疆鏂囧瓧棰滆壊
      *
-     * @param color 文字颜色
+     * @param color 鏂囧瓧棰滆壊
      */
     public void setTextColor(ColorStateList color) {
         if (color != null && color != mTextColor) {
@@ -755,20 +736,16 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取文字缩放比
-     *
-     * @return 文字缩放比
-     */
+     * 鑾峰彇鏂囧瓧缂╂斁姣?     *
+     * @return 鏂囧瓧缂╂斁姣?     */
     @SuppressWarnings("unused")
     public float getTextScale() {
         return mTextScale;
     }
 
     /**
-     * 设置文字缩放比
-     *
-     * @param scale 文字缩放比
-     */
+     * 璁剧疆鏂囧瓧缂╂斁姣?     *
+     * @param scale 鏂囧瓧缂╂斁姣?     */
     public void setTextScale(float scale) {
         if (scale > 0 && mTextScale != scale) {
             mTextScale = scale;
@@ -778,9 +755,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取渐变
+     * 鑾峰彇娓愬彉
      *
-     * @return 渐变
+     * @return 娓愬彉
      */
     @SuppressWarnings("unused")
     public ColorStateList getGradient() {
@@ -788,9 +765,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置渐变
+     * 璁剧疆娓愬彉
      *
-     * @param gradient 渐变
+     * @param gradient 娓愬彉
      */
     @SuppressWarnings("unused")
     public void setGradient(@ColorRes int gradient) {
@@ -798,9 +775,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置渐变
+     * 璁剧疆娓愬彉
      *
-     * @param gradient 渐变
+     * @param gradient 娓愬彉
      */
     public void setGradient(ColorStateList gradient) {
         if (gradient == null) {
@@ -815,7 +792,7 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Divider
+     * 鑾峰彇Divider
      *
      * @return Divider
      */
@@ -825,7 +802,7 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Divider
+     * 璁剧疆Divider
      *
      * @param divider Divider
      */
@@ -835,7 +812,7 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Divider
+     * 璁剧疆Divider
      *
      * @param divider Divider
      */
@@ -847,9 +824,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取游标
+     * 鑾峰彇娓告爣
      *
-     * @return 游标
+     * @return 娓告爣
      */
     @SuppressWarnings("unused")
     public Drawable getIndicator() {
@@ -857,9 +834,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置游标
+     * 璁剧疆娓告爣
      *
-     * @param indicator 游标
+     * @param indicator 娓告爣
      */
     @SuppressWarnings("unused")
     public void setIndicator(@DrawableRes int indicator) {
@@ -867,9 +844,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置游标
+     * 璁剧疆娓告爣
      *
-     * @param indicator 游标
+     * @param indicator 娓告爣
      */
     public void setIndicator(Drawable indicator) {
         if (mIndicator != indicator) {
@@ -879,9 +856,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取游标宽度计算模式
+     * 鑾峰彇娓告爣瀹藉害璁＄畻妯″紡
      *
-     * @return 游标宽度计算模式
+     * @return 娓告爣瀹藉害璁＄畻妯″紡
      */
     @SuppressWarnings("unused")
     public int getIndicatorWidthMode() {
@@ -889,9 +866,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置获取游标宽度计算模式
+     * 璁剧疆鑾峰彇娓告爣瀹藉害璁＄畻妯″紡
      *
-     * @param mode 获取游标宽度计算模式
+     * @param mode 鑾峰彇娓告爣瀹藉害璁＄畻妯″紡
      */
     public void setIndicatorWidthMode(int mode) {
         if (mode != INDICATOR_WIDTH_MODE_SET && mode != INDICATOR_WIDTH_MODE_TAB)
@@ -903,9 +880,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取游标两端Padding
+     * 鑾峰彇娓告爣涓ょPadding
      *
-     * @return 游标两端Padding
+     * @return 娓告爣涓ょPadding
      */
     @SuppressWarnings("unused")
     public int getIndicatorPadding() {
@@ -913,9 +890,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置游标两端Padding
+     * 璁剧疆娓告爣涓ょPadding
      *
-     * @param padding 游标两端Padding
+     * @param padding 娓告爣涓ょPadding
      */
     public void setIndicatorPadding(int padding) {
         if (mIndicatorPadding != padding) {
@@ -925,9 +902,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取游标宽度
+     * 鑾峰彇娓告爣瀹藉害
      *
-     * @return 游标宽度
+     * @return 娓告爣瀹藉害
      */
     public int getIndicatorWidth() {
         if (mIndicator == null)
@@ -943,9 +920,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置游标宽度
+     * 璁剧疆娓告爣瀹藉害
      *
-     * @param width 游标宽度
+     * @param width 娓告爣瀹藉害
      */
     public void setIndicatorWidth(int width) {
         if (width < INDICATOR_WIDTH_BY_DRAWABLE)
@@ -957,9 +934,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取游标高度
+     * 鑾峰彇娓告爣楂樺害
      *
-     * @return 游标高度
+     * @return 娓告爣楂樺害
      */
     public int getIndicatorHeight() {
         if (mIndicator == null)
@@ -969,9 +946,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置游标高度
+     * 璁剧疆娓告爣楂樺害
      *
-     * @param height 游标高度
+     * @param height 娓告爣楂樺害
      */
     public void setIndicatorHeight(int height) {
         if (height < INDICATOR_HEIGHT_BY_DRAWABLE)
@@ -983,9 +960,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取子项间隔
+     * 鑾峰彇瀛愰」闂撮殧
      *
-     * @return 子项间隔
+     * @return 瀛愰」闂撮殧
      */
     @SuppressWarnings("unused")
     public Drawable getInterval() {
@@ -993,9 +970,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置子项间隔
+     * 璁剧疆瀛愰」闂撮殧
      *
-     * @param interval 子项间隔
+     * @param interval 瀛愰」闂撮殧
      */
     @SuppressWarnings("unused")
     public void setInterval(@DrawableRes int interval) {
@@ -1003,9 +980,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置子项间隔
+     * 璁剧疆瀛愰」闂撮殧
      *
-     * @param interval 子项间隔
+     * @param interval 瀛愰」闂撮殧
      */
     public void setInterval(Drawable interval) {
         if (mInterval != interval) {
@@ -1015,20 +992,16 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取子项最小宽度
-     *
-     * @return 子项最小宽度
-     */
+     * 鑾峰彇瀛愰」鏈€灏忓搴?     *
+     * @return 瀛愰」鏈€灏忓搴?     */
     @SuppressWarnings("unused")
     public int getMinItemWidth() {
         return mMinItemWidth;
     }
 
     /**
-     * 设置子项最小宽度
-     *
-     * @param width 子项最小宽度
-     */
+     * 璁剧疆瀛愰」鏈€灏忓搴?     *
+     * @param width 瀛愰」鏈€灏忓搴?     */
     public void setMinItemWidth(int width) {
         if (width >= 0 && width != mMinItemWidth) {
             mMinItemWidth = width;
@@ -1038,20 +1011,16 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取子项最小高度
-     *
-     * @return 子项最小高度
-     */
+     * 鑾峰彇瀛愰」鏈€灏忛珮搴?     *
+     * @return 瀛愰」鏈€灏忛珮搴?     */
     @SuppressWarnings("unused")
     public int getMinItemHeight() {
         return mMinItemHeight;
     }
 
     /**
-     * 设置子项最小高度
-     *
-     * @param height 子项最小高度
-     */
+     * 璁剧疆瀛愰」鏈€灏忛珮搴?     *
+     * @param height 瀛愰」鏈€灏忛珮搴?     */
     public void setMinItemHeight(int height) {
         if (height >= 0 && height != mMinItemHeight) {
             mMinItemHeight = height;
@@ -1061,7 +1030,7 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Adapter
+     * 鑾峰彇Adapter
      *
      * @return Adapter
      */
@@ -1071,7 +1040,7 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Adapter
+     * 璁剧疆Adapter
      *
      * @param adapter Adapter
      */
@@ -1084,9 +1053,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Tag文字大小
+     * 鑾峰彇Tag鏂囧瓧澶у皬
      *
-     * @return Tag文字大小
+     * @return Tag鏂囧瓧澶у皬
      */
     @SuppressWarnings("unused")
     public float getTagTextSize() {
@@ -1094,9 +1063,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Tag文字大小
+     * 璁剧疆Tag鏂囧瓧澶у皬
      *
-     * @param size Tag文字大小
+     * @param size Tag鏂囧瓧澶у皬
      */
     public void setTagTextSize(float size) {
         if (mTagTextSize != size) {
@@ -1106,9 +1075,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Tag文字颜色
+     * 鑾峰彇Tag鏂囧瓧棰滆壊
      *
-     * @return Tag文字颜色
+     * @return Tag鏂囧瓧棰滆壊
      */
     @SuppressWarnings("unused")
     public int getTagTextColor() {
@@ -1116,9 +1085,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Tag文字颜色
+     * 璁剧疆Tag鏂囧瓧棰滆壊
      *
-     * @param color Tag文字颜色
+     * @param color Tag鏂囧瓧棰滆壊
      */
     public void setTagTextColor(@ColorInt int color) {
         if (mTagTextColor != color) {
@@ -1128,9 +1097,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Tag背景
+     * 鑾峰彇Tag鑳屾櫙
      *
-     * @return Tag背景
+     * @return Tag鑳屾櫙
      */
     @SuppressWarnings("unused")
     public Drawable getTagBackground() {
@@ -1138,9 +1107,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Tag背景
+     * 璁剧疆Tag鑳屾櫙
      *
-     * @param background Tag背景
+     * @param background Tag鑳屾櫙
      */
     @SuppressWarnings("unused")
     public void setTagBackground(@DrawableRes int background) {
@@ -1148,9 +1117,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Tag背景
+     * 璁剧疆Tag鑳屾櫙
      *
-     * @param background Tag背景
+     * @param background Tag鑳屾櫙
      */
     public void setTagBackground(Drawable background) {
         if (mTagBackground != background) {
@@ -1160,20 +1129,16 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Tag最小高宽计算模式
-     *
-     * @return Tag最小高宽计算模式
-     */
+     * 鑾峰彇Tag鏈€灏忛珮瀹借绠楁ā寮?     *
+     * @return Tag鏈€灏忛珮瀹借绠楁ā寮?     */
     @SuppressWarnings("unused")
     public int getTagMinSizeMode() {
         return mTagMinSizeMode;
     }
 
     /**
-     * 设置Tag最小高宽计算模式
-     *
-     * @param mode Tag最小高宽计算模式
-     */
+     * 璁剧疆Tag鏈€灏忛珮瀹借绠楁ā寮?     *
+     * @param mode Tag鏈€灏忛珮瀹借绠楁ā寮?     */
     public void setTagMinSizeMode(int mode) {
         if (mode != TAG_MIN_SIZE_MODE_HAS_TEXT && mode != TAG_MIN_SIZE_MODE_ALWAYS)
             return;
@@ -1184,20 +1149,16 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Tag最小宽度
-     *
-     * @return Tag最小宽度
-     */
+     * 鑾峰彇Tag鏈€灏忓搴?     *
+     * @return Tag鏈€灏忓搴?     */
     @SuppressWarnings("unused")
     public int getTagMinWidth() {
         return mTagMinWidth;
     }
 
     /**
-     * 设置Tag最小宽度
-     *
-     * @param width Tag最小宽度
-     */
+     * 璁剧疆Tag鏈€灏忓搴?     *
+     * @param width Tag鏈€灏忓搴?     */
     public void setTagMinWidth(int width) {
         if (width >= 0 && mTagMinWidth != width) {
             mTagMinWidth = width;
@@ -1206,20 +1167,16 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Tag最小高度
-     *
-     * @return Tag最小高度
-     */
+     * 鑾峰彇Tag鏈€灏忛珮搴?     *
+     * @return Tag鏈€灏忛珮搴?     */
     @SuppressWarnings("unused")
     public int getTagMinHeight() {
         return mTagMinHeight;
     }
 
     /**
-     * 设置Tag最小高度
-     *
-     * @param height Tag最小高度
-     */
+     * 璁剧疆Tag鏈€灏忛珮搴?     *
+     * @param height Tag鏈€灏忛珮搴?     */
     public void setTagMinHeight(int height) {
         if (height >= 0 && mTagMinHeight != height) {
             mTagMinHeight = height;
@@ -1228,13 +1185,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Tag Padding
+     * 璁剧疆Tag Padding
      *
-     * @param left   左
-     * @param top    上
-     * @param right  右
-     * @param bottom 下
-     */
+     * @param left   宸?     * @param top    涓?     * @param right  鍙?     * @param bottom 涓?     */
     public void setTagPadding(int left, int top, int right, int bottom) {
         if (mTagLocation.setPadding(left, top, right, bottom)) {
             invalidate();
@@ -1242,13 +1195,9 @@ public class IndicatorTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Tag Margin
+     * 璁剧疆Tag Margin
      *
-     * @param left   左
-     * @param top    上
-     * @param right  右
-     * @param bottom 下
-     */
+     * @param left   宸?     * @param top    涓?     * @param right  鍙?     * @param bottom 涓?     */
     public void setTagMargin(int left, int top, int right, int bottom) {
         if (mTagLocation.setMargin(left, top, right, bottom)) {
             invalidate();

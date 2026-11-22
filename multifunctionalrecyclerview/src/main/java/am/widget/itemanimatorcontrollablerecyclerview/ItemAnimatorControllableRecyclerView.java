@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2017 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +18,7 @@ package am.widget.itemanimatorcontrollablerecyclerview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.support.v7.widget.PublicRecyclerView;
 import android.support.v7.widget.SimpleItemAnimator;
 import android.util.AttributeSet;
@@ -26,7 +26,7 @@ import android.util.AttributeSet;
 import am.widget.multifunctionalrecyclerview.R;
 
 /**
- * 子项动画可控的RecyclerView
+ * 瀛愰」鍔ㄧ敾鍙帶鐨凴ecyclerView
  * Created by Alex on 2017/10/23.
  */
 
@@ -89,9 +89,9 @@ public class ItemAnimatorControllableRecyclerView extends PublicRecyclerView {
     }
 
     /**
-     * 设置是否支持添加动画
+     * 璁剧疆鏄惁鏀寔娣诲姞鍔ㄧ敾
      *
-     * @param supportsAddAnimations 是否支持
+     * @param supportsAddAnimations 鏄惁鏀寔
      * @see Adapter#notifyItemInserted(int)
      * @see Adapter#notifyItemRangeInserted(int, int)
      */
@@ -107,9 +107,9 @@ public class ItemAnimatorControllableRecyclerView extends PublicRecyclerView {
     }
 
     /**
-     * 设置是否支持移除动画
+     * 璁剧疆鏄惁鏀寔绉婚櫎鍔ㄧ敾
      *
-     * @param supportsChangeAnimations 是否支持
+     * @param supportsChangeAnimations 鏄惁鏀寔
      * @see Adapter#notifyItemChanged(int)
      * @see Adapter#notifyItemRangeChanged(int, int)
      */
@@ -128,9 +128,9 @@ public class ItemAnimatorControllableRecyclerView extends PublicRecyclerView {
     }
 
     /**
-     * 设置是否支持移动动画
+     * 璁剧疆鏄惁鏀寔绉诲姩鍔ㄧ敾
      *
-     * @param supportsMoveAnimations 是否支持
+     * @param supportsMoveAnimations 鏄惁鏀寔
      * @see Adapter#notifyItemMoved(int, int)
      */
     public void setSupportsMoveAnimations(boolean supportsMoveAnimations) {
@@ -145,9 +145,9 @@ public class ItemAnimatorControllableRecyclerView extends PublicRecyclerView {
     }
 
     /**
-     * 设置是否支持移除动画
+     * 璁剧疆鏄惁鏀寔绉婚櫎鍔ㄧ敾
      *
-     * @param supportsRemoveAnimations 是否支持
+     * @param supportsRemoveAnimations 鏄惁鏀寔
      * @see Adapter#notifyItemRemoved(int)
      * @see Adapter#notifyItemRangeRemoved(int, int)
      */
@@ -162,3 +162,4 @@ public class ItemAnimatorControllableRecyclerView extends PublicRecyclerView {
         }
     }
 }
+

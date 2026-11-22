@@ -1,12 +1,12 @@
-package am.project.x.utils;
+﻿package am.project.x.utils;
 
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 
 /**
- * 主题工具
+ * 涓婚宸ュ叿
  * Created by Alex on 2017/5/31.
  */
 
@@ -28,3 +28,4 @@ public class ThemeUtil {
         return color;
     }
 }
+

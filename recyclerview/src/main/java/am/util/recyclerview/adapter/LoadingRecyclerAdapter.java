@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2015 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +16,7 @@
 
 package am.util.recyclerview.adapter;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import java.lang.ref.WeakReference;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 带载入的RecyclerView.Adapter
+ * 甯﹁浇鍏ョ殑RecyclerView.Adapter
  * Created by Alex on 2016/12/27.
  */
 @SuppressWarnings("all")
@@ -142,3 +142,4 @@ public abstract class LoadingRecyclerAdapter<T, VH extends LoadingViewHolder<T>>
             notifyItemChanged(position);
     }
 }
+

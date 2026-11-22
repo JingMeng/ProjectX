@@ -1,9 +1,9 @@
-package am.project.x.activities.drawable.loading;
+﻿package am.project.x.activities.drawable.loading;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.widget.ImageView;
 
 import am.drawable.CirclingDrawable;
@@ -57,3 +57,4 @@ public class LoadingActivity extends BaseActivity {
         context.startActivity(new Intent(context, LoadingActivity.class));
     }
 }
+

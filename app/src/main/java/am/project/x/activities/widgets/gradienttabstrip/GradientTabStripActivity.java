@@ -1,10 +1,10 @@
-package am.project.x.activities.widgets.gradienttabstrip;
+﻿package am.project.x.activities.widgets.gradienttabstrip;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import am.widget.basetabstrip.BaseTabStrip;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -82,3 +82,4 @@ public class GradientTabStripActivity extends BaseActivity implements
         context.startActivity(new Intent(context, GradientTabStripActivity.class));
     }
 }
+

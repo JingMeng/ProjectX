@@ -1,9 +1,9 @@
-package am.project.x.activities.widgets.shapeimageview;
+﻿package am.project.x.activities.widgets.shapeimageview;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -186,3 +186,4 @@ public class ShapeImageViewActivity extends BaseActivity
         context.startActivity(new Intent(context, ShapeImageViewActivity.class));
     }
 }
+

@@ -1,9 +1,9 @@
-package am.project.x.activities.drawable.linear;
+﻿package am.project.x.activities.drawable.linear;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
@@ -76,3 +76,4 @@ public class LinearActivity extends BaseActivity implements RadioGroup.OnChecked
         context.startActivity(new Intent(context, LinearActivity.class));
     }
 }
+

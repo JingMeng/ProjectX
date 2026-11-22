@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2017 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,12 +20,12 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.animation.Interpolator;
 
 /**
- * 公开部分包内私有的方法及变量的RecyclerView
+ * 鍏紑閮ㄥ垎鍖呭唴绉佹湁鐨勬柟娉曞強鍙橀噺鐨凴ecyclerView
  * Created by Alex on 2017/11/8.
  */
 @SuppressWarnings("all")
@@ -44,10 +44,8 @@ public class PublicRecyclerView extends RecyclerView {
     }
 
     /**
-     * 获取默认滚动补帧器
-     *
-     * @return 默认滚动补帧器
-     */
+     * 鑾峰彇榛樿婊氬姩琛ュ抚鍣?     *
+     * @return 榛樿婊氬姩琛ュ抚鍣?     */
     public static Interpolator getScrollerInterpolator() {
         return sQuinticInterpolator;
     }
@@ -65,10 +63,8 @@ public class PublicRecyclerView extends RecyclerView {
     }
 
     /**
-     * 拦截分发滚动状态变化
-     *
-     * @param state 状态变化
-     * @return 是否拦截
+     * 鎷︽埅鍒嗗彂婊氬姩鐘舵€佸彉鍖?     *
+     * @param state 鐘舵€佸彉鍖?     * @return 鏄惁鎷︽埅
      */
     protected boolean onInterceptDispatchOnScrollStateChanged(int state) {
         final LayoutManager layoutManager = getLayoutManager();
@@ -85,10 +81,8 @@ public class PublicRecyclerView extends RecyclerView {
     }
 
     /**
-     * 存储状态
-     *
-     * @param bundle 数据包
-     */
+     * 瀛樺偍鐘舵€?     *
+     * @param bundle 鏁版嵁鍖?     */
     protected void onSaveInstanceState(Bundle bundle) {
 
     }
@@ -101,10 +95,8 @@ public class PublicRecyclerView extends RecyclerView {
     }
 
     /**
-     * 恢复状态
-     *
-     * @param bundle 数据包
-     */
+     * 鎭㈠鐘舵€?     *
+     * @param bundle 鏁版嵁鍖?     */
     protected void onRestoreInstanceState(Bundle bundle) {
 
     }
@@ -154,3 +146,4 @@ public class PublicRecyclerView extends RecyclerView {
         }
     }
 }
+

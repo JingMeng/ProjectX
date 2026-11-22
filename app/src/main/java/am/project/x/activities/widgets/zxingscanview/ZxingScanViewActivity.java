@@ -1,4 +1,4 @@
-package am.project.x.activities.widgets.zxingscanview;
+﻿package am.project.x.activities.widgets.zxingscanview;
 
 import android.Manifest;
 import android.content.Context;
@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import android.widget.Toast;
 
 import com.google.zxing.Result;
@@ -28,7 +28,7 @@ import am.widget.zxingscanview.ZxingForegroundView;
 import am.widget.zxingscanview.ZxingScanView;
 
 /**
- * 条码扫描
+ * 鏉＄爜鎵弿
  * Created by Alex on 2016/12/2.
  */
 
@@ -63,12 +63,11 @@ public class ZxingScanViewActivity extends BaseActivity implements ZxingScanView
     public void onError(ZxingScanView scanView) {
         switch (scanView.getErrorCode()) {
             case ZxingScanView.ERROR_CODE_0:
-                // 相机无法打开
+                // 鐩告満鏃犳硶鎵撳紑
                 Toast.makeText(this, R.string.zxingscanview_error, Toast.LENGTH_SHORT).show();
                 break;
             case ZxingScanView.ERROR_CODE_1:
-                // 缺少打开相机的权限
-                if (!ActivityCompat.shouldShowRequestPermissionRationale(this,
+                // 缂哄皯鎵撳紑鐩告満鐨勬潈闄?                if (!ActivityCompat.shouldShowRequestPermissionRationale(this,
                         Manifest.permission.CAMERA)) {
                     ActivityCompat.requestPermissions(this,
                             new String[]{Manifest.permission.CAMERA},
@@ -82,10 +81,10 @@ public class ZxingScanViewActivity extends BaseActivity implements ZxingScanView
     public void onResult(ZxingScanView scanView, Result result, Bitmap barcode,
                          float scaleFactor) {
         ParsedResult parsedResult = ResultParser.parseResult(result);
-        final String format = "格式：" + result.getBarcodeFormat().toString();
-        final String type = "类型：" + parsedResult.getType().toString();
+        final String format = "鏍煎紡锛? + result.getBarcodeFormat().toString();
+        final String type = "绫诲瀷锛? + parsedResult.getType().toString();
         DateFormat formatter = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT);
-        final String date = "时间：" + formatter.format(new Date(result.getTimestamp()));
+        final String date = "鏃堕棿锛? + formatter.format(new Date(result.getTimestamp()));
         String meta = "";
         Map<ResultMetadataType, Object> metadata = result.getResultMetadata();
         if (metadata != null) {
@@ -103,7 +102,7 @@ public class ZxingScanViewActivity extends BaseActivity implements ZxingScanView
         CharSequence displayContents = parsedResult.getDisplayResult();
         Toast.makeText(this, format + "\n" + type + "\n" + date + "\n" + meta + "\n" + displayContents,
                 Toast.LENGTH_SHORT).show();
-        // 重新扫描
+        // 閲嶆柊鎵弿
         scanView.restartScanDelay(3000);
     }
 
@@ -127,3 +126,4 @@ public class ZxingScanViewActivity extends BaseActivity implements ZxingScanView
         context.startActivity(new Intent(context, ZxingScanViewActivity.class));
     }
 }
+

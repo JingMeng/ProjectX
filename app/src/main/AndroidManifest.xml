@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="am.project.x">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
@@ -18,7 +17,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activities.welcome.WelcomeActivity"
-            android:theme="@style/WelcomeTheme">
+            android:theme="@style/WelcomeTheme" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +26,7 @@
         </activity>
         <activity
             android:name=".activities.main.MainActivity"
-            android:theme="@style/MainTheme">
+            android:theme="@style/MainTheme" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -42,7 +41,7 @@
         </activity>
         <activity
             android:name=".activities.widgets.gradienttabstrip.GradientTabStripActivity"
-            android:label="@string/gradienttabstrip_title">
+            android:label="@string/gradienttabstrip_title" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -57,7 +56,7 @@
         </activity>
         <activity
             android:name=".activities.widgets.tagtabstrip.TagTabStripActivity"
-            android:label="@string/tagtabstrip_title">
+            android:label="@string/tagtabstrip_title" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -72,7 +71,7 @@
         </activity>
         <activity
             android:name=".activities.widgets.indicatortabstrip.IndicatorTabStripActivity"
-            android:label="@string/indicatortabstrip_title">
+            android:label="@string/indicatortabstrip_title" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -87,7 +86,7 @@
         </activity>
         <activity
             android:name=".activities.widgets.shapeimageview.ShapeImageViewActivity"
-            android:label="@string/shapeimageview_titel">
+            android:label="@string/shapeimageview_titel" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -102,7 +101,7 @@
         </activity>
         <activity
             android:name=".activities.widgets.stateframelayout.StateFrameLayoutActivity"
-            android:label="@string/stateframelayout_title">
+            android:label="@string/stateframelayout_title" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -117,7 +116,7 @@
         </activity>
         <activity
             android:name=".activities.widgets.wraplayout.WrapLayoutActivity"
-            android:label="@string/wraplayout_title">
+            android:label="@string/wraplayout_title" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -132,7 +131,7 @@
         </activity>
         <activity
             android:name=".activities.widgets.replacelayout.ReplaceLayoutActivity"
-            android:label="@string/replacelayout_title">
+            android:label="@string/replacelayout_title" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -147,7 +146,7 @@
         </activity>
         <activity
             android:name=".activities.widgets.drawableratingbar.DrawableRatingBarActivity"
-            android:label="@string/drawableratingbar_title">
+            android:label="@string/drawableratingbar_title" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -163,7 +162,7 @@
         <activity
             android:name=".activities.other.printer.PrinterActivity"
             android:label="@string/printer_title"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustPan" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -178,7 +177,7 @@
         </activity>
         <activity
             android:name=".activities.other.security.CipherActivity"
-            android:label="@string/cipher_title">
+            android:label="@string/cipher_title" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -193,7 +192,7 @@
         </activity>
         <activity
             android:name=".activities.widgets.headerfootergridview.HeaderFooterGridViewActivity"
-            android:label="@string/headerfootergridview_title">
+            android:label="@string/headerfootergridview_title" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -208,7 +207,7 @@
         </activity>
         <activity
             android:name=".activities.widgets.multiactiontextview.MultiActionTextViewActivity"
-            android:label="@string/multiactiontextview_title">
+            android:label="@string/multiactiontextview_title" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -223,7 +222,7 @@
         </activity>
         <activity
             android:name=".activities.widgets.selectionview.SelectionViewActivity"
-            android:label="@string/selectionview_title">
+            android:label="@string/selectionview_title" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -238,7 +237,7 @@
         </activity>
         <activity
             android:name=".activities.widgets.recyclepager.RecyclePagerActivity"
-            android:label="@string/recyclepager_title">
+            android:label="@string/recyclepager_title" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -253,7 +252,7 @@
         </activity>
         <activity
             android:name=".activities.widgets.circleprogressbar.CircleProgressBarActivity"
-            android:label="@string/circleprogressbar_title">
+            android:label="@string/circleprogressbar_title" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -268,7 +267,7 @@
         </activity>
         <activity
             android:name=".activities.widgets.zxingscanview.ZxingScanViewActivity"
-            android:label="@string/zxingscanview_title">
+            android:label="@string/zxingscanview_title" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -284,7 +283,7 @@
         <activity
             android:name=".activities.widgets.smoothinputlayout.SmoothInputLayoutActivity"
             android:label="@string/smoothinputlayout_title"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -299,7 +298,7 @@
         </activity>
         <activity
             android:name=".activities.widgets.cameraview.CameraViewActivity"
-            android:label="@string/cameraview_title">
+            android:label="@string/cameraview_title" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -314,31 +313,31 @@
         </activity>
         <activity
             android:name=".activities.develop.test.TestActivity"
-            android:label="@string/dev_test" />
+            android:label="@string/dev_test" / android:exported="true">
         <activity
             android:name=".activities.drawable.loading.LoadingActivity"
-            android:label="@string/loading_title" />
+            android:label="@string/loading_title" / android:exported="true">
         <activity
             android:name=".activities.drawable.center.CenterActivity"
-            android:label="@string/center_title" />
+            android:label="@string/center_title" / android:exported="true">
         <activity
             android:name=".activities.drawable.corner.CornerActivity"
-            android:label="@string/corner_title" />
+            android:label="@string/corner_title" / android:exported="true">
         <activity
             android:name=".activities.develop.supergridview.SuperGridViewActivity"
-            android:label="@string/dev_supergridview_title" />
+            android:label="@string/dev_supergridview_title" / android:exported="true">
         <activity
             android:name=".activities.drawable.combination.CombinationActivity"
-            android:label="@string/combination_title" />
+            android:label="@string/combination_title" / android:exported="true">
         <activity
             android:name=".activities.drawable.line.LineActivity"
-            android:label="@string/line_title" />
+            android:label="@string/line_title" / android:exported="true">
         <activity
             android:name=".activities.drawable.linear.LinearActivity"
-            android:label="@string/linear_title" />
+            android:label="@string/linear_title" / android:exported="true">
         <activity
             android:name=".activities.drawable.text.TextActivity"
-            android:label="@string/text_title" />
+            android:label="@string/text_title" / android:exported="true">
     </application>
 
 </manifest>

@@ -1,11 +1,11 @@
-package am.project.x.widgets.supergridview;
+﻿package am.project.x.widgets.supergridview;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,8 +39,7 @@ public class DragView extends ViewGroup {
 	private OnViewDragListener dragListener;
 	private long mDuration = 300;
 	private Interpolator mInterpolator = new AccelerateDecelerateInterpolator();
-	private DragController mDragController = new DragController();// 拖拽控制器
-	private ImageView mDeleteView;
+	private DragController mDragController = new DragController();// 鎷栨嫿鎺у埗鍣?	private ImageView mDeleteView;
 	private boolean mDeleteable;
 	private int deleteHeight = 100;
 	private int deleteWidth = 100;
@@ -62,7 +61,7 @@ public class DragView extends ViewGroup {
 		mWindowManager = (WindowManager) context
 				.getSystemService(Context.WINDOW_SERVICE);
 		mWindowLayoutParams = new WindowManager.LayoutParams();
-		mWindowLayoutParams.format = PixelFormat.TRANSLUCENT; // 图片之外的其他地方透明
+		mWindowLayoutParams.format = PixelFormat.TRANSLUCENT; // 鍥剧墖涔嬪鐨勫叾浠栧湴鏂归€忔槑
 		mWindowLayoutParams.gravity = Gravity.TOP | Gravity.LEFT;
 		mWindowLayoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
 		mWindowLayoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
@@ -214,7 +213,7 @@ public class DragView extends ViewGroup {
 	}
 
 	/**
-	 * 移动
+	 * 绉诲姩
 	 * 
 	 * @param x
 	 * @param y
@@ -228,11 +227,11 @@ public class DragView extends ViewGroup {
 	}
 
 	/**
-	 * 卸载
+	 * 鍗歌浇
 	 */
 	public void removeDrag(float x, float y) {
 		if (checkDeleteItem(x, y)) {
-			notifyViewDelete();// 更新Adapter以后进行View移动并让拖动View消失
+			notifyViewDelete();// 鏇存柊Adapter浠ュ悗杩涜View绉诲姩骞惰鎷栧姩View娑堝け
 		} else {
 			startDragRunnable.stop();
 			moveDragRunnable.stop();
@@ -241,8 +240,7 @@ public class DragView extends ViewGroup {
 	}
 
 	/**
-	 * 飞
-	 * 
+	 * 椋?	 * 
 	 * @param x
 	 * @param y
 	 * @param velocityX
@@ -251,7 +249,7 @@ public class DragView extends ViewGroup {
 	public void flingDrag(final float x, final float y, final float velocityX,
 			final float velocityY) {
 		if (checkDeleteItem(x, y)) {
-			notifyViewDelete();// 更新Adapter以后进行View移动并让拖动View消失
+			notifyViewDelete();// 鏇存柊Adapter浠ュ悗杩涜View绉诲姩骞惰鎷栧姩View娑堝け
 		} else {
 			flingDragRunnable.start(x, y, velocityX * 0.001f,
 					velocityY * 0.001f);
@@ -259,14 +257,14 @@ public class DragView extends ViewGroup {
 	}
 
 	/**
-	 * 删除
+	 * 鍒犻櫎
 	 */
 	public void delete() {
 		deleteDragRunnable.start();
 	}
 
 	/**
-	 * 取消删除
+	 * 鍙栨秷鍒犻櫎
 	 */
 	public void cancelDelete() {
 		startDragRunnable.stop();
@@ -275,7 +273,7 @@ public class DragView extends ViewGroup {
 	}
 
 	/**
-	 * 检查是否应删除
+	 * 妫€鏌ユ槸鍚﹀簲鍒犻櫎
 	 * 
 	 * @param x
 	 * @param y
@@ -321,7 +319,7 @@ public class DragView extends ViewGroup {
 	}
 
 	/**
-	 * 通知关闭拖动
+	 * 閫氱煡鍏抽棴鎷栧姩
 	 */
 	public void notifyViewFinish() {
 		mDragDeleteFinished = false;
@@ -331,7 +329,7 @@ public class DragView extends ViewGroup {
 	}
 
 	/**
-	 * 设置删除图片资源
+	 * 璁剧疆鍒犻櫎鍥剧墖璧勬簮
 	 * 
 	 * @param drawable
 	 */
@@ -342,7 +340,7 @@ public class DragView extends ViewGroup {
 	}
 
 	/**
-	 * 设置删除图片资源
+	 * 璁剧疆鍒犻櫎鍥剧墖璧勬簮
 	 * 
 	 * @param resid
 	 */
@@ -354,7 +352,7 @@ public class DragView extends ViewGroup {
 	}
 
 	/**
-	 * 设置删除图片位置
+	 * 璁剧疆鍒犻櫎鍥剧墖浣嶇疆
 	 *
 	 */
 	public int getDeleteDrawableLocation() {
@@ -362,7 +360,7 @@ public class DragView extends ViewGroup {
 	}
 
 	/**
-	 * 设置删除图片位置
+	 * 璁剧疆鍒犻櫎鍥剧墖浣嶇疆
 	 * 
 	 * @param location
 	 */
@@ -449,7 +447,7 @@ public class DragView extends ViewGroup {
 	}
 
 	/**
-	 * 完成监听
+	 * 瀹屾垚鐩戝惉
 	 * 
 	 * @param listener
 	 */
@@ -468,3 +466,4 @@ public class DragView extends ViewGroup {
 	}
 
 }
+

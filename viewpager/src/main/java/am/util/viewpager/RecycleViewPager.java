@@ -1,16 +1,16 @@
-package am.util.viewpager;
+﻿package am.util.viewpager;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 
 import am.util.viewpager.adapter.RecyclePagerAdapter;
 import am.util.viewpager.adapter.ViewsPagerAdapter;
 
 /**
- * 与RecyclePagerAdapter或ViewsPagerAdapter配合使用的ViewPager
+ * 涓嶳ecyclePagerAdapter鎴朧iewsPagerAdapter閰嶅悎浣跨敤鐨刅iewPager
  * Created by Alex on 2017/11/14.
  */
 @SuppressWarnings("unused")
@@ -35,3 +35,4 @@ public class RecycleViewPager extends ViewPager {
         }
     }
 }
+

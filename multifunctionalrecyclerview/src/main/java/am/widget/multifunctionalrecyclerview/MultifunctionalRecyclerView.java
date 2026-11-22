@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2017 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -17,14 +17,14 @@
 package am.widget.multifunctionalrecyclerview;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
 import am.widget.scalerecyclerview.ScaleRecyclerView;
 
 /**
- * 多功能RecyclerView
+ * 澶氬姛鑳絉ecyclerView
  * Created by Alex on 2017/11/9.
  */
 @SuppressWarnings("unused")
@@ -43,20 +43,18 @@ public class MultifunctionalRecyclerView extends ScaleRecyclerView {
     }
 
     /**
-     * 内容提供者
-     *
-     * @param <VH> 视图持有者
-     */
+     * 鍐呭鎻愪緵鑰?     *
+     * @param <VH> 瑙嗗浘鎸佹湁鑰?     */
     public static abstract class Adapter<VH extends ViewHolder> extends
             ScaleRecyclerView.Adapter<VH> {
     }
 
     /**
-     * 视图持有者
-     */
+     * 瑙嗗浘鎸佹湁鑰?     */
     public static class ViewHolder extends ScaleRecyclerView.ViewHolder {
         public ViewHolder(View itemView) {
             super(itemView);
         }
     }
 }
+

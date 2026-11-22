@@ -1,15 +1,15 @@
-package am.project.x.notification;
+﻿package am.project.x.notification;
 
 import android.app.Notification;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationCompat;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 
 /**
- * 通知构造器
+ * 閫氱煡鏋勯€犲櫒
  * Created by Alex on 2017/11/2.
  */
 
@@ -18,11 +18,11 @@ public class NotificationMaker {
     private static final int ID_DEFAULT = 2;
 
     /**
-     * 通知扫描
+     * 閫氱煡鎵弿
      *
      * @param context Context
-     * @param title   标题
-     * @param text    内容
+     * @param title   鏍囬
+     * @param text    鍐呭
      */
     public static void notifyScan(Context context, String title, String text) {
         NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
@@ -40,14 +40,13 @@ public class NotificationMaker {
     }
 
     /**
-     * 获取下载中通知
+     * 鑾峰彇涓嬭浇涓€氱煡
      *
      * @param context       Context
-     * @param title         标题
-     * @param text          内容
-     * @param progress      进度指
-     * @param indeterminate 是否为不确定进度
-     * @return 下载中通知
+     * @param title         鏍囬
+     * @param text          鍐呭
+     * @param progress      杩涘害鎸?     * @param indeterminate 鏄惁涓轰笉纭畾杩涘害
+     * @return 涓嬭浇涓€氱煡
      */
     public static Notification getNotificationDownloading(Context context,
                                                           String title, String text,
@@ -68,13 +67,13 @@ public class NotificationMaker {
 
 
     /**
-     * 发送推送默认通知
+     * 鍙戦€佹帹閫侀粯璁ら€氱煡
      *
      * @param context   Context
-     * @param title     消息标题
-     * @param text      消息文本
-     * @param tag       标签
-     * @param broadcast 广播
+     * @param title     娑堟伅鏍囬
+     * @param text      娑堟伅鏂囨湰
+     * @param tag       鏍囩
+     * @param broadcast 骞挎挱
      */
     public static void notifyPushDefault(Context context, String title, String text, String tag,
                                          @Nullable Intent broadcast) {
@@ -96,3 +95,4 @@ public class NotificationMaker {
         NotificationManagerCompat.from(context).notify(tag, ID_DEFAULT, builder.build());
     }
 }
+

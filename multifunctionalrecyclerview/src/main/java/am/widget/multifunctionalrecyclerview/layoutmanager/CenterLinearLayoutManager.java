@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2017 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,13 +18,13 @@ package am.widget.multifunctionalrecyclerview.layoutmanager;
 
 import android.content.Context;
 import android.support.v7.widget.PublicLinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * 剧中线性布局
+ * 鍓т腑绾挎€у竷灞€
  * Created by Alex on 2017/11/3.
  */
 @SuppressWarnings("all")
@@ -107,18 +107,18 @@ public class CenterLinearLayoutManager extends PublicLinearLayoutManager {
     }
 
     /**
-     * 判断是否剧中布局
+     * 鍒ゆ柇鏄惁鍓т腑甯冨眬
      *
-     * @return 是否剧中布局
+     * @return 鏄惁鍓т腑甯冨眬
      */
     public boolean isLayoutInCenter() {
         return mCenter;
     }
 
     /**
-     * 设置布局剧中
+     * 璁剧疆甯冨眬鍓т腑
      *
-     * @param center 剧中
+     * @param center 鍓т腑
      */
     public void setLayoutInCenter(boolean center) {
         if (mCenter == center)

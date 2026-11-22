@@ -1,35 +1,31 @@
-package am.project.x.utils;
+﻿package am.project.x.utils;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Base64;
 
 import java.util.regex.Pattern;
 
 
 /**
- * 字符串工具
- *
+ * 瀛楃涓插伐鍏? *
  * @author Alex
  */
 @SuppressWarnings("unused")
 public class StringUtils {
 
     /**
-     * 字符串检查
-     *
-     * @param str 待检查字符串
-     * @return 判断结果
+     * 瀛楃涓叉鏌?     *
+     * @param str 寰呮鏌ュ瓧绗︿覆
+     * @return 鍒ゆ柇缁撴灉
      */
     public static boolean isNullOrEmpty(String str) {
         return str == null || str.length() == 0;
     }
 
     /**
-     * 字符串匹配
-     *
-     * @param src 源
-     * @param des 匹配样式
-     * @return 是否匹配
+     * 瀛楃涓插尮閰?     *
+     * @param src 婧?     * @param des 鍖归厤鏍峰紡
+     * @return 鏄惁鍖归厤
      */
     public static boolean isMatching(@NonNull String src, @NonNull String des) {
         String regex = des.replace("*", "\\w*").replace("?", "\\w{1}");
@@ -37,11 +33,9 @@ public class StringUtils {
     }
 
     /**
-     * 克隆
+     * 鍏嬮殕
      *
-     * @param target 源
-     * @return 克隆字符串
-     */
+     * @param target 婧?     * @return 鍏嬮殕瀛楃涓?     */
     public static String clone(String target) {
         if (target == null)
             return null;
@@ -49,11 +43,8 @@ public class StringUtils {
     }
 
     /**
-     * 获取哈希值
-     *
-     * @param target 源
-     * @return 哈希值
-     */
+     * 鑾峰彇鍝堝笇鍊?     *
+     * @param target 婧?     * @return 鍝堝笇鍊?     */
     public static int hashCode(String target) {
         if (target == null)
             return 0;
@@ -61,12 +52,10 @@ public class StringUtils {
     }
 
     /**
-     * 字符串排序
-     *
-     * @param str1 字符串1
-     * @param str2 字符串2
-     * @return 排序值
-     */
+     * 瀛楃涓叉帓搴?     *
+     * @param str1 瀛楃涓?
+     * @param str2 瀛楃涓?
+     * @return 鎺掑簭鍊?     */
     public static int compareTo(String str1, String str2) {
         if (str1 == null || str2 == null)
             return 0;
@@ -81,30 +70,28 @@ public class StringUtils {
     }
 
     /**
-     * 判断字符串是否为数字
+     * 鍒ゆ柇瀛楃涓叉槸鍚︿负鏁板瓧
      *
-     * @param str 字符串
-     * @return 是否为数字
-     */
+     * @param str 瀛楃涓?     * @return 鏄惁涓烘暟瀛?     */
     public static boolean isNumeric(String str) {
         return Pattern.compile("[0-9]*").matcher(str).matches();
     }
 
     /**
-     * 将空字符串转为""
+     * 灏嗙┖瀛楃涓茶浆涓?"
      *
-     * @param str 待修改字符串
-     * @return 修改结果
+     * @param str 寰呬慨鏀瑰瓧绗︿覆
+     * @return 淇敼缁撴灉
      */
     public static String setNullToEmpty(String str) {
         return str == null ? "" : str;
     }
 
     /**
-     * 将空字符串转为"null"
+     * 灏嗙┖瀛楃涓茶浆涓?null"
      *
-     * @param str 待修改字符串
-     * @return 修改结果
+     * @param str 寰呬慨鏀瑰瓧绗︿覆
+     * @return 淇敼缁撴灉
      */
     public static String setNullToString(String str) {
         return str == null ? "null" : str;
@@ -112,13 +99,12 @@ public class StringUtils {
 
 
     /**
-     * BASE64 编码
+     * BASE64 缂栫爜
      *
-     * @param str         待编码字符串
-     * @param encodingIn  解码编码格式
-     * @param encodingOut 输出编码格式
-     * @return 编码字符串
-     */
+     * @param str         寰呯紪鐮佸瓧绗︿覆
+     * @param encodingIn  瑙ｇ爜缂栫爜鏍煎紡
+     * @param encodingOut 杈撳嚭缂栫爜鏍煎紡
+     * @return 缂栫爜瀛楃涓?     */
     public static String encodingBASE64(String str, String encodingIn, String encodingOut) {
         try {
             return new String(Base64.encode(str.getBytes(encodingIn), Base64.DEFAULT), encodingOut);
@@ -128,13 +114,12 @@ public class StringUtils {
     }
 
     /**
-     * BASE64 解码
+     * BASE64 瑙ｇ爜
      *
-     * @param str         待编码字符串
-     * @param encodingIn  解码编码格式
-     * @param encodingOut 输出编码格式
-     * @return 编码字符串
-     */
+     * @param str         寰呯紪鐮佸瓧绗︿覆
+     * @param encodingIn  瑙ｇ爜缂栫爜鏍煎紡
+     * @param encodingOut 杈撳嚭缂栫爜鏍煎紡
+     * @return 缂栫爜瀛楃涓?     */
     public static String decodingBASE64(String str, String encodingIn, String encodingOut) {
         try {
             return new String(Base64.decode(str.getBytes(encodingIn), Base64.DEFAULT), encodingOut);
@@ -144,9 +129,9 @@ public class StringUtils {
     }
 
     /**
-     * 获取长宽
+     * 鑾峰彇闀垮
      *
-     * @param size 长宽
+     * @param size 闀垮
      */
     public static void getSizeByUrl(String url, int[] size) {
         if (url == null || url.length() <= 0 || size == null || size.length < 2)
@@ -175,13 +160,12 @@ public class StringUtils {
     }
 
     /**
-     * 手机号码，身份证证等隐私内容加*
+     * 鎵嬫満鍙风爜锛岃韩浠借瘉璇佺瓑闅愮鍐呭鍔?
      *
-     * @param str       要加*的字符串
-     * @param frontLen  *前面预留长度
-     * @param behindLen *后面预留长度
-     * @return 加*后的字符串
-     */
+     * @param str       瑕佸姞*鐨勫瓧绗︿覆
+     * @param frontLen  *鍓嶉潰棰勭暀闀垮害
+     * @param behindLen *鍚庨潰棰勭暀闀垮害
+     * @return 鍔?鍚庣殑瀛楃涓?     */
     public static String getPrivateStr(String str, int frontLen, int behindLen) {
         int strLen = str.length();
         if (frontLen >= strLen || behindLen >= strLen || frontLen + behindLen >= strLen) {
@@ -197,11 +181,9 @@ public class StringUtils {
     }
 
     /**
-     * 去掉字符串前后所有的空格
+     * 鍘绘帀瀛楃涓插墠鍚庢墍鏈夌殑绌烘牸
      *
-     * @param str 字符串
-     * @return 字符串
-     */
+     * @param str 瀛楃涓?     * @return 瀛楃涓?     */
     public static String trimStartAndEnd(String str) {
         while (str.startsWith(" ")) {
             str = str.substring(1, str.length()).trim();
@@ -213,10 +195,9 @@ public class StringUtils {
     }
 
     /**
-     * 判断是否是一个IP
+     * 鍒ゆ柇鏄惁鏄竴涓狪P
      *
-     * @param IP 字符串
-     * @return 是否是一个IP
+     * @param IP 瀛楃涓?     * @return 鏄惁鏄竴涓狪P
      */
     public static boolean isIp(String IP) {
         boolean b = false;
@@ -233,13 +214,12 @@ public class StringUtils {
     }
 
     /**
-     * 判断是否中文
-     * GENERAL_PUNCTUATION 判断中文的“号
-     * CJK_SYMBOLS_AND_PUNCTUATION 判断中文的。号
-     * HALFWIDTH_AND_FULLWIDTH_FORMS 判断中文的，号
-     *
-     * @param c 字符
-     * @return 是否中文
+     * 鍒ゆ柇鏄惁涓枃
+     * GENERAL_PUNCTUATION 鍒ゆ柇涓枃鐨勨€滃彿
+     * CJK_SYMBOLS_AND_PUNCTUATION 鍒ゆ柇涓枃鐨勩€傚彿
+     * HALFWIDTH_AND_FULLWIDTH_FORMS 鍒ゆ柇涓枃鐨勶紝鍙?     *
+     * @param c 瀛楃
+     * @return 鏄惁涓枃
      */
     public static boolean isChinese(char c) {
         Character.UnicodeBlock ub = Character.UnicodeBlock.of(c);
@@ -253,11 +233,8 @@ public class StringUtils {
     }
 
     /**
-     * 判断字符串是否包含中文
-     *
-     * @param str 字符串
-     * @return 字符串是否包含中文
-     */
+     * 鍒ゆ柇瀛楃涓叉槸鍚﹀寘鍚腑鏂?     *
+     * @param str 瀛楃涓?     * @return 瀛楃涓叉槸鍚﹀寘鍚腑鏂?     */
     public static boolean containsChinese(String str) {
         if (str == null)
             return false;
@@ -269,11 +246,9 @@ public class StringUtils {
     }
 
     /**
-     * 获取文字字节数(2字节以上的字符一律按2字节统计)
+     * 鑾峰彇鏂囧瓧瀛楄妭鏁?2瀛楄妭浠ヤ笂鐨勫瓧绗︿竴寰嬫寜2瀛楄妭缁熻)
      *
-     * @param s 字符串
-     * @return 字节数
-     */
+     * @param s 瀛楃涓?     * @return 瀛楄妭鏁?     */
     public static int getWordCount(String s) {
         if (s == null)
             return 0;
@@ -281,10 +256,9 @@ public class StringUtils {
     }
 
     /**
-     * 检测是否有emoji字符
+     * 妫€娴嬫槸鍚︽湁emoji瀛楃
      *
-     * @param source 字符串
-     * @return 一旦含有就抛出
+     * @param source 瀛楃涓?     * @return 涓€鏃﹀惈鏈夊氨鎶涘嚭
      */
 
     public static boolean containsEmoji(String source) {
@@ -313,10 +287,8 @@ public class StringUtils {
     }
 
     /**
-     * 获取编码类型（非精准）
-     *
-     * @param first3bytes 前三个字节
-     * @return 编码类型
+     * 鑾峰彇缂栫爜绫诲瀷锛堥潪绮惧噯锛?     *
+     * @param first3bytes 鍓嶄笁涓瓧鑺?     * @return 缂栫爜绫诲瀷
      */
     public static String getCharset(byte[] first3bytes) {
         String charset = "GBK";
@@ -334,9 +306,10 @@ public class StringUtils {
         } else if (first3bytes[0] == (byte) 0xFF && first3bytes[1] == (byte) 0xFF) {
             charset = "utf-16le";
         } else {
-            // 添加更多判断方法
+            // 娣诲姞鏇村鍒ゆ柇鏂规硶
             charset = "GBK";
         }
         return charset;
     }
 }
+

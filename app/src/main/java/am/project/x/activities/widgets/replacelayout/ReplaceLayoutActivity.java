@@ -1,8 +1,8 @@
-package am.project.x.activities.widgets.replacelayout;
+﻿package am.project.x.activities.widgets.replacelayout;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -146,3 +146,4 @@ public class ReplaceLayoutActivity extends BaseActivity implements
         context.startActivity(new Intent(context, ReplaceLayoutActivity.class));
     }
 }
+

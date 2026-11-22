@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2015 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,10 +21,10 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewPager;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.core.view.ViewCompat;
+import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -32,14 +32,14 @@ import android.view.View;
 import am.widget.basetabstrip.BaseTabStrip;
 
 /**
- * ViewPager 小点
+ * ViewPager 灏忕偣
  *
  * @author Alex
  */
 @ViewPager.DecorView
 public class TagTabStrip extends BaseTabStrip {
 
-    private final static int DEFAULT_SIZE = 8;// 默认图片dp
+    private final static int DEFAULT_SIZE = 8;// 榛樿鍥剧墖dp
     private final static int DEFAULT_DRAWABLE_SELECTED = 0xff808080;
     private final static int DEFAULT_DRAWABLE_NORMAL = 0x80808080;
     private static final int[] ATTRS = new int[]{android.R.attr.gravity, android.R.attr.drawablePadding};
@@ -203,10 +203,8 @@ public class TagTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取控件所需的总宽度
-     *
-     * @return 控件所需的总宽度
-     */
+     * 鑾峰彇鎺т欢鎵€闇€鐨勬€诲搴?     *
+     * @return 鎺т欢鎵€闇€鐨勬€诲搴?     */
     private int getTotalWidth() {
         int gap = getItemCount() > 0 ? drawablePadding * (getItemCount() - 1) : 0;
         final int itemWidth = getItemWidth();
@@ -220,10 +218,8 @@ public class TagTabStrip extends BaseTabStrip {
 
 
     /**
-     * 获取控件所需的总高度
-     *
-     * @return 控件所需的总高度
-     */
+     * 鑾峰彇鎺т欢鎵€闇€鐨勬€婚珮搴?     *
+     * @return 鎺т欢鎵€闇€鐨勬€婚珮搴?     */
     private int getTotalHeight() {
         final int itemHeight = getItemHeight();
         mScaleSpaceY = 0;
@@ -234,9 +230,9 @@ public class TagTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取子项宽度
+     * 鑾峰彇瀛愰」瀹藉害
      *
-     * @return 子项宽度
+     * @return 瀛愰」瀹藉害
      */
     private int getItemWidth() {
         if (!hasDrawable()) {
@@ -255,9 +251,9 @@ public class TagTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取子项高度
+     * 鑾峰彇瀛愰」楂樺害
      *
-     * @return 子项高度
+     * @return 瀛愰」楂樺害
      */
     private int getItemHeight() {
         if (!hasDrawable()) {
@@ -276,10 +272,8 @@ public class TagTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 判断是否有子项
-     *
-     * @return 是否有子项
-     */
+     * 鍒ゆ柇鏄惁鏈夊瓙椤?     *
+     * @return 鏄惁鏈夊瓙椤?     */
     private boolean hasDrawable() {
         return mSingleDrawable != null || (mNormalDrawable != null && mSelectedDrawable != null);
     }
@@ -375,9 +369,9 @@ public class TagTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取排版方式
+     * 鑾峰彇鎺掔増鏂瑰紡
      *
-     * @return 排版方式
+     * @return 鎺掔増鏂瑰紡
      */
     @SuppressWarnings("unused")
     public int getGravity() {
@@ -385,9 +379,9 @@ public class TagTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置排版方式
+     * 璁剧疆鎺掔増鏂瑰紡
      *
-     * @param gravity 排版方式
+     * @param gravity 鎺掔増鏂瑰紡
      */
     public void setGravity(int gravity) {
         mGravity = gravity;
@@ -396,9 +390,9 @@ public class TagTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取子项间距
+     * 鑾峰彇瀛愰」闂磋窛
      *
-     * @return 子项间距
+     * @return 瀛愰」闂磋窛
      */
     @SuppressWarnings("unused")
     public int getDrawablePadding() {
@@ -406,9 +400,9 @@ public class TagTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置子项间距
+     * 璁剧疆瀛愰」闂磋窛
      *
-     * @param padding 子项间距
+     * @param padding 瀛愰」闂磋窛
      */
     public void setDrawablePadding(int padding) {
         drawablePadding = padding;
@@ -417,20 +411,16 @@ public class TagTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取选中子项缩放比
-     *
-     * @return 选中子项缩放比
-     */
+     * 鑾峰彇閫変腑瀛愰」缂╂斁姣?     *
+     * @return 閫変腑瀛愰」缂╂斁姣?     */
     @SuppressWarnings("unused")
     public float getScale() {
         return mScale;
     }
 
     /**
-     * 设置选中子项缩放比
-     *
-     * @param scale 选中子项缩放比
-     */
+     * 璁剧疆閫変腑瀛愰」缂╂斁姣?     *
+     * @param scale 閫変腑瀛愰」缂╂斁姣?     */
     public void setScale(float scale) {
         if (scale > 0 && scale != mScale) {
             mScale = scale;
@@ -440,9 +430,9 @@ public class TagTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置子项图片
+     * 璁剧疆瀛愰」鍥剧墖
      *
-     * @param item 子项图片
+     * @param item 瀛愰」鍥剧墖
      */
     public void setDrawable(Drawable item) {
         if (item != null && item.isStateful()) {
@@ -460,11 +450,10 @@ public class TagTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置图片
+     * 璁剧疆鍥剧墖
      *
-     * @param normal   普通图
-     * @param selected 选中图
-     */
+     * @param normal   鏅€氬浘
+     * @param selected 閫変腑鍥?     */
     public void setDrawables(Drawable normal, Drawable selected) {
         mSingleDrawable = null;
         mNormalDrawable = normal;
@@ -474,11 +463,10 @@ public class TagTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置图片
+     * 璁剧疆鍥剧墖
      *
-     * @param normal   普通图
-     * @param selected 选中图
-     */
+     * @param normal   鏅€氬浘
+     * @param selected 閫変腑鍥?     */
     @SuppressWarnings("unused")
     public void setDrawables(int normal, int selected) {
         setDrawables(ContextCompat.getDrawable(getContext(), normal),
@@ -486,12 +474,13 @@ public class TagTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置子项图片
+     * 璁剧疆瀛愰」鍥剧墖
      *
-     * @param item 子项图片
+     * @param item 瀛愰」鍥剧墖
      */
     public void setDrawable(int item) {
         setDrawable(ContextCompat.getDrawable(getContext(), item));
     }
 
 }
+

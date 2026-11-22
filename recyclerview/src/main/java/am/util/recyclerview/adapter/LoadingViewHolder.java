@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2015 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,11 +16,11 @@
 
 package am.util.recyclerview.adapter;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 /**
- * 尾部载入的ViewHolder
+ * 灏鹃儴杞藉叆鐨刅iewHolder
  * Created by Alex on 2016/12/27.
  */
 @SuppressWarnings("all")

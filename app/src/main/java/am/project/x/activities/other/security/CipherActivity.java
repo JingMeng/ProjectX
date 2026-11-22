@@ -1,11 +1,11 @@
-package am.project.x.activities.other.security;
+﻿package am.project.x.activities.other.security;
 
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
@@ -151,14 +151,14 @@ public class CipherActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void getMD5(StringBuffer buffer, String text) {
-        buffer.append("MD5：");
+        buffer.append("MD5锛?);
         buffer.append(MessageDigestUtils.getMD5String(text));
         buffer.append("\n");
         buffer.append("\n");
     }
 
     private void getSHA1(StringBuffer buffer, String text) {
-        buffer.append("SHA-1：");
+        buffer.append("SHA-1锛?);
         buffer.append(MessageDigestUtils.getSHA1String(text.getBytes()));
         buffer.append("\n");
         buffer.append("\n");
@@ -166,7 +166,7 @@ public class CipherActivity extends BaseActivity implements View.OnClickListener
 
     @SuppressWarnings("all")
     private void getSHA224(StringBuffer buffer, String text) {
-        buffer.append("SHA-224：");
+        buffer.append("SHA-224锛?);
         if (Build.VERSION.SDK_INT > 8 && Build.VERSION.SDK_INT < 22) {
             buffer.append("SHA-224 Supported API Levels 1-8,22+");
         } else {
@@ -177,21 +177,21 @@ public class CipherActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void getSHA256(StringBuffer buffer, String text) {
-        buffer.append("SHA-256：");
+        buffer.append("SHA-256锛?);
         buffer.append(MessageDigestUtils.getSHA256String(text.getBytes()));
         buffer.append("\n");
         buffer.append("\n");
     }
 
     private void getSHA384(StringBuffer buffer, String text) {
-        buffer.append("SHA-384：");
+        buffer.append("SHA-384锛?);
         buffer.append(MessageDigestUtils.getSHA384String(text.getBytes()));
         buffer.append("\n");
         buffer.append("\n");
     }
 
     private void getSHA512(StringBuffer buffer, String text) {
-        buffer.append("SHA-512：");
+        buffer.append("SHA-512锛?);
         buffer.append(MessageDigestUtils.getSHA512String(text.getBytes()));
         buffer.append("\n");
     }
@@ -232,35 +232,35 @@ public class CipherActivity extends BaseActivity implements View.OnClickListener
      * DESede
      */
     private void doDESede(StringBuffer buffer, String text) {
-        buffer.append("DESede：\n");
+        buffer.append("DESede锛歕n");
         byte[] cipher;
         byte[] result;
         byte[] key;
         try {
             key = DESedeUtil.generateKey();
         } catch (Exception e) {
-            buffer.append("KEY：failure.\n");
+            buffer.append("KEY锛歠ailure.\n");
             return;
         }
-        buffer.append("KEY：");
+        buffer.append("KEY锛?);
         buffer.append(Base64.encodeToString(key, Base64.DEFAULT));
         buffer.append("\n");
         try {
             cipher = DESedeUtil.encrypt(key, text.getBytes());
         } catch (Exception e) {
-            buffer.append("ENCRYPT：failure.\n");
+            buffer.append("ENCRYPT锛歠ailure.\n");
             return;
         }
-        buffer.append("ENCRYPT：");
+        buffer.append("ENCRYPT锛?);
         buffer.append(Base64.encodeToString(cipher, Base64.DEFAULT));
         buffer.append("\n");
         try {
             result = DESedeUtil.decrypt(key, cipher);
         } catch (Exception e) {
-            buffer.append("DECRYPT：failure.\n");
+            buffer.append("DECRYPT锛歠ailure.\n");
             return;
         }
-        buffer.append("ENCRYPT：");
+        buffer.append("ENCRYPT锛?);
         buffer.append(new String(result));
         buffer.append("\n");
         buffer.append("\n");
@@ -268,9 +268,9 @@ public class CipherActivity extends BaseActivity implements View.OnClickListener
 
     private void doDESedeWithRandomKey(StringBuffer buffer, String text) {
         buffer.append("\n");
-        buffer.append("DESedeWithRandomKey：\n");
+        buffer.append("DESedeWithRandomKey锛歕n");
         String seed = "this is my seed";
-        buffer.append("SEED：");
+        buffer.append("SEED锛?);
         buffer.append(seed);
         buffer.append("\n");
         byte[] cipher;
@@ -279,41 +279,41 @@ public class CipherActivity extends BaseActivity implements View.OnClickListener
         try {
             key = DESedeUtil.getRandomKey(seed.getBytes());
         } catch (Exception e) {
-            buffer.append("KEY：failure.\n");
+            buffer.append("KEY锛歠ailure.\n");
             return;
         }
-        buffer.append("KEY：");
+        buffer.append("KEY锛?);
         buffer.append(Base64.encodeToString(key, Base64.DEFAULT));
         buffer.append("\n");
         try {
             cipher = DESedeUtil.encrypt(key, text.getBytes());
         } catch (Exception e) {
-            buffer.append("ENCRYPT：failure.\n");
+            buffer.append("ENCRYPT锛歠ailure.\n");
             return;
         }
-        buffer.append("ENCRYPT：");
+        buffer.append("ENCRYPT锛?);
         buffer.append(Base64.encodeToString(cipher, Base64.DEFAULT));
         buffer.append("\n");
         try {
             result = DESedeUtil.decrypt(key, cipher);
         } catch (Exception e) {
-            buffer.append("DECRYPT：failure.\n");
+            buffer.append("DECRYPT锛歠ailure.\n");
             return;
         }
-        buffer.append("ENCRYPT：");
+        buffer.append("ENCRYPT锛?);
         buffer.append(new String(result));
         buffer.append("\n");
     }
 
     private void doDESedeWithPBEKey(StringBuffer buffer, String text) {
         buffer.append("\n");
-        buffer.append("DESedeWithPBEKey：\n");
+        buffer.append("DESedeWithPBEKey锛歕n");
         String password = "this is my password";
-        buffer.append("PASSWORD：");
+        buffer.append("PASSWORD锛?);
         buffer.append(password);
         buffer.append("\n");
         String salt = "this is my salt, it should be very long.";
-        buffer.append("SALT：");
+        buffer.append("SALT锛?);
         buffer.append(salt);
         buffer.append("\n");
         byte[] cipher;
@@ -322,64 +322,64 @@ public class CipherActivity extends BaseActivity implements View.OnClickListener
         try {
             key = DESedeUtil.getPBEKey(password.toCharArray(), salt.getBytes());
         } catch (Exception e) {
-            buffer.append("KEY：failure.\n");
+            buffer.append("KEY锛歠ailure.\n");
             return;
         }
-        buffer.append("KEY：");
+        buffer.append("KEY锛?);
         buffer.append(Base64.encodeToString(key, Base64.DEFAULT));
         buffer.append("\n");
         try {
             cipher = DESedeUtil.encrypt(key, text.getBytes());
         } catch (Exception e) {
-            buffer.append("ENCRYPT：failure.\n");
+            buffer.append("ENCRYPT锛歠ailure.\n");
             e.printStackTrace();
             return;
         }
-        buffer.append("ENCRYPT：");
+        buffer.append("ENCRYPT锛?);
         buffer.append(Base64.encodeToString(cipher, Base64.DEFAULT));
         buffer.append("\n");
         try {
             result = DESedeUtil.decrypt(key, cipher);
         } catch (Exception e) {
-            buffer.append("DECRYPT：failure.\n");
+            buffer.append("DECRYPT锛歠ailure.\n");
             return;
         }
-        buffer.append("ENCRYPT：");
+        buffer.append("ENCRYPT锛?);
         buffer.append(new String(result));
         buffer.append("\n");
     }
 
     private void doAES(StringBuffer buffer, String text) {
         buffer.append("\n");
-        buffer.append("AES：\n");
+        buffer.append("AES锛歕n");
         byte[] cipher;
         byte[] result;
         byte[] key;
         try {
             key = AESUtil.generateKey();
         } catch (Exception e) {
-            buffer.append("KEY：failure.\n");
+            buffer.append("KEY锛歠ailure.\n");
             return;
         }
-        buffer.append("KEY：");
+        buffer.append("KEY锛?);
         buffer.append(Base64.encodeToString(key, Base64.DEFAULT));
         buffer.append("\n");
         try {
             cipher = AESUtil.encrypt(key, text.getBytes());
         } catch (Exception e) {
-            buffer.append("ENCRYPT：failure.\n");
+            buffer.append("ENCRYPT锛歠ailure.\n");
             return;
         }
-        buffer.append("ENCRYPT：");
+        buffer.append("ENCRYPT锛?);
         buffer.append(Base64.encodeToString(cipher, Base64.DEFAULT));
         buffer.append("\n");
         try {
             result = AESUtil.decrypt(key, cipher);
         } catch (Exception e) {
-            buffer.append("DECRYPT：failure.\n");
+            buffer.append("DECRYPT锛歠ailure.\n");
             return;
         }
-        buffer.append("ENCRYPT：");
+        buffer.append("ENCRYPT锛?);
         buffer.append(new String(result));
         buffer.append("\n");
         buffer.append("\n");
@@ -387,9 +387,9 @@ public class CipherActivity extends BaseActivity implements View.OnClickListener
 
     private void doAESWithRandomKey(StringBuffer buffer, String text) {
         buffer.append("\n");
-        buffer.append("AESWithRandomKey：\n");
+        buffer.append("AESWithRandomKey锛歕n");
         String seed = "this is my seed";
-        buffer.append("SEED：");
+        buffer.append("SEED锛?);
         buffer.append(seed);
         buffer.append("\n");
         byte[] cipher;
@@ -398,28 +398,28 @@ public class CipherActivity extends BaseActivity implements View.OnClickListener
         try {
             key = AESUtil.getRandomKey(seed.getBytes());
         } catch (Exception e) {
-            buffer.append("KEY：failure.\n");
+            buffer.append("KEY锛歠ailure.\n");
             return;
         }
-        buffer.append("KEY：");
+        buffer.append("KEY锛?);
         buffer.append(Base64.encodeToString(key, Base64.DEFAULT));
         buffer.append("\n");
         try {
             cipher = AESUtil.encrypt(key, text.getBytes());
         } catch (Exception e) {
-            buffer.append("ENCRYPT：failure.\n");
+            buffer.append("ENCRYPT锛歠ailure.\n");
             return;
         }
-        buffer.append("ENCRYPT：");
+        buffer.append("ENCRYPT锛?);
         buffer.append(Base64.encodeToString(cipher, Base64.DEFAULT));
         buffer.append("\n");
         try {
             result = AESUtil.decrypt(key, cipher);
         } catch (Exception e) {
-            buffer.append("DECRYPT：failure.\n");
+            buffer.append("DECRYPT锛歠ailure.\n");
             return;
         }
-        buffer.append("ENCRYPT：");
+        buffer.append("ENCRYPT锛?);
         buffer.append(new String(result));
         buffer.append("\n");
         buffer.append("\n");
@@ -427,13 +427,13 @@ public class CipherActivity extends BaseActivity implements View.OnClickListener
 
     private void doAESWithPBEKey(StringBuffer buffer, String text) {
         buffer.append("\n");
-        buffer.append("AESWithPBEKey：\n");
+        buffer.append("AESWithPBEKey锛歕n");
         String password = "this is my password";
-        buffer.append("PASSWORD：");
+        buffer.append("PASSWORD锛?);
         buffer.append(password);
         buffer.append("\n");
         String salt = "this is my salt, it should be very long.";
-        buffer.append("SALT：");
+        buffer.append("SALT锛?);
         buffer.append(salt);
         buffer.append("\n");
         byte[] cipher;
@@ -442,28 +442,28 @@ public class CipherActivity extends BaseActivity implements View.OnClickListener
         try {
             key = AESUtil.getPBEKey(password.toCharArray(), salt.getBytes());
         } catch (Exception e) {
-            buffer.append("KEY：failure.\n");
+            buffer.append("KEY锛歠ailure.\n");
             return;
         }
-        buffer.append("KEY：");
+        buffer.append("KEY锛?);
         buffer.append(Base64.encodeToString(key, Base64.DEFAULT));
         buffer.append("\n");
         try {
             cipher = AESUtil.encrypt(key, text.getBytes());
         } catch (Exception e) {
-            buffer.append("ENCRYPT：failure.\n");
+            buffer.append("ENCRYPT锛歠ailure.\n");
             return;
         }
-        buffer.append("ENCRYPT：");
+        buffer.append("ENCRYPT锛?);
         buffer.append(Base64.encodeToString(cipher, Base64.DEFAULT));
         buffer.append("\n");
         try {
             result = AESUtil.decrypt(key, cipher);
         } catch (Exception e) {
-            buffer.append("DECRYPT：failure.\n");
+            buffer.append("DECRYPT锛歠ailure.\n");
             return;
         }
-        buffer.append("ENCRYPT：");
+        buffer.append("ENCRYPT锛?);
         buffer.append(new String(result));
         buffer.append("\n");
         buffer.append("\n");
@@ -471,7 +471,7 @@ public class CipherActivity extends BaseActivity implements View.OnClickListener
 
     private void doRSA(StringBuffer buffer, String text) {
         buffer.append("\n");
-        buffer.append("RSA：\n");
+        buffer.append("RSA锛歕n");
         byte[] cipher;
         byte[] result;
         byte[] privateKey;
@@ -481,31 +481,31 @@ public class CipherActivity extends BaseActivity implements View.OnClickListener
             privateKey = keyPair.getPrivate().getEncoded();
             publicKey = keyPair.getPublic().getEncoded();
         } catch (Exception e) {
-            buffer.append("KEY：failure.\n");
+            buffer.append("KEY锛歠ailure.\n");
             return;
         }
-        buffer.append("PRIVATE KEY：");
+        buffer.append("PRIVATE KEY锛?);
         buffer.append(Base64.encodeToString(privateKey, Base64.DEFAULT));
         buffer.append("\n");
-        buffer.append("PUBLIC KEY：");
+        buffer.append("PUBLIC KEY锛?);
         buffer.append(Base64.encodeToString(publicKey, Base64.DEFAULT));
         buffer.append("\n");
         try {
             cipher = RSAUtil.encryptByPublicKey(publicKey, text.getBytes());
         } catch (Exception e) {
-            buffer.append("ENCRYPT：failure.\n");
+            buffer.append("ENCRYPT锛歠ailure.\n");
             return;
         }
-        buffer.append("ENCRYPT：");
+        buffer.append("ENCRYPT锛?);
         buffer.append(Base64.encodeToString(cipher, Base64.DEFAULT));
         buffer.append("\n");
         try {
             result = RSAUtil.decryptByPrivateKey(privateKey, cipher);
         } catch (Exception e) {
-            buffer.append("DECRYPT：failure.\n");
+            buffer.append("DECRYPT锛歠ailure.\n");
             return;
         }
-        buffer.append("ENCRYPT：");
+        buffer.append("ENCRYPT锛?);
         buffer.append(new String(result));
         buffer.append("\n");
         buffer.append("\n");
@@ -515,3 +515,4 @@ public class CipherActivity extends BaseActivity implements View.OnClickListener
         context.startActivity(new Intent(context, CipherActivity.class));
     }
 }
+

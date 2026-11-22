@@ -1,15 +1,14 @@
-package am.project.x.widgets.display;
+﻿package am.project.x.widgets.display;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import am.widget.multifunctionalrecyclerview.MultifunctionalLinearLayoutManager;
 
 
 /**
- * 显示布局管理器
- * Created by Xiang Zhicheng on 2017/11/6.
+ * 鏄剧ず甯冨眬绠＄悊鍣? * Created by Xiang Zhicheng on 2017/11/6.
  */
 
 class DisplayLayoutManager extends MultifunctionalLinearLayoutManager {
@@ -144,3 +143,4 @@ class DisplayLayoutManager extends MultifunctionalLinearLayoutManager {
     }
 
 }
+

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2015 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,53 +25,48 @@ import android.graphics.Paint.Align;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.DrawableRes;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewPager;
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.ViewCompat;
+import androidx.viewpager.widget.ViewPager;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 
 import am.widget.basetabstrip.BaseTabStrip;
 
 /**
- * 滑动渐变TabStrip，子项建议不超过5个
- *
+ * 婊戝姩娓愬彉TabStrip锛屽瓙椤瑰缓璁笉瓒呰繃5涓? *
  * @author Alex
  */
 @ViewPager.DecorView
 public class GradientTabStrip extends BaseTabStrip {
 
-    public static final int TAG_MIN_SIZE_MODE_HAS_TEXT = 0;// 当图片最小宽高更小时，按图片计算
-    public static final int TAG_MIN_SIZE_MODE_ALWAYS = 1;// 按照设置的最小宽高
-    private static final int DEFAULT_TEXT_SIZE = 14;// 默认字体大小dp
-    private static final int DEFAULT_TEXT_COLOR = 0xff000000;// 默认字体颜色
-    private static final int DEFAULT_TAG_TEXT_SIZE = 11;// 默认Tag字体大小sp
-    private static final int DEFAULT_TAG_TEXT_COLOR = 0xffffffff;// 默认Tag文字颜色
-    private static final int DEFAULT_TAG_MIN_SIZE = 15;// 默认Tag最小大小dp
+    public static final int TAG_MIN_SIZE_MODE_HAS_TEXT = 0;// 褰撳浘鐗囨渶灏忓楂樻洿灏忔椂锛屾寜鍥剧墖璁＄畻
+    public static final int TAG_MIN_SIZE_MODE_ALWAYS = 1;// 鎸夌収璁剧疆鐨勬渶灏忓楂?    private static final int DEFAULT_TEXT_SIZE = 14;// 榛樿瀛椾綋澶у皬dp
+    private static final int DEFAULT_TEXT_COLOR = 0xff000000;// 榛樿瀛椾綋棰滆壊
+    private static final int DEFAULT_TAG_TEXT_SIZE = 11;// 榛樿Tag瀛椾綋澶у皬sp
+    private static final int DEFAULT_TAG_TEXT_COLOR = 0xffffffff;// 榛樿Tag鏂囧瓧棰滆壊
+    private static final int DEFAULT_TAG_MIN_SIZE = 15;// 榛樿Tag鏈€灏忓ぇ灏廳p
     private static final int[] ATTRS = new int[]{android.R.attr.textSize,
             android.R.attr.textColor, android.R.attr.drawablePadding};
-    private final TextPaint mTextPaint;// 文字画笔
-    private float mTextSize;// 文字大小
-    private ColorStateList mTextColor;// 文字颜色
-    private int mDrawablePadding;// 图文间距
-    private Drawable mInterval;// 子项间隔
-    private int mMinItemWidth;// 最小子项宽度
-    private GradientTabAdapter mAdapter;// Tag
-    private float mTagTextSize;// Tag文字大小
-    private int mTagTextColor;// Tag文字颜色
-    private Drawable mTagBackground;// Tag文字背景
-    private int mTagMinSizeMode;// Tag文字大小模式
-    private int mTagMinWidth;// Tag文字最小宽度
-    private int mTagMinHeight;// Tag文字最小高度
-    private TagLocation mTagLocation;// Tag布局
-    private Rect mTextMeasureBounds = new Rect();// 文字测量
-    private int mItemHeight;// 高度
-    private float mItemWidth;// 宽度
-    private int mMaxDrawableWidth;// 最大图片宽
-    private int mMaxDrawableHeight;// 最大图片高
-    private int mCenterGap;// 中间间隔
+    private final TextPaint mTextPaint;// 鏂囧瓧鐢荤瑪
+    private float mTextSize;// 鏂囧瓧澶у皬
+    private ColorStateList mTextColor;// 鏂囧瓧棰滆壊
+    private int mDrawablePadding;// 鍥炬枃闂磋窛
+    private Drawable mInterval;// 瀛愰」闂撮殧
+    private int mMinItemWidth;// 鏈€灏忓瓙椤瑰搴?    private GradientTabAdapter mAdapter;// Tag
+    private float mTagTextSize;// Tag鏂囧瓧澶у皬
+    private int mTagTextColor;// Tag鏂囧瓧棰滆壊
+    private Drawable mTagBackground;// Tag鏂囧瓧鑳屾櫙
+    private int mTagMinSizeMode;// Tag鏂囧瓧澶у皬妯″紡
+    private int mTagMinWidth;// Tag鏂囧瓧鏈€灏忓搴?    private int mTagMinHeight;// Tag鏂囧瓧鏈€灏忛珮搴?    private TagLocation mTagLocation;// Tag甯冨眬
+    private Rect mTextMeasureBounds = new Rect();// 鏂囧瓧娴嬮噺
+    private int mItemHeight;// 楂樺害
+    private float mItemWidth;// 瀹藉害
+    private int mMaxDrawableWidth;// 鏈€澶у浘鐗囧
+    private int mMaxDrawableHeight;// 鏈€澶у浘鐗囬珮
+    private int mCenterGap;// 涓棿闂撮殧
     private int mCurrentPager = 0;
     private int mNextPager = 0;
     private float mOffset = 1;
@@ -252,10 +247,8 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取最大图片宽度
-     *
-     * @return 最大图片宽度
-     */
+     * 鑾峰彇鏈€澶у浘鐗囧搴?     *
+     * @return 鏈€澶у浘鐗囧搴?     */
     protected int getMaxDrawableWidth() {
         if (mAdapter == null)
             return 0;
@@ -274,10 +267,8 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取最大图片高度
-     *
-     * @return 最大图片高度
-     */
+     * 鑾峰彇鏈€澶у浘鐗囬珮搴?     *
+     * @return 鏈€澶у浘鐗囬珮搴?     */
     protected int getMaxDrawableHeight() {
         if (mAdapter == null)
             return 0;
@@ -296,9 +287,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取间隔宽度
+     * 鑾峰彇闂撮殧瀹藉害
      *
-     * @return 间隔宽度
+     * @return 闂撮殧瀹藉害
      */
     protected int getIntervalWidth() {
         return mInterval == null ? 0 : mInterval.getIntrinsicWidth();
@@ -385,9 +376,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 绘制子项
+     * 缁樺埗瀛愰」
      *
-     * @param canvas 画布
+     * @param canvas 鐢诲竷
      */
     protected void drawItem(Canvas canvas, int position) {
         drawItemBackground(canvas, position);
@@ -398,10 +389,10 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 绘制背景
+     * 缁樺埗鑳屾櫙
      *
-     * @param canvas   画布
-     * @param position 子项坐标
+     * @param canvas   鐢诲竷
+     * @param position 瀛愰」鍧愭爣
      */
     protected void drawItemBackground(Canvas canvas, int position) {
         if (!hasItemBackgrounds())
@@ -427,10 +418,10 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 绘制间隔
+     * 缁樺埗闂撮殧
      *
-     * @param canvas   画布
-     * @param position 子项坐标
+     * @param canvas   鐢诲竷
+     * @param position 瀛愰」鍧愭爣
      */
     protected void drawInterval(Canvas canvas, int position) {
         if (mInterval == null || mInterval.getIntrinsicWidth() <= 0
@@ -452,10 +443,10 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 绘制图片
+     * 缁樺埗鍥剧墖
      *
-     * @param canvas   画布
-     * @param position 子项坐标
+     * @param canvas   鐢诲竷
+     * @param position 瀛愰」鍧愭爣
      */
     protected void drawDrawable(Canvas canvas, int position) {
         if (mAdapter == null)
@@ -507,10 +498,10 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 绘制文字
+     * 缁樺埗鏂囧瓧
      *
-     * @param canvas   画布
-     * @param position 子项坐标
+     * @param canvas   鐢诲竷
+     * @param position 瀛愰」鍧愭爣
      */
     protected void drawText(Canvas canvas, int position) {
         if (getItemText(position) == null)
@@ -547,10 +538,10 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 绘制Tag
+     * 缁樺埗Tag
      *
-     * @param canvas   画布
-     * @param position 子项坐标
+     * @param canvas   鐢诲竷
+     * @param position 瀛愰」鍧愭爣
      */
     protected void drawTag(Canvas canvas, int position) {
         if (mAdapter == null || !mAdapter.isTagEnable(position))
@@ -612,9 +603,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取文字大小
+     * 鑾峰彇鏂囧瓧澶у皬
      *
-     * @return 文字大小
+     * @return 鏂囧瓧澶у皬
      */
     @SuppressWarnings("unused")
     public float getTextSize() {
@@ -622,9 +613,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置文字大小
+     * 璁剧疆鏂囧瓧澶у皬
      *
-     * @param textSize 文字大小
+     * @param textSize 鏂囧瓧澶у皬
      */
     public void setTextSize(int textSize) {
         if (mTextSize != textSize) {
@@ -635,9 +626,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取文字颜色
+     * 鑾峰彇鏂囧瓧棰滆壊
      *
-     * @return 文字颜色
+     * @return 鏂囧瓧棰滆壊
      */
     @SuppressWarnings("unused")
     public ColorStateList getTextColor() {
@@ -645,9 +636,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置文字颜色
+     * 璁剧疆鏂囧瓧棰滆壊
      *
-     * @param color 文字颜色
+     * @param color 鏂囧瓧棰滆壊
      */
     public void setTextColor(ColorStateList color) {
         if (color != null && color != mTextColor) {
@@ -657,18 +648,18 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置文字颜色
+     * 璁剧疆鏂囧瓧棰滆壊
      *
-     * @param color 文字颜色
+     * @param color 鏂囧瓧棰滆壊
      */
     public void setTextColor(@ColorInt int color) {
         setTextColor(ColorStateList.valueOf(color));
     }
 
     /**
-     * 获取图文间距
+     * 鑾峰彇鍥炬枃闂磋窛
      *
-     * @return 图文间距
+     * @return 鍥炬枃闂磋窛
      */
     @SuppressWarnings("unused")
     public int getDrawablePadding() {
@@ -676,9 +667,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置图文间距
+     * 璁剧疆鍥炬枃闂磋窛
      *
-     * @param padding 图文间距
+     * @param padding 鍥炬枃闂磋窛
      */
     public void setDrawablePadding(int padding) {
         if (padding >= 0 && padding != mDrawablePadding) {
@@ -689,9 +680,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取子项间隔
+     * 鑾峰彇瀛愰」闂撮殧
      *
-     * @return 子项间隔
+     * @return 瀛愰」闂撮殧
      */
     @SuppressWarnings("unused")
     public Drawable getInterval() {
@@ -699,9 +690,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置子项间隔
+     * 璁剧疆瀛愰」闂撮殧
      *
-     * @param interval 子项间隔
+     * @param interval 瀛愰」闂撮殧
      */
     public void setInterval(Drawable interval) {
         if (mInterval != interval) {
@@ -711,9 +702,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置子项间隔
+     * 璁剧疆瀛愰」闂撮殧
      *
-     * @param interval 子项间隔
+     * @param interval 瀛愰」闂撮殧
      */
     @SuppressWarnings("unused")
     public void setInterval(@DrawableRes int interval) {
@@ -721,20 +712,16 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取子项最小宽度
-     *
-     * @return 子项最小宽度
-     */
+     * 鑾峰彇瀛愰」鏈€灏忓搴?     *
+     * @return 瀛愰」鏈€灏忓搴?     */
     @SuppressWarnings("unused")
     public int getMinItemWidth() {
         return mMinItemWidth;
     }
 
     /**
-     * 设置子项最小宽度
-     *
-     * @param width 子项最小宽度
-     */
+     * 璁剧疆瀛愰」鏈€灏忓搴?     *
+     * @param width 瀛愰」鏈€灏忓搴?     */
     public void setMinItemWidth(int width) {
         if (width >= 0 && width != mMinItemWidth) {
             mMinItemWidth = width;
@@ -744,7 +731,7 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Adapter
+     * 鑾峰彇Adapter
      *
      * @return Adapter
      */
@@ -753,7 +740,7 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Adapter
+     * 璁剧疆Adapter
      *
      * @param adapter Adapter
      */
@@ -766,9 +753,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Tag文字大小
+     * 鑾峰彇Tag鏂囧瓧澶у皬
      *
-     * @return Tag文字大小
+     * @return Tag鏂囧瓧澶у皬
      */
     @SuppressWarnings("unused")
     public float getTagTextSize() {
@@ -776,9 +763,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Tag文字大小
+     * 璁剧疆Tag鏂囧瓧澶у皬
      *
-     * @param size Tag文字大小
+     * @param size Tag鏂囧瓧澶у皬
      */
     public void setTagTextSize(float size) {
         if (mTagTextSize != size) {
@@ -788,9 +775,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Tag文字颜色
+     * 鑾峰彇Tag鏂囧瓧棰滆壊
      *
-     * @return Tag文字颜色
+     * @return Tag鏂囧瓧棰滆壊
      */
     @SuppressWarnings("unused")
     public int getTagTextColor() {
@@ -798,9 +785,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Tag文字颜色
+     * 璁剧疆Tag鏂囧瓧棰滆壊
      *
-     * @param color Tag文字颜色
+     * @param color Tag鏂囧瓧棰滆壊
      */
     public void setTagTextColor(@ColorInt int color) {
         if (mTagTextColor != color) {
@@ -810,9 +797,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Tag背景
+     * 鑾峰彇Tag鑳屾櫙
      *
-     * @return Tag背景
+     * @return Tag鑳屾櫙
      */
     @SuppressWarnings("unused")
     public Drawable getTagBackground() {
@@ -820,9 +807,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Tag背景
+     * 璁剧疆Tag鑳屾櫙
      *
-     * @param background Tag背景
+     * @param background Tag鑳屾櫙
      */
     public void setTagBackground(Drawable background) {
         if (mTagBackground != background) {
@@ -832,9 +819,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Tag背景
+     * 璁剧疆Tag鑳屾櫙
      *
-     * @param background Tag背景
+     * @param background Tag鑳屾櫙
      */
     @SuppressWarnings("unused")
     public void setTagBackground(@DrawableRes int background) {
@@ -842,20 +829,16 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Tag最小高宽计算模式
-     *
-     * @return Tag最小高宽计算模式
-     */
+     * 鑾峰彇Tag鏈€灏忛珮瀹借绠楁ā寮?     *
+     * @return Tag鏈€灏忛珮瀹借绠楁ā寮?     */
     @SuppressWarnings("unused")
     public int getTagMinSizeMode() {
         return mTagMinSizeMode;
     }
 
     /**
-     * 设置Tag最小高宽计算模式
-     *
-     * @param mode Tag最小高宽计算模式
-     */
+     * 璁剧疆Tag鏈€灏忛珮瀹借绠楁ā寮?     *
+     * @param mode Tag鏈€灏忛珮瀹借绠楁ā寮?     */
     public void setTagMinSizeMode(int mode) {
         if (mode != TAG_MIN_SIZE_MODE_HAS_TEXT && mode != TAG_MIN_SIZE_MODE_ALWAYS)
             return;
@@ -866,20 +849,16 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Tag最小宽度
-     *
-     * @return Tag最小宽度
-     */
+     * 鑾峰彇Tag鏈€灏忓搴?     *
+     * @return Tag鏈€灏忓搴?     */
     @SuppressWarnings("unused")
     public int getTagMinWidth() {
         return mTagMinWidth;
     }
 
     /**
-     * 设置Tag最小宽度
-     *
-     * @param width Tag最小宽度
-     */
+     * 璁剧疆Tag鏈€灏忓搴?     *
+     * @param width Tag鏈€灏忓搴?     */
     public void setTagMinWidth(int width) {
         if (width >= 0 && mTagMinWidth != width) {
             mTagMinWidth = width;
@@ -888,20 +867,16 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 获取Tag最小高度
-     *
-     * @return Tag最小高度
-     */
+     * 鑾峰彇Tag鏈€灏忛珮搴?     *
+     * @return Tag鏈€灏忛珮搴?     */
     @SuppressWarnings("unused")
     public int getTagMinHeight() {
         return mTagMinHeight;
     }
 
     /**
-     * 设置Tag最小高度
-     *
-     * @param height Tag最小高度
-     */
+     * 璁剧疆Tag鏈€灏忛珮搴?     *
+     * @param height Tag鏈€灏忛珮搴?     */
     public void setTagMinHeight(int height) {
         if (height >= 0 && mTagMinHeight != height) {
             mTagMinHeight = height;
@@ -910,13 +885,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Tag Padding
+     * 璁剧疆Tag Padding
      *
-     * @param left   左
-     * @param top    上
-     * @param right  右
-     * @param bottom 下
-     */
+     * @param left   宸?     * @param top    涓?     * @param right  鍙?     * @param bottom 涓?     */
     public void setTagPadding(int left, int top, int right, int bottom) {
         if (mTagLocation.setPadding(left, top, right, bottom)) {
             invalidate();
@@ -924,13 +895,9 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置Tag Margin
+     * 璁剧疆Tag Margin
      *
-     * @param left   左
-     * @param top    上
-     * @param right  右
-     * @param bottom 下
-     */
+     * @param left   宸?     * @param top    涓?     * @param right  鍙?     * @param bottom 涓?     */
     public void setTagMargin(int left, int top, int right, int bottom) {
         if (mTagLocation.setMargin(left, top, right, bottom)) {
             invalidate();
@@ -938,9 +905,8 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 设置中间间隔，仅双数Item有效，单数无效
-     *
-     * @param gap 间隔
+     * 璁剧疆涓棿闂撮殧锛屼粎鍙屾暟Item鏈夋晥锛屽崟鏁版棤鏁?     *
+     * @param gap 闂撮殧
      */
     public void setCenterGap(int gap) {
         if (gap > 0 && gap != mCenterGap) {
@@ -951,53 +917,53 @@ public class GradientTabStrip extends BaseTabStrip {
     }
 
     /**
-     * 数据容器Adapter
+     * 鏁版嵁瀹瑰櫒Adapter
      *
      * @author Alex
      */
     public interface GradientTabAdapter extends ItemTabAdapter {
 
         /**
-         * 获取普通状态下的 Drawable
+         * 鑾峰彇鏅€氱姸鎬佷笅鐨?Drawable
          *
-         * @param position 位置
+         * @param position 浣嶇疆
          * @param context  Context
-         * @return 必须非空
+         * @return 蹇呴』闈炵┖
          */
         Drawable getNormalDrawable(int position, Context context);
 
         /**
-         * 获取选中状态下的 Drawable
+         * 鑾峰彇閫変腑鐘舵€佷笅鐨?Drawable
          *
-         * @param position 位置
+         * @param position 浣嶇疆
          * @param context  Context
-         * @return 必须非空
+         * @return 蹇呴』闈炵┖
          */
         Drawable getSelectedDrawable(int position, Context context);
     }
 
     /**
-     * 简单的数据容器Adapter
+     * 绠€鍗曠殑鏁版嵁瀹瑰櫒Adapter
      *
      * @author Alex
      */
     public static abstract class SimpleGradientTabAdapter implements GradientTabAdapter {
 
         /**
-         * 获取普通状态下的 Drawable
+         * 鑾峰彇鏅€氱姸鎬佷笅鐨?Drawable
          *
-         * @param position 位置
+         * @param position 浣嶇疆
          * @param context  Context
-         * @return 必须非空
+         * @return 蹇呴』闈炵┖
          */
         public abstract Drawable getNormalDrawable(int position, Context context);
 
         /**
-         * 获取选中状态下的 Drawable
+         * 鑾峰彇閫変腑鐘舵€佷笅鐨?Drawable
          *
-         * @param position 位置
+         * @param position 浣嶇疆
          * @param context  Context
-         * @return 必须非空
+         * @return 蹇呴』闈炵┖
          */
         public abstract Drawable getSelectedDrawable(int position, Context context);
 

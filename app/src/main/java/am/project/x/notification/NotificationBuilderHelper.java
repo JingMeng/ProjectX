@@ -1,10 +1,10 @@
-package am.project.x.notification;
+﻿package am.project.x.notification;
 
 import android.content.Context;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 
 /**
- * 通知构建器辅助类
+ * 閫氱煡鏋勫缓鍣ㄨ緟鍔╃被
  * Created by Alex on 2017/11/2.
  */
 
@@ -47,3 +47,4 @@ class NotificationBuilderHelper {
                 .setDefaults(NotificationCompat.DEFAULT_ALL);
     }
 }
+

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2015 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,12 +24,12 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
@@ -41,7 +41,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 /**
- * BasePagerTabStrip ViewPager滑动对应变化效果
+ * BasePagerTabStrip ViewPager婊戝姩瀵瑰簲鍙樺寲鏁堟灉
  *
  * @author Alex
  */
@@ -104,9 +104,9 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 捆绑ViewPager
+     * 鎹嗙粦ViewPager
      *
-     * @param pager 关联的ViewPager
+     * @param pager 鍏宠仈鐨刅iewPager
      */
     public void bindViewPager(ViewPager pager) {
         PagerAdapter oldAdapter = null;
@@ -148,10 +148,10 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 点击
+     * 鐐瑰嚮
      *
-     * @param position 位置
-     * @return 点击成功
+     * @param position 浣嶇疆
+     * @return 鐐瑰嚮鎴愬姛
      */
     @SuppressWarnings("unused")
     public boolean performClick(int position) {
@@ -159,12 +159,11 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 点击
+     * 鐐瑰嚮
      *
-     * @param position       位置
-     * @param smoothScroll   是否平滑滚动
-     * @param notifyListener 是否通知监听器
-     * @return 点击成功
+     * @param position       浣嶇疆
+     * @param smoothScroll   鏄惁骞虫粦婊氬姩
+     * @param notifyListener 鏄惁閫氱煡鐩戝惉鍣?     * @return 鐐瑰嚮鎴愬姛
      */
     public boolean performClick(int position, boolean smoothScroll, boolean notifyListener) {
         if (getViewPager() != null && position >= 0 && position < getItemCount()) {
@@ -190,10 +189,10 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 捆绑PagerAdapter
+     * 鎹嗙粦PagerAdapter
      *
-     * @param oldAdapter 旧Adapter
-     * @param newAdapter 新Adapter
+     * @param oldAdapter 鏃dapter
+     * @param newAdapter 鏂癆dapter
      */
     protected void bindPagerAdapter(PagerAdapter oldAdapter, PagerAdapter newAdapter) {
         if (oldAdapter != null) {
@@ -212,16 +211,15 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 判断是否有子项背景
-     *
-     * @return 是否子项背景
+     * 鍒ゆ柇鏄惁鏈夊瓙椤硅儗鏅?     *
+     * @return 鏄惁瀛愰」鑳屾櫙
      */
     protected boolean hasItemBackgrounds() {
         return mTabItemBackground != null;
     }
 
     /**
-     * 创建子项背景
+     * 鍒涘缓瀛愰」鑳屾櫙
      */
     protected void createItemBackgrounds() {
         if (!hasItemBackgrounds())
@@ -250,7 +248,7 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 重新创建子项背景
+     * 閲嶆柊鍒涘缓瀛愰」鑳屾櫙
      */
     protected void recreateItemBackgrounds() {
         clearItemBackground();
@@ -270,16 +268,14 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 获取当前选中的子项
-     *
-     * @return 当前选中的子项
-     */
+     * 鑾峰彇褰撳墠閫変腑鐨勫瓙椤?     *
+     * @return 褰撳墠閫変腑鐨勫瓙椤?     */
     public int getCurrentItem() {
         return mPager == null ? -1 : mPager.getCurrentItem();
     }
 
     /**
-     * 检查选中子项
+     * 妫€鏌ラ€変腑瀛愰」
      */
     public void checkCurrentItem() {
         final int position = getCurrentItem();
@@ -294,18 +290,18 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 捆绑PagerAdapter
+     * 鎹嗙粦PagerAdapter
      */
     protected void onBindPagerAdapter() {
 
     }
 
     /**
-     * 由触摸点转为Position
+     * 鐢辫Е鎽哥偣杞负Position
      *
-     * @param x X坐标
-     * @param y Y坐标
-     * @return 坐标对应位置
+     * @param x X鍧愭爣
+     * @param y Y鍧愭爣
+     * @return 鍧愭爣瀵瑰簲浣嶇疆
      */
     @SuppressWarnings("unused")
     protected int pointToPosition(float x, float y) {
@@ -341,10 +337,9 @@ public abstract class BaseTabStrip extends View {
     /**
      * set hotspot's x location
      *
-     * @param background 背景图
-     * @param position   图片Position
-     * @param motionX    点击位置X
-     * @param motionY    点击位置Y
+     * @param background 鑳屾櫙鍥?     * @param position   鍥剧墖Position
+     * @param motionX    鐐瑰嚮浣嶇疆X
+     * @param motionY    鐐瑰嚮浣嶇疆Y
      * @return x location
      */
     @SuppressWarnings("unused")
@@ -355,10 +350,9 @@ public abstract class BaseTabStrip extends View {
     /**
      * set hotspot's y location
      *
-     * @param background 背景图
-     * @param position   图片Position
-     * @param motionX    点击位置X
-     * @param motionY    点击位置Y
+     * @param background 鑳屾櫙鍥?     * @param position   鍥剧墖Position
+     * @param motionX    鐐瑰嚮浣嶇疆X
+     * @param motionY    鐐瑰嚮浣嶇疆Y
      * @return y location
      */
     @SuppressWarnings("unused")
@@ -379,10 +373,10 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 获取Tab子项背景
+     * 鑾峰彇Tab瀛愰」鑳屾櫙
      *
-     * @param position 位置
-     * @return 背景
+     * @param position 浣嶇疆
+     * @return 鑳屾櫙
      */
     @SuppressWarnings("unused")
     protected Drawable getItemBackground(int position) {
@@ -409,11 +403,11 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 更新View
+     * 鏇存柊View
      *
-     * @param position       位置
-     * @param positionOffset 位置偏移
-     * @param force          是否强制更新
+     * @param position       浣嶇疆
+     * @param positionOffset 浣嶇疆鍋忕Щ
+     * @param force          鏄惁寮哄埗鏇存柊
      */
     private void updateView(int position, float positionOffset, boolean force) {
         if (mLastKnownPositionOffset == -1) {
@@ -467,9 +461,8 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 通知跳转到
-     *
-     * @param current 位置
+     * 閫氱煡璺宠浆鍒?     *
+     * @param current 浣嶇疆
      */
     private void notifyJumpTo(int current) {
         if (changeListeners == null)
@@ -480,11 +473,9 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 通知滑向左边
+     * 閫氱煡婊戝悜宸﹁竟
      *
-     * @param current 当前页
-     * @param next    目标页
-     * @param offset  偏移
+     * @param current 褰撳墠椤?     * @param next    鐩爣椤?     * @param offset  鍋忕Щ
      */
     private void notifyGotoLeft(int current, int next, float offset) {
         if (changeListeners == null)
@@ -495,11 +486,9 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 通知滑向右边
+     * 閫氱煡婊戝悜鍙宠竟
      *
-     * @param current 当前页
-     * @param next    目标页
-     * @param offset  偏移
+     * @param current 褰撳墠椤?     * @param next    鐩爣椤?     * @param offset  鍋忕Щ
      */
     private void notifyGotoRight(int current, int next, float offset) {
         if (changeListeners == null)
@@ -510,32 +499,27 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 直接跳转到
-     *
-     * @param current 位置
+     * 鐩存帴璺宠浆鍒?     *
+     * @param current 浣嶇疆
      */
     protected abstract void jumpTo(int current);
 
     /**
-     * 滑向左边
+     * 婊戝悜宸﹁竟
      *
-     * @param current 当前页
-     * @param next    目标页
-     * @param offset  偏移
+     * @param current 褰撳墠椤?     * @param next    鐩爣椤?     * @param offset  鍋忕Щ
      */
     protected abstract void gotoLeft(int current, int next, float offset);
 
     /**
-     * 滑向右边
+     * 婊戝悜鍙宠竟
      *
-     * @param current 当前页
-     * @param next    目标页
-     * @param offset  偏移
+     * @param current 褰撳墠椤?     * @param next    鐩爣椤?     * @param offset  鍋忕Щ
      */
     protected abstract void gotoRight(int current, int next, float offset);
 
     /**
-     * 获取ViewPager
+     * 鑾峰彇ViewPager
      *
      * @return ViewPager
      */
@@ -544,9 +528,9 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 获取子项总数
+     * 鑾峰彇瀛愰」鎬绘暟
      *
-     * @return 子项总数
+     * @return 瀛愰」鎬绘暟
      */
     protected int getItemCount() {
         try {
@@ -557,10 +541,10 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 获取子项文字
+     * 鑾峰彇瀛愰」鏂囧瓧
      *
-     * @param position 子项坐标
-     * @return 子项文字
+     * @param position 瀛愰」鍧愭爣
+     * @return 瀛愰」鏂囧瓧
      */
     @SuppressWarnings("unused")
     protected CharSequence getItemText(int position) {
@@ -572,9 +556,9 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 设置Tab子项背景
+     * 璁剧疆Tab瀛愰」鑳屾櫙
      *
-     * @param background 背景
+     * @param background 鑳屾櫙
      */
     public void setItemBackground(Drawable background) {
         if (mTabItemBackground != background) {
@@ -586,9 +570,9 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 设置Tab子项背景
+     * 璁剧疆Tab瀛愰」鑳屾櫙
      *
-     * @param background 背景
+     * @param background 鑳屾櫙
      */
     @SuppressWarnings("unused")
     public void setItemBackground(int background) {
@@ -596,9 +580,9 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 设置Tab是否可以点击
+     * 璁剧疆Tab鏄惁鍙互鐐瑰嚮
      *
-     * @param clickable 是否可以点击
+     * @param clickable 鏄惁鍙互鐐瑰嚮
      */
     public void setItemClickable(boolean clickable) {
         tabClickable = clickable;
@@ -608,9 +592,9 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * Tab是否可以点击
+     * Tab鏄惁鍙互鐐瑰嚮
      *
-     * @return Tab是否可以点击
+     * @return Tab鏄惁鍙互鐐瑰嚮
      */
     @SuppressWarnings("unused")
     public boolean isTabClickable() {
@@ -618,39 +602,32 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 是否点击时平滑滚动
-     *
-     * @return 点击时是否平滑滚动
-     */
+     * 鏄惁鐐瑰嚮鏃跺钩婊戞粴鍔?     *
+     * @return 鐐瑰嚮鏃舵槸鍚﹀钩婊戞粴鍔?     */
     @SuppressWarnings("unused")
     public boolean isClickSmoothScroll() {
         return clickSmoothScroll;
     }
 
     /**
-     * 设置点击时是否平滑滚动
-     *
-     * @param smooth 点击时是否平滑滚动
-     */
+     * 璁剧疆鐐瑰嚮鏃舵槸鍚﹀钩婊戞粴鍔?     *
+     * @param smooth 鐐瑰嚮鏃舵槸鍚﹀钩婊戞粴鍔?     */
     public void setClickSmoothScroll(boolean smooth) {
         clickSmoothScroll = smooth;
     }
 
     /**
-     * 设置点击监听
+     * 璁剧疆鐐瑰嚮鐩戝惉
      *
-     * @param listener 监听器
-     */
+     * @param listener 鐩戝惉鍣?     */
     @SuppressWarnings("unused")
     public void setOnItemClickListener(OnItemClickListener listener) {
         clickListener = listener;
     }
 
     /**
-     * 添加变化监听器
-     *
-     * @param listener 变化监听器
-     */
+     * 娣诲姞鍙樺寲鐩戝惉鍣?     *
+     * @param listener 鍙樺寲鐩戝惉鍣?     */
     @SuppressWarnings("unused")
     public void addOnChangeListener(OnChangeListener listener) {
         if (listener == null)
@@ -662,10 +639,8 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 移除变化监听器
-     *
-     * @param listener 变化监听器
-     */
+     * 绉婚櫎鍙樺寲鐩戝惉鍣?     *
+     * @param listener 鍙樺寲鐩戝惉鍣?     */
     @SuppressWarnings("unused")
     public void removeOnChangeListener(OnChangeListener listener) {
         if (changeListeners == null)
@@ -674,9 +649,9 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 获取默认Tag背景
+     * 鑾峰彇榛樿Tag鑳屾櫙
      *
-     * @return 默认Tag背景
+     * @return 榛樿Tag鑳屾櫙
      */
     @SuppressWarnings("unused")
     protected Drawable getDefaultTagBackground() {
@@ -690,10 +665,8 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 获取子项背景最小宽度
-     *
-     * @return 子项背景最小宽度
-     */
+     * 鑾峰彇瀛愰」鑳屾櫙鏈€灏忓搴?     *
+     * @return 瀛愰」鑳屾櫙鏈€灏忓搴?     */
     @SuppressWarnings("unused")
     protected int getMinItemBackgroundWidth() {
         if (!hasItemBackgrounds())
@@ -702,10 +675,8 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 获取子项背景最小高度
-     *
-     * @return 子项背景最小高度
-     */
+     * 鑾峰彇瀛愰」鑳屾櫙鏈€灏忛珮搴?     *
+     * @return 瀛愰」鑳屾櫙鏈€灏忛珮搴?     */
     @SuppressWarnings("unused")
     protected int getMinItemBackgroundHeight() {
         if (!hasItemBackgrounds())
@@ -714,13 +685,10 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 双色合成
+     * 鍙岃壊鍚堟垚
      *
-     * @param normalColor   普通颜色
-     * @param selectedColor 选中颜色
-     * @param offset        偏移值
-     * @return 合成色
-     */
+     * @param normalColor   鏅€氶鑹?     * @param selectedColor 閫変腑棰滆壊
+     * @param offset        鍋忕Щ鍊?     * @return 鍚堟垚鑹?     */
     @SuppressWarnings("unused")
     protected int getColor(int normalColor, int selectedColor, float offset) {
         int normalAlpha = Color.alpha(normalColor);
@@ -740,10 +708,9 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 刷新指定区域
+     * 鍒锋柊鎸囧畾鍖哄煙
      *
-     * @param dirty 区域集
-     */
+     * @param dirty 鍖哄煙闆?     */
     @SuppressWarnings("unused")
     public void invalidate(int... dirty) {
         if (dirty == null || dirty.length <= 0)
@@ -759,19 +726,18 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 刷新位置
-     * ViewPager做了跳转，可执行该方法重新定位
-     */
+     * 鍒锋柊浣嶇疆
+     * ViewPager鍋氫簡璺宠浆锛屽彲鎵ц璇ユ柟娉曢噸鏂板畾浣?     */
     @SuppressWarnings("unused")
     public void invalidatePosition() {
         jumpTo(getCurrentItem());
     }
 
     /**
-     * 获取子项边界
+     * 鑾峰彇瀛愰」杈圭晫
      *
-     * @param position 子项
-     * @param bound    边界
+     * @param position 瀛愰」
+     * @param bound    杈圭晫
      */
     @SuppressWarnings("unused")
     protected void getItemRect(int position, Rect bound) {
@@ -779,82 +745,77 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * 点击监听
+     * 鐐瑰嚮鐩戝惉
      */
     public interface OnItemClickListener {
         /**
-         * 点击子项
+         * 鐐瑰嚮瀛愰」
          *
-         * @param position 位置
+         * @param position 浣嶇疆
          */
         void onItemClick(int position);
 
         /**
-         * 点击已选中子项
+         * 鐐瑰嚮宸查€変腑瀛愰」
          *
-         * @param position 位置
+         * @param position 浣嶇疆
          */
         void onSelectedClick(int position);
 
         /**
-         * 双击子项
+         * 鍙屽嚮瀛愰」
          *
-         * @param position 位置
+         * @param position 浣嶇疆
          */
         void onDoubleClick(int position);
     }
 
     /**
-     * 变化监听
+     * 鍙樺寲鐩戝惉
      */
     @SuppressWarnings("all")
     public interface OnChangeListener {
         /**
-         * 跳转到当前位置
-         *
-         * @param correct 当前位置
+         * 璺宠浆鍒板綋鍓嶄綅缃?         *
+         * @param correct 褰撳墠浣嶇疆
          */
         void jumpTo(int correct);
 
         /**
-         * 往左滚动
-         *
-         * @param correct 当前位置
-         * @param next    将要抵达位置
-         * @param offset  移动便宜
+         * 寰€宸︽粴鍔?         *
+         * @param correct 褰撳墠浣嶇疆
+         * @param next    灏嗚鎶佃揪浣嶇疆
+         * @param offset  绉诲姩渚垮疁
          */
         void gotoLeft(int correct, int next, float offset);
 
         /**
-         * 往右滚动
-         *
-         * @param correct 当前位置
-         * @param next    将要抵达位置
-         * @param offset  移动便宜
+         * 寰€鍙虫粴鍔?         *
+         * @param correct 褰撳墠浣嶇疆
+         * @param next    灏嗚鎶佃揪浣嶇疆
+         * @param offset  绉诲姩渚垮疁
          */
         void gotoRight(int correct, int next, float offset);
     }
 
     /**
-     * 角标数据容器Adapter
+     * 瑙掓爣鏁版嵁瀹瑰櫒Adapter
      */
     @SuppressWarnings("unused")
     public interface ItemTabAdapter {
 
         /**
-         * 是否启用角标
+         * 鏄惁鍚敤瑙掓爣
          *
-         * @param position Item位置
-         * @return 是否启用
+         * @param position Item浣嶇疆
+         * @return 鏄惁鍚敤
          */
         boolean isTagEnable(int position);
 
         /**
-         * 获取角标值
-         *
-         * @param position Item位置
-         * @return 角标值
-         */
+         * 鑾峰彇瑙掓爣鍊?         *
+         * @param position Item浣嶇疆
+         * @return 瑙掓爣鍊?         */
         String getTag(int position);
     }
 
@@ -888,13 +849,13 @@ public abstract class BaseTabStrip extends View {
     }
 
     /**
-     * Tag位置
+     * Tag浣嶇疆
      */
     @SuppressWarnings("all")
     protected static class TagLocation {
-        public static final int LOCATION_CONTENT = 0;//贴近内容
-        public static final int LOCATION_EDGE = 1;// 贴近边缘
-        private int location = LOCATION_CONTENT;// 位置
+        public static final int LOCATION_CONTENT = 0;//璐磋繎鍐呭
+        public static final int LOCATION_EDGE = 1;// 璐磋繎杈圭紭
+        private int location = LOCATION_CONTENT;// 浣嶇疆
 
         private int paddingLeft;
         private int paddingRight;
@@ -1082,9 +1043,9 @@ public abstract class BaseTabStrip extends View {
         }
 
         /**
-         * 双击子项
+         * 鍙屽嚮瀛愰」
          *
-         * @param position 位置
+         * @param position 浣嶇疆
          */
         private void onDoubleClick(int position) {
             if (clickListener != null) {

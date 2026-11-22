@@ -1,11 +1,11 @@
-package am.project.x.activities.main.adapters;
+﻿package am.project.x.activities.main.adapters;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.core.content.ContextCompat;
 
 import am.project.x.R;
 import am.project.x.activities.main.fragments.DevelopFragment;
@@ -15,7 +15,7 @@ import am.project.x.activities.main.fragments.WidgetsFragment;
 import am.widget.gradienttabstrip.GradientTabStrip;
 
 /**
- * 主页Adapter
+ * 涓婚〉Adapter
  * Created by Alex on 2016/5/13.
  */
 public class MainPagerAdapter extends FragmentPagerAdapter implements
@@ -102,3 +102,4 @@ public class MainPagerAdapter extends FragmentPagerAdapter implements
         return null;
     }
 }
+

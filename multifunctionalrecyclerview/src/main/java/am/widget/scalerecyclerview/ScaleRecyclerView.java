@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2017 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,10 +18,10 @@ package am.widget.scalerecyclerview;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.support.v4.view.GestureDetectorCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -33,7 +33,7 @@ import am.widget.multifunctionalrecyclerview.layoutmanager.PagingLayoutManager;
 import am.widget.scrollbarrecyclerview.ScrollbarRecyclerView;
 
 /**
- * 可缩放的RecyclerView
+ * 鍙缉鏀剧殑RecyclerView
  * Created by Alex on 2017/11/8.
  */
 @SuppressWarnings("all")
@@ -91,9 +91,8 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
         }
         final boolean superResult = super.dispatchTouchEvent(ev);
         if (!mInterceptTouch) {
-            // 点击与双击事件不会被拦截
-            // 放置此处是保证点击与双击事件发生在子项触摸事件之后，以便子项控制其是否响应。
-            mGestureDetector.onTouchEvent(ev);
+            // 鐐瑰嚮涓庡弻鍑讳簨浠朵笉浼氳鎷︽埅
+            // 鏀剧疆姝ゅ鏄繚璇佺偣鍑讳笌鍙屽嚮浜嬩欢鍙戠敓鍦ㄥ瓙椤硅Е鎽镐簨浠朵箣鍚庯紝浠ヤ究瀛愰」鎺у埗鍏舵槸鍚﹀搷搴斻€?            mGestureDetector.onTouchEvent(ev);
         }
         return superResult;
     }
@@ -121,11 +120,10 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
         if (!mScaleEnable)
             return super.onTouchEvent(e);
         boolean superResult = false;
-        // 检查缩放事件
-        if (e.getPointerCount() >= 2) {
-            // 多指
+        // 妫€鏌ョ缉鏀句簨浠?        if (e.getPointerCount() >= 2) {
+            // 澶氭寚
             if (!mScaleBegin) {
-                // 开始缩放，对列表模拟一个ACTION_UP事件
+                // 寮€濮嬬缉鏀撅紝瀵瑰垪琛ㄦā鎷熶竴涓狝CTION_UP浜嬩欢
                 final int action = e.getAction();
                 e.setAction(MotionEvent.ACTION_UP);
                 setForceInterceptDispatchOnScrollStateChanged(true);
@@ -136,7 +134,7 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
             }
             superResult = mScaleGestureDetector.onTouchEvent(e) || superResult;
         } else {
-            // 单指
+            // 鍗曟寚
             final int action = e.getAction();
             boolean dispatch = false;
             if (action == MotionEvent.ACTION_UP && getScrollState() == SCROLL_STATE_IDLE) {
@@ -144,7 +142,7 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
             }
             if (mScaleBegin) {
                 mScaleBegin = false;
-                // 结束缩放，对列表模拟一个ACTION_DOWN事件
+                // 缁撴潫缂╂斁锛屽鍒楄〃妯℃嫙涓€涓狝CTION_DOWN浜嬩欢
                 e.setAction(MotionEvent.ACTION_DOWN);
                 super.onInterceptTouchEvent(e);
                 e.setAction(action);
@@ -192,28 +190,26 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
     }
 
     /**
-     * 分发单击事件
+     * 鍒嗗彂鍗曞嚮浜嬩欢
      */
     protected boolean dispatchSingleTap() {
         return mShouldReactSingleTab && mListener != null && mListener.onSingleTap(this);
     }
 
     /**
-     * 分发双击事件
+     * 鍒嗗彂鍙屽嚮浜嬩欢
      *
-     * @param e 触摸事件
+     * @param e 瑙︽懜浜嬩欢
      */
     protected boolean dispatchDoubleTapEvent(MotionEvent e) {
-        // 仅在双击事件第二次点击的ACTION_UP出现时触发双击缩放。
-        if (e.getAction() != MotionEvent.ACTION_UP)
+        // 浠呭湪鍙屽嚮浜嬩欢绗簩娆＄偣鍑荤殑ACTION_UP鍑虹幇鏃惰Е鍙戝弻鍑荤缉鏀俱€?        if (e.getAction() != MotionEvent.ACTION_UP)
             return false;
-        // 在此过程中，一些触摸事件可能会导致事件取消，其次该事件可以被子View取消。
-        if (!mShouldReactDoubleTab)
+        // 鍦ㄦ杩囩▼涓紝涓€浜涜Е鎽镐簨浠跺彲鑳戒細瀵艰嚧浜嬩欢鍙栨秷锛屽叾娆¤浜嬩欢鍙互琚瓙View鍙栨秷銆?        if (!mShouldReactDoubleTab)
             return false;
-        // 监听拦截双击事件
+        // 鐩戝惉鎷︽埅鍙屽嚮浜嬩欢
         if (mListener != null && mListener.onDoubleTap(this))
             return true;
-        // 执行双击缩放事件
+        // 鎵ц鍙屽嚮缂╂斁浜嬩欢
         final float targetScale = getDoubleTapScale(mScale);
         if (targetScale == mScale)
             return false;
@@ -230,10 +226,9 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
     }
 
     /**
-     * 分发开始缩放
-     *
-     * @param detector 缩放手势检测器
-     * @return 是否继续处理缩放
+     * 鍒嗗彂寮€濮嬬缉鏀?     *
+     * @param detector 缂╂斁鎵嬪娍妫€娴嬪櫒
+     * @return 鏄惁缁х画澶勭悊缂╂斁
      */
     protected boolean dispatchScaleBegin(ScaleGestureDetector detector) {
         onScaleBegin(mScale, detector.getFocusX(), detector.getFocusY());
@@ -241,22 +236,19 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
     }
 
     /**
-     * 开始缩放
-     *
-     * @param scale  起始缩放比
-     * @param focusX 焦点X
-     * @param focusY 焦点Y
+     * 寮€濮嬬缉鏀?     *
+     * @param scale  璧峰缂╂斁姣?     * @param focusX 鐒︾偣X
+     * @param focusY 鐒︾偣Y
      */
     protected void onScaleBegin(float scale, float focusX, float focusY) {
         dispatchOnScrollStateChanged(SCROLL_STATE_SCALING);
     }
 
     /**
-     * 分发缩放
+     * 鍒嗗彂缂╂斁
      *
-     * @param detector 缩放手势检测器
-     * @return 是否处理了事件
-     */
+     * @param detector 缂╂斁鎵嬪娍妫€娴嬪櫒
+     * @return 鏄惁澶勭悊浜嗕簨浠?     */
     protected boolean dispatchScale(ScaleGestureDetector detector) {
         onScale(mScale * detector.getScaleFactor(),
                 detector.getFocusX(), detector.getFocusY());
@@ -264,23 +256,20 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
     }
 
     /**
-     * 处理缩放
+     * 澶勭悊缂╂斁
      *
-     * @param scale  目标缩放比
-     * @param focusX 焦点X
-     * @param focusY 焦点Y
+     * @param scale  鐩爣缂╂斁姣?     * @param focusX 鐒︾偣X
+     * @param focusY 鐒︾偣Y
      */
     protected void onScale(float scale, float focusX, float focusY) {
         scaleTo(scale, focusX, focusY);
     }
 
     /**
-     * 缩放
-     * TODO 位置校调可优化
-     *
-     * @param scale  目标缩放比
-     * @param focusX 焦点X
-     * @param focusY 焦点Y
+     * 缂╂斁
+     * TODO 浣嶇疆鏍¤皟鍙紭鍖?     *
+     * @param scale  鐩爣缂╂斁姣?     * @param focusX 鐒︾偣X
+     * @param focusY 鐒︾偣Y
      */
     public void scaleTo(float scale, float focusX, float focusY) {
         scale = scale > mMaxScale ? mMaxScale : scale;
@@ -288,16 +277,16 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
         if (scale == mScale)
             return;
         View child = getChildAt(0);
-        // 计算focus对应View的(x1, y1)
+        // 璁＄畻focus瀵瑰簲View鐨?x1, y1)
         final float beforeViewX = focusX - child.getLeft();
         final float beforeViewY = focusY - child.getTop();
-        // 计算View的(x1, y1)对应缩放后的(x2, y2)
+        // 璁＄畻View鐨?x1, y1)瀵瑰簲缂╂斁鍚庣殑(x2, y2)
         final float afterViewX = beforeViewX / mScale * scale;
         final float afterViewY = beforeViewY / mScale * scale;
         mScale = scale;
         invalidateLayoutManagerScale();
         requestLayout();
-        // 应用偏移
+        // 搴旂敤鍋忕Щ
         final int dx = Math.round(afterViewX - beforeViewX);
         final int dy = Math.round(afterViewY - beforeViewY);
         switch (mAdjustType) {
@@ -328,20 +317,19 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
     }
 
     /**
-     * 分发结束缩放
+     * 鍒嗗彂缁撴潫缂╂斁
      *
-     * @param detector 缩放手势检测器
+     * @param detector 缂╂斁鎵嬪娍妫€娴嬪櫒
      */
     protected void dispatchScaleEnd(ScaleGestureDetector detector) {
         onScaleEnd(mScale, detector.getFocusX(), detector.getFocusY());
     }
 
     /**
-     * 分发最后的缩放结果
+     * 鍒嗗彂鏈€鍚庣殑缂╂斁缁撴灉
      *
-     * @param scale  缩放比
-     * @param focusX 焦点X
-     * @param focusY 焦点Y
+     * @param scale  缂╂斁姣?     * @param focusX 鐒︾偣X
+     * @param focusY 鐒︾偣Y
      */
     protected void onScaleEnd(float scale, float focusX, float focusY) {
         if (mScaleBegin)
@@ -364,57 +352,47 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
     }
 
     /**
-     * 判断缩放是否开启
-     *
-     * @return 是否开启
-     */
+     * 鍒ゆ柇缂╂斁鏄惁寮€鍚?     *
+     * @return 鏄惁寮€鍚?     */
     public boolean isScaleEnable() {
         return mScaleEnable;
     }
 
     /**
-     * 设置缩放是否开启
-     *
-     * @param enable 是否开启
-     */
+     * 璁剧疆缂╂斁鏄惁寮€鍚?     *
+     * @param enable 鏄惁寮€鍚?     */
     public void setScaleEnable(boolean enable) {
         mScaleEnable = enable;
     }
 
     /**
-     * 设置单双击监听
-     *
-     * @param listener 点击监听
+     * 璁剧疆鍗曞弻鍑荤洃鍚?     *
+     * @param listener 鐐瑰嚮鐩戝惉
      */
     public void setOnTabListener(OnTabListener listener) {
         mListener = listener;
     }
 
     /**
-     * 设置缩放区间
+     * 璁剧疆缂╂斁鍖洪棿
      *
-     * @param min 最小缩放
-     * @param max 最大缩放
-     */
+     * @param min 鏈€灏忕缉鏀?     * @param max 鏈€澶х缉鏀?     */
     public void setScaleRange(float min, float max) {
         mMinScale = min;
         mMaxScale = max;
     }
 
     /**
-     * 获取缩放比
-     *
-     * @return 缩放比
-     */
+     * 鑾峰彇缂╂斁姣?     *
+     * @return 缂╂斁姣?     */
     public float getScale() {
         return mScale;
     }
 
     /**
-     * 设置子项缩放
+     * 璁剧疆瀛愰」缂╂斁
      *
-     * @param child 属于ScaleRecyclerView的子项
-     */
+     * @param child 灞炰簬ScaleRecyclerView鐨勫瓙椤?     */
     public static void setScale(View child) {
         final ViewParent parent = child.getParent();
         if (parent instanceof ScaleRecyclerView) {
@@ -427,10 +405,8 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
     }
 
     /**
-     * 设置缩放比
-     *
-     * @param scale 缩放比
-     */
+     * 璁剧疆缂╂斁姣?     *
+     * @param scale 缂╂斁姣?     */
     public void setScale(float scale) {
         if (scale < mMinScale || scale > mMaxScale || scale == mScale)
             return;
@@ -440,9 +416,9 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
     }
 
     /**
-     * 设置缩放后的位置校调方式
+     * 璁剧疆缂╂斁鍚庣殑浣嶇疆鏍¤皟鏂瑰紡
      *
-     * @param type 校调方式
+     * @param type 鏍¤皟鏂瑰紡
      */
     public void setAdjustType(int type) {
         mAdjustType = type;
@@ -450,27 +426,23 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
 
     public interface OnTabListener {
         /**
-         * 单击事件
+         * 鍗曞嚮浜嬩欢
          *
          * @param view ScaleRecyclerView
-         * @return 是否消耗事件
-         */
+         * @return 鏄惁娑堣€椾簨浠?         */
         boolean onSingleTap(ScaleRecyclerView view);
 
         /**
-         * 双击事件
+         * 鍙屽嚮浜嬩欢
          *
          * @param view ScaleRecyclerView
-         * @return 是否消耗事件
-         */
+         * @return 鏄惁娑堣€椾簨浠?         */
         boolean onDoubleTap(ScaleRecyclerView view);
     }
 
     /**
-     * 内容提供者
-     *
-     * @param <VH> 视图持有者
-     */
+     * 鍐呭鎻愪緵鑰?     *
+     * @param <VH> 瑙嗗浘鎸佹湁鑰?     */
     public static abstract class Adapter<VH extends ViewHolder> extends RecyclerView.Adapter<VH> {
 
         private ScaleRecyclerView mView;
@@ -499,8 +471,7 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
     }
 
     /**
-     * 视图持有者
-     */
+     * 瑙嗗浘鎸佹湁鑰?     */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public ViewHolder(View itemView) {
             super(itemView);
@@ -543,3 +514,4 @@ public class ScaleRecyclerView extends ScrollbarRecyclerView {
         }
     }
 }
+

@@ -1,4 +1,4 @@
-package am.project.x.utils;
+﻿package am.project.x.utils;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
-import android.support.v4.content.FileProvider;
+import androidx.core.content.FileProvider;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
@@ -17,17 +17,16 @@ import am.project.x.BuildConfig;
 
 
 /**
- * Activity工具类
- * Created by Xiang Zhicheng on 2017/5/9.
+ * Activity宸ュ叿绫? * Created by Xiang Zhicheng on 2017/5/9.
  */
 
 public class ContextUtil {
 
     /**
-     * 获取状态栏高度
+     * 鑾峰彇鐘舵€佹爮楂樺害
      *
      * @param context Context
-     * @return 状态栏高度
+     * @return 鐘舵€佹爮楂樺害
      */
     public static int getStateBarHeight(Context context) {
         int statusBarHeight = 0;
@@ -40,11 +39,10 @@ public class ContextUtil {
     }
 
     /**
-     * 获取导航栏（虚拟键盘栏，并非所有设备都有）高度
+     * 鑾峰彇瀵艰埅鏍忥紙铏氭嫙閿洏鏍忥紝骞堕潪鎵€鏈夎澶囬兘鏈夛級楂樺害
      *
      * @param context Context
-     * @return 导航栏高度
-     */
+     * @return 瀵艰埅鏍忛珮搴?     */
     public static int getNavBarHeight(Context context) {
         int result = 0;
         boolean hasMenuKey = ViewConfiguration.get(context).hasPermanentMenuKey();
@@ -81,10 +79,10 @@ public class ContextUtil {
     }
 
     /**
-     * 打开浏览器访问网址
+     * 鎵撳紑娴忚鍣ㄨ闂綉鍧€
      *
      * @param context Context
-     * @param url     网址
+     * @param url     缃戝潃
      */
     public static boolean openBrowser(Context context, String url) {
         Uri webPage = Uri.parse(url);
@@ -97,21 +95,19 @@ public class ContextUtil {
     }
 
     /**
-     * 打开电子邮件发送邮件
-     *
+     * 鎵撳紑鐢靛瓙閭欢鍙戦€侀偖浠?     *
      * @param context   Context
-     * @param addresses 邮箱地址
+     * @param addresses 閭鍦板潃
      */
     public static void openEmail(Context context, String... addresses) {
         openEmail(null, context, addresses);
     }
 
     /**
-     * 打开电子邮件发送邮件
-     *
-     * @param subject   主题
+     * 鎵撳紑鐢靛瓙閭欢鍙戦€侀偖浠?     *
+     * @param subject   涓婚
      * @param context   Context
-     * @param addresses 邮箱地址
+     * @param addresses 閭鍦板潃
      */
     public static void openEmail(String subject, Context context, String... addresses) {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
@@ -125,11 +121,11 @@ public class ContextUtil {
     }
 
     /**
-     * 发送PDF文件
+     * 鍙戦€丳DF鏂囦欢
      *
      * @param context  Context
-     * @param filePath 文件路径
-     * @param title    标题
+     * @param filePath 鏂囦欢璺緞
+     * @param title    鏍囬
      */
     public static void sendPDFFile(Context context, String filePath, String title) {
         // TODO

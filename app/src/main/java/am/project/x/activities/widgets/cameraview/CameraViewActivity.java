@@ -1,12 +1,12 @@
-package am.project.x.activities.widgets.cameraview;
+﻿package am.project.x.activities.widgets.cameraview;
 
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import android.widget.Toast;
 
 import am.project.x.R;
@@ -38,8 +38,7 @@ public class CameraViewActivity extends BaseActivity implements CameraStateCallb
 
     @Override
     public void onPermissionDenied(CameraView cameraView) {
-        // 缺少打开相机的权限
-        ActivityCompat.requestPermissions(this,
+        // 缂哄皯鎵撳紑鐩告満鐨勬潈闄?        ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.CAMERA},
                 PERMISSIONS_REQUEST_CAMERA);
     }
@@ -56,8 +55,8 @@ public class CameraViewActivity extends BaseActivity implements CameraStateCallb
 
     @Override
     public void onError(CameraView cameraView, int error, int reason) {
-        // 相机无法打开
-        Toast.makeText(this, "打开相机失败", Toast.LENGTH_SHORT).show();
+        // 鐩告満鏃犳硶鎵撳紑
+        Toast.makeText(this, "鎵撳紑鐩告満澶辫触", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -74,3 +73,4 @@ public class CameraViewActivity extends BaseActivity implements CameraStateCallb
         }
     }
 }
+

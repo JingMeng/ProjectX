@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2017 AlexMofer
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,10 +20,10 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.os.Build;
-import android.support.annotation.IntDef;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.IntDef;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -35,15 +35,14 @@ import am.widget.itemanimatorcontrollablerecyclerview.ItemAnimatorControllableRe
 
 
 /**
- * 带滚动条的RecyclerView
+ * 甯︽粴鍔ㄦ潯鐨凴ecyclerView
  * Created by Alex on 2017/10/18.
  */
 @SuppressWarnings("all")
 public class ScrollbarRecyclerView extends ItemAnimatorControllableRecyclerView {
 
     private final Rect mChildBound = new Rect();
-    private Scrollbar mScrollbar;// 滚动条
-    private IndicatorAdapter mAdapter;
+    private Scrollbar mScrollbar;// 婊氬姩鏉?    private IndicatorAdapter mAdapter;
     private boolean mInterceptTouch;
 
     public ScrollbarRecyclerView(Context context) {
@@ -70,20 +69,19 @@ public class ScrollbarRecyclerView extends ItemAnimatorControllableRecyclerView 
     }
 
     /**
-     * 是否使用默认的滚动条
+     * 鏄惁浣跨敤榛樿鐨勬粴鍔ㄦ潯
      *
-     * @return 是否使用默认
+     * @return 鏄惁浣跨敤榛樿
      */
     protected boolean useDefaultSlider() {
         return true;
     }
 
     /**
-     * 初始化View
+     * 鍒濆鍖朧iew
      *
      * @param context Context
-     * @param attrs   属性
-     */
+     * @param attrs   灞炴€?     */
     protected void onConstruct(Context context, @Nullable AttributeSet attrs) {
         if (mScrollbar != null)
             mScrollbar.onConstruct(this, context, attrs);
@@ -140,7 +138,7 @@ public class ScrollbarRecyclerView extends ItemAnimatorControllableRecyclerView 
 
     protected String getScrollbarIndicator() {
         if (isInEditMode())
-            return "★";
+            return "鈽?;
         if (mAdapter != null) {
             return mAdapter.getIndicator(this);
         }
@@ -178,7 +176,7 @@ public class ScrollbarRecyclerView extends ItemAnimatorControllableRecyclerView 
                 if (linear.getOrientation() == HORIZONTAL) {
                     if ((mChildBound.left < x && mChildBound.right > x)
                             || mChildBound.left == x || mChildBound.right == y) {
-                        // 点在View内部
+                        // 鐐瑰湪View鍐呴儴
                         return child;
                     } else if (mChildBound.left > x) {
                         final float dis = mChildBound.left - x;
@@ -196,7 +194,7 @@ public class ScrollbarRecyclerView extends ItemAnimatorControllableRecyclerView 
                 } else {
                     if ((mChildBound.top < y && mChildBound.bottom > y)
                             || mChildBound.top == y || mChildBound.bottom == y) {
-                        // 点在View内部
+                        // 鐐瑰湪View鍐呴儴
                         return child;
                     } else if (mChildBound.top > y) {
                         final float dis = mChildBound.top - y;
@@ -223,19 +221,15 @@ public class ScrollbarRecyclerView extends ItemAnimatorControllableRecyclerView 
     }
 
     /**
-     * 获取滚动条
-     *
-     * @return 滚动条
-     */
+     * 鑾峰彇婊氬姩鏉?     *
+     * @return 婊氬姩鏉?     */
     public Scrollbar getScrollbar() {
         return mScrollbar;
     }
 
     /**
-     * 设置滚动条
-     *
-     * @param scrollbar 滚动条
-     */
+     * 璁剧疆婊氬姩鏉?     *
+     * @param scrollbar 婊氬姩鏉?     */
     public void setScrollbar(Scrollbar scrollbar) {
         if (mScrollbar == scrollbar)
             return;
@@ -248,114 +242,97 @@ public class ScrollbarRecyclerView extends ItemAnimatorControllableRecyclerView 
     }
 
     /**
-     * 设置触摸指示标内容提供者
-     *
-     * @param adapter 触摸指示标内容提供者
-     */
+     * 璁剧疆瑙︽懜鎸囩ず鏍囧唴瀹规彁渚涜€?     *
+     * @param adapter 瑙︽懜鎸囩ず鏍囧唴瀹规彁渚涜€?     */
     public void setIndicatorAdapter(IndicatorAdapter adapter) {
         mAdapter = adapter;
         invalidate();
     }
 
     /**
-     * 触摸指示标内容提供者
-     */
+     * 瑙︽懜鎸囩ず鏍囧唴瀹规彁渚涜€?     */
     public interface IndicatorAdapter {
 
         /**
-         * 获取指示标文本内容
-         *
-         * @param view 视图
-         * @return 文本内容
+         * 鑾峰彇鎸囩ず鏍囨枃鏈唴瀹?         *
+         * @param view 瑙嗗浘
+         * @return 鏂囨湰鍐呭
          */
         String getIndicator(ScrollbarRecyclerView view);
     }
 
     /**
-     * 滚动条
-     */
+     * 婊氬姩鏉?     */
     public static abstract class Scrollbar {
 
-        public static final int SHOW_NONE = 0;// 不显示
-        public static final int SHOW_HORIZONTAL = 1;// 显示水平滚动条
-        public static final int SHOW_VERTICAL = 2;// 显示垂直滚动条
-        public static final int SHOW_ALL = 3;// 显示全部滚动条
-        private ScrollbarRecyclerView mView;
+        public static final int SHOW_NONE = 0;// 涓嶆樉绀?        public static final int SHOW_HORIZONTAL = 1;// 鏄剧ず姘村钩婊氬姩鏉?        public static final int SHOW_VERTICAL = 2;// 鏄剧ず鍨傜洿婊氬姩鏉?        public static final int SHOW_ALL = 3;// 鏄剧ず鍏ㄩ儴婊氬姩鏉?        private ScrollbarRecyclerView mView;
 
         /**
-         * 附着视图
+         * 闄勭潃瑙嗗浘
          *
-         * @param view 视图
+         * @param view 瑙嗗浘
          */
         protected void onAttachedToView(ScrollbarRecyclerView view) {
             mView = view;
         }
 
         /**
-         * 脱离视图
+         * 鑴辩瑙嗗浘
          *
-         * @param view 视图
+         * @param view 瑙嗗浘
          */
         protected void onDetachedFromView(ScrollbarRecyclerView view) {
             mView = null;
         }
 
         /**
-         * 获取附着的视图
-         *
-         * @return 附着的视图
-         */
+         * 鑾峰彇闄勭潃鐨勮鍥?         *
+         * @return 闄勭潃鐨勮鍥?         */
         @Nullable
         protected ScrollbarRecyclerView getAttachedView() {
             return mView;
         }
 
         /**
-         * 视图控件初始化
-         * 仅在ScrollbarRecyclerView尚未构建之前就已经设置了Scrollbar，其才会调用。具体方法：
-         * 重写{@link ScrollbarRecyclerView#useDefaultSlider()}方法返回flase，保证不使用默认滚动条。
-         * 重写{@link ScrollbarRecyclerView#onConstruct(Context, AttributeSet)}方法，
-         * 并在调用其super方法之前设置自己的Scrollbar。
-         *
-         * @param view    视图
+         * 瑙嗗浘鎺т欢鍒濆鍖?         * 浠呭湪ScrollbarRecyclerView灏氭湭鏋勫缓涔嬪墠灏卞凡缁忚缃簡Scrollbar锛屽叾鎵嶄細璋冪敤銆傚叿浣撴柟娉曪細
+         * 閲嶅啓{@link ScrollbarRecyclerView#useDefaultSlider()}鏂规硶杩斿洖flase锛屼繚璇佷笉浣跨敤榛樿婊氬姩鏉°€?         * 閲嶅啓{@link ScrollbarRecyclerView#onConstruct(Context, AttributeSet)}鏂规硶锛?         * 骞跺湪璋冪敤鍏秙uper鏂规硶涔嬪墠璁剧疆鑷繁鐨凷crollbar銆?         *
+         * @param view    瑙嗗浘
          * @param context Context
-         * @param attrs   属性
-         */
+         * @param attrs   灞炴€?         */
         protected abstract void onConstruct(ScrollbarRecyclerView view, Context context,
                                             @Nullable AttributeSet attrs);
 
         /**
-         * 绘制
+         * 缁樺埗
          *
-         * @param view   视图
-         * @param canvas 画布
+         * @param view   瑙嗗浘
+         * @param canvas 鐢诲竷
          */
         protected abstract void onDraw(ScrollbarRecyclerView view, Canvas canvas);
 
         /**
-         * 拦截触摸事件
+         * 鎷︽埅瑙︽懜浜嬩欢
          *
-         * @param view  视图
-         * @param event 触摸事件
-         * @return 是否拦截
+         * @param view  瑙嗗浘
+         * @param event 瑙︽懜浜嬩欢
+         * @return 鏄惁鎷︽埅
          */
         protected abstract boolean onInterceptTouchEvent(ScrollbarRecyclerView view, MotionEvent event);
 
         /**
-         * 响应触摸事件
+         * 鍝嶅簲瑙︽懜浜嬩欢
          *
-         * @param view  视图
-         * @param event 触摸事件
-         * @return 是否响应
+         * @param view  瑙嗗浘
+         * @param event 瑙︽懜浜嬩欢
+         * @return 鏄惁鍝嶅簲
          */
         protected abstract boolean onTouchEvent(ScrollbarRecyclerView view, MotionEvent event);
 
         /**
-         * 滚动状态已改变
+         * 婊氬姩鐘舵€佸凡鏀瑰彉
          *
-         * @param view  视图
-         * @param state 滚动状态
-         */
+         * @param view  瑙嗗浘
+         * @param state 婊氬姩鐘舵€?         */
         protected abstract void onScrollStateChanged(ScrollbarRecyclerView view, int state);
 
         @IntDef({SHOW_NONE, SHOW_HORIZONTAL, SHOW_VERTICAL, SHOW_ALL})
@@ -364,3 +341,4 @@ public class ScrollbarRecyclerView extends ItemAnimatorControllableRecyclerView 
         }
     }
 }
+

@@ -1,23 +1,23 @@
-package am.project.x.activities.main;
+﻿package am.project.x.activities.main;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import am.project.x.R;
 import am.project.x.activities.main.adapters.MainPagerAdapter;
 import am.widget.gradienttabstrip.GradientTabStrip;
 
 /**
- * 主页
+ * 涓婚〉
  */
 public class MainActivity extends AppCompatActivity {
 
     /**
-     * 启动主页
+     * 鍚姩涓婚〉
      *
      * @param context Context
      */
@@ -50,3 +50,4 @@ public class MainActivity extends AppCompatActivity {
         gtsTabs.bindViewPager(vpFragments);
     }
 }
+

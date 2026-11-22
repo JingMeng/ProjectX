@@ -1,9 +1,9 @@
-package am.project.x.activities.drawable.center;
+﻿package am.project.x.activities.drawable.center;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -59,3 +59,4 @@ public class CenterActivity extends BaseActivity {
         context.startActivity(new Intent(context, CenterActivity.class));
     }
 }
+

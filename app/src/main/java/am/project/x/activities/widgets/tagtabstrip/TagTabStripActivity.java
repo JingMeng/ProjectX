@@ -1,9 +1,9 @@
-package am.project.x.activities.widgets.tagtabstrip;
+﻿package am.project.x.activities.widgets.tagtabstrip;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
+import androidx.viewpager.widget.ViewPager;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -51,3 +51,4 @@ public class TagTabStripActivity extends BaseActivity {
         context.startActivity(new Intent(context, TagTabStripActivity.class));
     }
 }
+
